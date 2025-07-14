@@ -22,14 +22,3 @@ function combineSmallerStringFirst(s1, s2) {
 
 console.log(combineSmallerStringFirst(smallerStringA1, smallerStringB1));
 console.log(combineSmallerStringFirst(smallerStringA2, smallerStringB2));
-
-/************************************************************************************************/
-
-const stringToRepeat1 = 'Birria Tacos';
-const numberToRepeat1 = 5;
-const repeatedExpected1 =
-  'Birria TacosBirria TacosBirria TacosBirria TacosBirria Tacos';
-
-const stringToRepeat2 = 'margherita pizza';
-const numberToRepeat2 = 2;
-const repeatedExpected2 = 'margherita pizzamargherita pizza';

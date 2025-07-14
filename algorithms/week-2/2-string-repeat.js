@@ -1,3 +1,12 @@
+const stringToRepeat1 = 'Birria Tacos';
+const numberToRepeat1 = 5;
+const repeatedExpected1 =
+  'Birria TacosBirria TacosBirria TacosBirria TacosBirria Tacos';
+
+const stringToRepeat2 = 'margherita pizza';
+const numberToRepeat2 = 2;
+const repeatedExpected2 = 'margherita pizzamargherita pizza';
+
 /**
  * Given a string and an integer representing how many times the string should
  * be repeated, create a new string that is the given string repeated that
