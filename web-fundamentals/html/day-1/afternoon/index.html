@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tables and Forms</title>
+  </head>
+  <body>
+    <h1>Tables and Forms</h1>
+    <h2>Table Example</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <!-- in the table head (thead) our row will have column headers (th) -->
+          <th scope="col">Name</th>
+          <th scope="col">Occupation</th>
+          <th scope="col">Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Kermit the Frog</th>
+          <td>Variety Show Host</td>
+          <td>35</td>
+        </tr>
+        <tr>
+          <th scope="row">Miss Piggy</th>
+          <td>Diva</td>
+          <td>28</td>
+        </tr>
+        <tr>
+          <th scope="row">Gonzo</th>
+          <td>Daredevil</td>
+          <td>39</td>
+        </tr>
+        <tr>
+          <td colspan="2">This spans two columns</td>
+          <td>This does not.</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        A table of Muppets.
+      </tfoot>
+    </table>
+    <h2>Forms</h2>
+    <form>
+      <div>
+        <label for="first-name">First Name:*</label>
+        <input
+          type="text"
+          name="first-name"
+          id="first-name"
+          autocomplete="given-name" />
+      </div>
+      <div>
+        <label for="last-name">Last Name:*</label>
+        <input
+          type="text"
+          name="last-name"
+          id="last-name"
+          autocomplete="family-name" />
+      </div>
+      <div>
+        <label for="email">Email address:*</label>
+        <input type="email" name="email" id="email" autocomplete="email" />
+      </div>
+      <div>
+        <label for="birthdate">Birthday:</label>
+        <input type="date" name="birthdate" id="birthdate" autocomplete="" />
+      </div>
+      <div>
+        <label for="rating">Rating:</label>
+        <input
+          type="number"
+          name="rating"
+          id="rating"
+          step=".5"
+          min="5"
+          max="10" />
+      </div>
+      <div>
+        <input type="checkbox" name="remember-me" id="remember-me" />
+        <label for="remember-me">Remember me?</label>
+      </div>
+      <fieldset>
+        <legend>How did you hear about us?</legend>
+        <input type="radio" name="how-did-you-hear" id="word-of-mouth" />
+        <label for="word-of-mouth">Word of Mouth</label>
+        <input type="radio" name="how-did-you-hear" id="web-search" />
+        <label for="web-search">Web Search</label>
+      </fieldset>
+      <div>
+        <label for="comments">Comments:</label>
+        <textarea name="comments" id="comments"></textarea>
+      </div>
+      <div>
+        <label for="password">Password:*</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <label for="password-confirm">Password Confirm:*</label>
+        <input type="password" name="password-confirm" id="password-confirm" />
+      </div>
+    </form>
+  </body>
+</html>
