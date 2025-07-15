@@ -1,0 +1,44 @@
+body {
+  background-color: rgb(51, 51, 51);
+  color: aliceblue;
+  margin: 0;
+}
+
+h1 {
+  color: blue;
+  margin-top: 0;
+}
+
+.navbar {
+  background-color: cadetblue;
+  padding: 0 6rem;
+}
+
+nav a {
+  color: gold;
+}
+
+#hero {
+  background-color: brown;
+}
+
+#about-us {
+  background-color: darkgoldenrod;
+}
+
+section {
+  background-color: darkgrey;
+  padding: 6rem;
+}
+
+h2 {
+  color: rebeccapurple;
+}
+
+.accent {
+  color: orange;
+}
+
+a {
+  color: whitesmoke;
+}
