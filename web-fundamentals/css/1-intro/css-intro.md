@@ -52,7 +52,9 @@ What happens when an element is being targeted by more than one selector?
 
 Specificity wins.
 
-Points System
-id: 100 pts
-class: 10 pts
-element: 1 pt
+**Points System**
+| selector | point value |
+| -------- | ----------- |
+| id       | 100 pts     | 
+| class    |  10 pts     | 
+| element  |   1 pts     | 
