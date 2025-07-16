@@ -1,0 +1,123 @@
+/* RESET */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+body {
+  padding-bottom: 50px;
+}
+
+h1 {
+  color: rebeccapurple;
+}
+
+.mb-rem {
+  margin-bottom: 4rem;
+}
+
+.mb-em {
+  margin-bottom: 4em;
+}
+
+.w-prose {
+  max-width: 50ch;
+}
+
+section#hero {
+  background-color: #252525;
+  color: antiquewhite;
+  min-height: 50vh;
+  padding: 20px;
+}
+
+section#display {
+  background-color: #2d2d2d;
+  color: whitesmoke;
+  min-height: 50vh;
+  padding: 20px;
+}
+
+section#box-model {
+  background-color: #252525;
+  color: whitesmoke;
+  min-height: 50vh;
+  padding: 20px;
+}
+
+nav a {
+  background-color: cyan;
+  width: 200px; /* no effect on inline elements */
+  height: 200px; /* no effect on inline elements */
+}
+
+nav {
+  width: 25%;
+  background-color: indianred;
+}
+
+main {
+  width: 74%;
+}
+
+nav,
+main {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.box-model {
+  background-color: darkslategrey;
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  border: 2px solid skyblue;
+  margin: 10px;
+  box-sizing: border-box;
+  /* padding and border eat from width, rather than add to it. */
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: lightcoral;
+  margin: 20px;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+.frame {
+  width: 450px;
+  height: 250px;
+  background-color: bisque;
+  overflow: scroll;
+}
+
+.background {
+  background: url('./images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: pink;
+  width: 500px;
+  height: 500px;
+  border-radius: 20px;
+}
+
+.card {
+  border: 1px solid #252525;
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba(11, 11, 11, 0.5);
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 20px;
+}

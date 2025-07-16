@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 2, Day 3 Stuff</title>
+    <link rel="stylesheet" href="./normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- conventional nav menu -->
+    <nav>
+      <ul>
+        <li><a href="#hero">Top</a></li>
+        <li><a href="#display">Display Property</a></li>
+        <li><a href="#box-model">Box Model</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="hero">
+        <h1 class="mb-rem">Week 2, Day 3 Stuff (REM)</h1>
+        <h1 class="mb-em">Week 2, Day 3 Stuff (EM)</h1>
+        <h2>CSS Units</h2>
+        <ul>
+          <li><code>rem</code></li>
+          <li><code>em</code></li>
+          <li><code>px</code></li>
+          <li><code>%</code></li>
+          <li><code>ch</code></li>
+        </ul>
+        <h3>The Character (<code>ch</code>) Unit</h3>
+        <!-- <p class="w-prose">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum laborum
+          odit aut alias architecto voluptatem unde nesciunt error, accusamus
+          sequi libero possimus nobis officia ratione veritatis nemo? Impedit
+          eligendi ipsum voluptates, recusandae illo architecto est id excepturi
+          rem facere quo beatae, officia accusantium, dicta molestias corporis
+          praesentium sequi aliquid necessitatibus ab? Harum in corporis esse
+          repellat perspiciatis. Iste ipsam alias nihil neque optio ut non, minus
+          odio sit voluptate aut aliquid molestias dolor vero temporibus odit sint
+          doloremque incidunt quidem nesciunt recusandae. Animi fugit deserunt
+          dolores placeat distinctio nisi velit totam error obcaecati eligendi
+          numquam adipisci dolor quo suscipit, deleniti aliquid tempore, sunt
+          optio possimus mollitia qui. Omnis quisquam tempora placeat rerum vitae,
+          distinctio fuga totam obcaecati quod hic dolorum.
+        </p> -->
+      </section>
+      <section id="display">
+        <h2>The Display Property</h2>
+        <ul>
+          <li>
+            inline
+            <ul>
+              <li>
+                They like neighbors (if there's room, inline elements share the
+                same line
+              </li>
+              <li>Width and height have no effect</li>
+            </ul>
+          </li>
+          <li>
+            block
+            <ul>
+              <li>
+                They don't like neighbors (they take up the full width of the
+                parent container)
+              </li>
+              <li>width and height have an effect</li>
+            </ul>
+          </li>
+          <li>
+            inline-block
+            <ul>
+              <li>A combination of both</li>
+              <li>
+                Leaves a sliver of whitespace if there is whitespace in your
+                HTML
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis culpa
+          repudiandae eligendi ipsa, consequatur necessitatibus! Ea iusto
+          voluptatem inventore aperiam doloribus officiis doloremque ducimus
+          assumenda.
+        </p>
+      </section>
+      <section id="box-model">
+        <h2>Box Model</h2>
+        <p>
+          Every element has a box model. A box model consists of four
+          components:
+        </p>
+        <ul>
+          <li>content</li>
+          <li>padding</li>
+          <li>border</li>
+          <li>margin</li>
+        </ul>
+        <div class="box-model"></div>
+      </section>
+      <section id="b-words">
+        <h2>Borders and Backgrounds</h2>
+        <div class="box circle"></div>
+        <div class="box rounded"></div>
+
+        <div class="background"></div>
+      </section>
+      <section id="overflow">
+        <h2>Overflow</h2>
+        <div class="frame">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+            voluptates tempore cum sit facere earum voluptas quaerat aliquid quo
+            libero illo tempora dolorem porro exercitationem facilis obcaecati
+            recusandae, et, saepe dolorum perferendis a? Magni temporibus
+            suscipit at, beatae accusamus ducimus iusto asperiores officia,
+            illum repellendus itaque modi est dolorum inventore impedit hic
+            quasi mollitia facilis quam, dolor non. Vitae, obcaecati magni quod
+            repellat nemo esse veniam ipsa quae in. Fuga illo cupiditate rerum
+            magni dolorum cumque repellat! Iste corporis aliquam doloribus
+            maiores voluptatum ipsum enim reiciendis magnam laudantium alias
+            atque aliquid explicabo sed laborum sint, praesentium perspiciatis
+            debitis mollitia nostrum qui minus. Dolor rerum hic illo, voluptate
+            officiis architecto harum numquam minus odit ut necessitatibus
+            doloremque vel, iure aperiam molestias cupiditate delectus
+            quibusdam! Animi aut quaerat ab dicta quisquam ducimus reiciendis
+            eveniet voluptatum facilis consequuntur? Dicta nam, libero, ipsum
+            debitis quisquam impedit expedita voluptatem assumenda sed quae
+            repudiandae, perspiciatis atque beatae officiis neque iusto enim
+            laboriosam maxime veniam illum voluptatibus. Minima ipsum quasi
+            recusandae sapiente quis nesciunt repellendus. Quidem minima
+            repudiandae incidunt reprehenderit cumque odio aliquid sed optio
+            voluptate aliquam eveniet ex dolor placeat molestias qui reiciendis
+            vel, facere culpa dolorum ipsam cum tenetur. Minima eum maiores et
+            similique quos!
+          </p>
+        </div>
+        <div class="card">
+          <img src="./images/background.jpg" alt="background image" />
+          <div class="card-body">
+            <h4>Card Title</h4>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+            inventore esse labore voluptatibus deserunt laboriosam culpa ut
+            dolores non nam, qui, nesciunt minus voluptates eius?
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
