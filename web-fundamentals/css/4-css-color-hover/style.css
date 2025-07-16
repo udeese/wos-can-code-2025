@@ -1,0 +1,21 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: darkslategray;
+}
+
+.box {
+    transition: 0.7s;
+    display:inline-block;
+    height:200px;
+    width:100px;
+}
+
+.box:hover {
+    width:300px;
+    background-color: blanchedalmond;
+}
