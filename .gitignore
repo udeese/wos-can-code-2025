@@ -4,5 +4,3 @@ solution/
 node_modules/
 
 # algos
-7-flatten-2d-array.js
-8-sum-array-columns.js
