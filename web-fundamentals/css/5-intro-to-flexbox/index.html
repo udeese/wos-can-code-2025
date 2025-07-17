@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro to Flexbox</title>
+    <link rel="stylesheet" href="./normalize.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <h1>Intro to Flexbox</h1>
+      <p>
+        Flexbox is a versatile way to align and place elements in one direction.
+      </p>
+
+      <h2>Flexbox consists of two groups of CSS Properties</h2>
+      <ul>
+        <li>Flex container properties (parent)</li>
+        <li>Flex item properties (children)</li>
+      </ul>
+
+      <h3>Flex Container Properties</h3>
+      <ul>
+        <li>
+          <code>justify-content</code>
+          <ul>
+            <li><code>flex-start</code></li>
+            <li><code>center</code></li>
+            <li><code>flex-end</code></li>
+            <li><code>space-around</code></li>
+            <li><code>space-between</code></li>
+            <li><code>space-evenly</code></li>
+          </ul>
+        </li>
+        <li>
+          <code>align-items</code>
+          <ul>
+            <li><code>flex-start</code></li>
+            <li><code>center</code></li>
+            <li><code>flex-end</code></li>
+            <li><code>baseline</code></li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Flex Item Properties</h3>
+      <ul>
+        <li><code>align-self</code></li>
+        <li><code>flex</code></li>
+      </ul>
+
+      <div class="flex-container">
+        <div class="flex-item flex-1">Item 1</div>
+        <div class="flex-item flex-2">Item 2</div>
+        <div class="flex-item flex-1">Item 3</div>
+        <!-- <div class="flex-item flex-1">Item 4</div>
+        <div class="flex-item flex-1">Item 5</div> -->
+      </div>
+
+      <div class="two-column-layout">
+        <main>main</main>
+        <aside>aside</aside>
+      </div>
+    </section>
+  </body>
+</html>
