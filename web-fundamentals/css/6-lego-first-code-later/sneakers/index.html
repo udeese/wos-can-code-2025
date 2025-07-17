@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sneakers</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--
+      Steps to Flex
+      1. Identify the elements that must be side-by-side
+      2. Identify the parent of those elements
+      2b. Is it a suitable parent? If not, create one.
+      3. display: flex on parent
+    -->
+    <header>
+      <div class="flex-container container">
+        <div class="flex-container gap">
+          <h1>sneakers</h1>
+          <nav>
+            <ul class="nav-menu flex-container gap text-muted-dark">
+              <li>Collections</li>
+              <li>Men</li>
+              <li>Women</li>
+              <li>About</li>
+              <li>Contact</li>
+            </ul>
+          </nav>
+        </div>
+        <div class="account flex-container gap">
+          <button class="btn-circle">
+            <img src="./images/icon-cart.svg" alt="Your Cart" />
+          </button>
+          <img
+            class="avatar"
+            src="./images/image-avatar.png"
+            alt="Mr. Cool Guy" />
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="flex-container container">
+        <div class="images">
+          <div class="main-image mb">
+            <img
+              src="./images/image-product-1.jpg"
+              alt="Product 1"
+              class="rounded-lg" />
+          </div>
+          <div class="thumbnails flex-container gap">
+            <div class="thumbnail">
+              <img
+                src="./images/image-product-1-thumbnail.jpg"
+                alt="Product 1"
+                class="rounded-sm" />
+            </div>
+            <div class="thumbnail">
+              <img
+                src="./images/image-product-2-thumbnail.jpg"
+                alt="Product 2"
+                class="rounded-sm" />
+            </div>
+            <div class="thumbnail">
+              <img
+                src="./images/image-product-3-thumbnail.jpg"
+                alt="Product 3"
+                class="rounded-sm" />
+            </div>
+            <div class="thumbnail">
+              <img
+                src="./images/image-product-4-thumbnail.jpg"
+                alt="Product 4"
+                class="rounded-sm" />
+            </div>
+          </div>
+        </div>
+        <div class="copy">
+          <h2 class="text-muted-dark subtitle">SNEAKER COMPANY</h2>
+          <h1>Fall Limited Edition Sneakers</h1>
+          <p>
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they'll withstand everything
+            the weather can offer.
+          </p>
+          <div class="flex-container justify-start gap">
+            <span class="price">$125.00</span>
+            <span class="badge">50%</span>
+          </div>
+          <span class="old-price text-muted-dark">$250.00</span>
+          <div class="flex-container">
+            <div class="quantity-controls flex-container gap-lg">
+              <button class="btn-ghost">
+                <img src="./images/icon-minus.svg" alt="Decrease quantity" />
+              </button>
+              <span class="quantity">0</span>
+              <button class="btn-ghost">
+                <img src="./images/icon-plus.svg" alt="Increase quantity" />
+              </button>
+            </div>
+            <button class="btn">
+              <img
+                src="./images/icon-cart.svg"
+                alt="Add to cart"
+                class="black-icon" />
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

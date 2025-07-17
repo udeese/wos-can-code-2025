@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
+body {
+  font-family: 'Kumbh Sans', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: hsl(0, 0%, 100%);
+}
+
+img {
+  max-width: 100%;
+}
+
+.rounded-lg {
+  border-radius: 1.25rem;
+}
+
+.rounded-sm {
+  border-radius: 0.5rem;
+}
+
+.text-muted-dark {
+  color: hsl(219, 9%, 45%);
+}
+
+.text-muted-light {
+  color: hsl(220, 14%, 75%);
+}
+
+.mb {
+  margin-bottom: 2rem;
+}
+
+header {
+  min-height: 100px;
+}
+
+.nav-menu {
+  list-style: none;
+}
+
+.container {
+  width: 1028px;
+  margin: 0 auto;
+}
+
+.flex-container {
+  /* three amigos of flex */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gap {
+  gap: 1.25rem;
+}
+
+.gap-lg {
+  gap: 2.5rem;
+}
+
+.images,
+.copy {
+  flex: 1;
+  padding: 3rem;
+}
+
+.btn-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.avatar {
+  width: 4rem;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.badge {
+  background-color: black;
+  color: white;
+  padding: 0.25rem 0.7rem;
+  border-radius: 0.25rem;
+}
+
+.old-price {
+  text-decoration: line-through;
+  font-weight: 600;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 1rem 4rem;
+  border: 0;
+  background-color: hsl(26, 100%, 55%);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: inherit;
+}
+
+.black-icon {
+  filter: brightness(0);
+}
