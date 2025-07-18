@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More DOM</title>
+    <link rel="stylesheet" href="./normalize.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 onclick="underlineToggle(this)">More DOM</h1>
+      </div>
+    </header>
+    <div class="container flex-container gap">
+      <main
+        onmouseover="mainBgColorChange(this)"
+        onmouseout="mainBgColorRevert(this)">
+        <h1>Nothing to See Here</h1>
+        <p onclick="underlineToggle(this)">
+          I swear, there's nothing of note in this section of the website. If
+          you heard otherwise, you were scammed by my arch-enemy, Zoltar.
+        </p>
+        <img
+          id="banner-hulk-image"
+          src="./images/bruce-banner.webp"
+          alt="Bruce Banner" />
+      </main>
+      <aside>
+        <h2>Joke of the Day</h2>
+        <p id="joke-content">
+          I couldn't figure out how the seat belt worked. Then it just clicked.
+        </p>
+      </aside>
+    </div>
+  </body>
+</html>
