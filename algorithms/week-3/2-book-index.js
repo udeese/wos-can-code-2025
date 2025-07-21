@@ -25,5 +25,36 @@ const expectedC = '1-3, 7, 9, 15-17';
  *    page ranges.
  */
 function bookIndex(nums) {
-  //your code here
+  let formattedPageNums = '';
+  let pageRangeStartIdx = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    let currentPageNum = nums[i];
+    let nextPageNum = nums[i + 1];
+    let pageRangeStopIdx = i;
+
+    // page range is not sequential
+    if (currentPageNum + 1 !== nextPageNum) {
+      // single page, no range
+      if (pageRangeStartIdx === pageRangeStopIdx) {
+        formattedPageNums += currentPageNum;
+      }
+      // we have a page range
+      else {
+        formattedPageNums += `${nums[pageRangeStartIdx]}-${nums[pageRangeStopIdx]}`;
+      }
+      if (i !== nums.length - 1) {
+        formattedPageNums += ', ';
+      }
+
+      // Since we've added a page range
+      // need to get start idx set up for next page range
+      pageRangeStartIdx = i + 1;
+    }
+  }
+  return formattedPageNums;
 }
+
+console.log(`${bookIndex(numsA)} should equal ${expectedA}`);
+console.log(`${bookIndex(numsB)} should equal ${expectedB}`);
+console.log(`${bookIndex(numsC)} should equal ${expectedC}`);

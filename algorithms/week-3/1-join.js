@@ -34,5 +34,22 @@ const expected5 = '';
  * @returns {string} The given array items as a string separated by the given separator.
  */
 function join(arr, separator) {
-  //your code here
+  let joined = '';
+
+  if (!arr.length) {
+    return joined;
+  }
+
+  // less than arr.length - 1 to stop before last
+  for (let i = 0; i < arr.length - 1; i++) {
+    joined += arr[i] + separator;
+  }
+  return joined + arr[arr.length - 1];
 }
+
+// Tests
+console.log(`${join(arr1, separator1)} should equal ${expected1}`);
+console.log(`${join(arr2, separator2)} should equal ${expected2}`);
+console.log(`${join(arr3, separator3)} should equal ${expected3}`);
+console.log(`${join(arr4, separator4)} should equal ${expected4}`);
+console.log(`${join(arr5, separator5)} should equal ${expected5}`);
