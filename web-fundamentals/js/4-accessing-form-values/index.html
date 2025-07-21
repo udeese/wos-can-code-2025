@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessing Form Values</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Accessing Form Values</h1>
+      <article>
+        <header><h2>Subscribe</h2></header>
+        <label for="first-name">First name</label>
+        <input
+          type="text"
+          name="first-name"
+          id="first-name"
+          placeholder="First name"
+          autocomplete="given-name" />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          autocomplete="email" />
+        <label for="tier">Select Tier</label>
+        <select name="tier" id="tier">
+          <option selected disabled hidden>Select tier...</option>
+          <option value="Basic">Basic</option>
+          <option value="Basic Plus">Basic Plus</option>
+          <option value="Pro">Pro</option>
+        </select>
+        <fieldset>
+          <legend>How did you hear about us?</legend>
+          <input
+            type="radio"
+            name="how-did-you-hear"
+            id="google-search"
+            value="Google search" />
+          <label for="google-search">Google search</label>
+          <input
+            type="radio"
+            name="how-did-you-hear"
+            id="word-of-mouth"
+            value="Word of mouth" />
+          <label for="word-of-mouth">Word of mouth</label>
+          <input
+            type="radio"
+            name="how-did-you-hear"
+            id="advertisement"
+            value="Advertisement" />
+          <label for="advertisement">Advertisement</label>
+        </fieldset>
+      </article>
+
+      <button type="button" onclick="subscribe()">Subscribe</button>
+    </div>
+  </body>
+</html>
