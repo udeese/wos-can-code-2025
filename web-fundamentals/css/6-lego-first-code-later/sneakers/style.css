@@ -11,6 +11,7 @@ img {
   max-width: 100%;
 }
 
+/* utility styles */
 .rounded-lg {
   border-radius: 1.25rem;
 }
@@ -31,6 +32,7 @@ img {
   margin-bottom: 2rem;
 }
 
+/* header styles */
 header {
   min-height: 100px;
 }

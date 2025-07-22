@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doodles of Doodles</title>
+    <link rel="stylesheet" href="./normalize.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header class="bordered">
+      <div class="flex-container container padding-md">
+        <h1>Doodles of Doodles</h1>
+        <button class="btn" onclick="signOut(this)">Sign In</button>
+      </div>
+    </header>
+    <div class="container flex-container flex-grow">
+      <aside>
+        <div class="aside-box padding-md">
+          <label for="search-input">Search</label>
+          <div class="form-container">
+            <input
+              type="text"
+              name="search-input"
+              id="search-input"
+              placeholder="Search" />
+            <button type="button" onclick="searchAlert()">Search</button>
+          </div>
+        </div>
+        <div class="aside-box padding-md">
+          <label for="vote-input">Vote</label>
+          <div class="form-container">
+            <select name="vote-input" id="vote-input">
+              <option selected disabled hidden>Select doodle...</option>
+              <option value="jinja-the-ninja">Jinja the Ninja</option>
+              <option value="golden-hour">Golden Hour</option>
+              <option value="teacup-dreams">Teacup Dreams</option>
+            </select>
+            <button type="button" onclick="voteAlert()">Vote</button>
+          </div>
+        </div>
+        <div class="aside-box padding-md">
+          <div class="card">
+            <img src="./images/golden-hour.webp" alt="Golden Hour" />
+            <div class="card-body">
+              <h3>Golden Hour</h3>
+              <div class="flex-end">
+                <button class="ghost-btn" onclick="like('#golden-hour-likes')">
+                  <img src="./images/heart.webp" alt="Like" />
+                </button>
+                <span id="golden-hour-likes">0</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <img src="./images/teacup-dreams.webp" alt="Teacup Dreams" />
+            <div class="card-body">
+              <h3>Teacup Dreams</h3>
+              <div class="flex-end">
+                <button
+                  class="ghost-btn"
+                  onclick="like('#teacup-dreams-likes')">
+                  <img src="./images/heart.webp" alt="Like" />
+                </button>
+                <span id="teacup-dreams-likes">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+      <main class="padding-md">
+        <h1>Doodle of the Day</h1>
+        <div class="card">
+          <img src="./images/jinja-the-ninja.webp" alt="Jinja the Ninja" />
+          <div class="card-body">
+            <h2>Jinja the Ninja</h2>
+            <p>Meet Aiko Tanaka, a high school senior from Fukuoka, Japan.</p>
+            <p>
+              Aiko is currently attending Minami Art & Design School, where she
+              spends most of her time doodling in the margins of her biology
+              notes. She dreams of attending Musashino Art University to study
+              illustration and animation.
+            </p>
+            <div class="flex-end">
+              <button class="ghost-btn" onclick="like('#jinja-likes')">
+                <img src="./images/heart.webp" alt="Like" />
+              </button>
+              <span id="jinja-likes">0</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="cookie">
+      <h3>Mmm... cookies!</h3>
+      <p>
+        This site uses cookies to keep things running smoothly and make sure
+        your favorite doodles don't get lost in the shuffle. We pinky-promise
+        not to sell your info to evil corporations-or grumpy cats.
+      </p>
+      <div class="text-end">
+        <button class="btn btn-primary" onclick="acceptCookie()">Accept</button>
+      </div>
+    </div>
+  </body>
+</html>
