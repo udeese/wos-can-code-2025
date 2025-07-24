@@ -27,7 +27,7 @@ const expected4 = false;
  * @returns {boolean} Whether the given str is a palindrome or not.
  */
 function isPalindrome(str) {
-  // your code here
+  return str === str.split('').reverse().join('');
 }
 
 console.log(`${isPalindrome(str1)} should equal ${expected1}`);

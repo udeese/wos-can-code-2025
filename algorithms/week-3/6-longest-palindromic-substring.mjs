@@ -36,7 +36,18 @@ const expectedE = '567765';
  * @returns {string} The longest palindromic substring from the given string.
  */
 function longestPalindromicSubstring(str) {
-  // your code here
+  let longest = '';
+
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j <= str.length; j++) {
+      const substr = str.slice(i, j);
+      if (isPalindrome(substr) && substr.length > longest.length) {
+        longest = substr;
+      }
+    }
+  }
+
+  return longest;
 }
 
 console.log(`${longestPalindromicSubstring(strA)} should equal ${expectedA}`);
