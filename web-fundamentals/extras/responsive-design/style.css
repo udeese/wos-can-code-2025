@@ -1,0 +1,65 @@
+h1 {
+  color: rebeccapurple;
+}
+
+.container {
+  width: 22rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.item {
+  padding: 1.25rem;
+  background-color: cadetblue;
+  border: 1px solid black;
+}
+
+nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 1.25rem;
+}
+
+.hide-on-mobile {
+  display: none;
+}
+
+/* tablet devices (768 px) */
+@media (min-width: 48rem) {
+  h1 {
+    color: orangered;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hide-on-mobile {
+    display: block;
+  }
+
+  .container {
+    width: 44rem;
+  }
+}
+
+/* desktop devices (992 px) */
+@media (min-width: 62rem) {
+  h1 {
+    color: navy;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .container {
+    width: 58rem;
+  }
+}
