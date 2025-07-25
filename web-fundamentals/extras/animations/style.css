@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  background-color: darkslategray;
+}
+#container {
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+  color: whitesmoke;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.feat {
+  background: whitesmoke;
+  height: 250px;
+  width: 250px;
+}
+/* Animation class with duration, name, fill-mode, and timing-function */
+/* Starting and ending keyframes with opacity, filter, and transform scale */
+/* Delay classes */
+/* Handy links:
+- https://developer.mozilla.org/en-US/docs/Web/CSS/filter
+- https://css-tricks.com/a-handy-little-system-for-animated-entrances-in-css/
+*/
