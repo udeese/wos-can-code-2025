@@ -7,7 +7,15 @@
  * @returns {Object} A frequency map of characters.
  */
 function buildCharFrequency(str) {
-  // your code here
+  const freq = {};
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i].toLowerCase();
+    if (char === ' ') continue;
+    freq[char] = (freq[char] || 0) + 1;
+  }
+
+  return freq;
 }
 
 console.log(buildCharFrequency('hello world'));
@@ -24,3 +32,5 @@ console.log(buildCharFrequency(''));
 
 console.log(buildCharFrequency('    '));
 // Expected: {}
+
+export { buildCharFrequency };

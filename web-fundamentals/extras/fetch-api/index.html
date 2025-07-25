@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Fetch API</title>
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"></script>
+    <script src="./script.js" defer type="module"></script>
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container">
+        <span class="navbar-brand mb-0 h1">The Fetch API</span>
+      </div>
+    </nav>
+    <main class="container">
+      <h1 class="display-1">What is the Fetch API?</h1>
+      <p class="lead">
+        The Fetch API (available in the browser or in Node) allows us to request
+        (with HTTP verb methods, i.e. <code>GET</code>, <code>POST</code>,
+        <code>PUT</code>, <code>DELETE</code>) data from external sources like
+        Web APIs.
+      </p>
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Random Joke</h2>
+          <div class="d-flex justify-content-center align-items-center">
+            <div
+              id="spinner"
+              class="spinner-border text-primary my-5"
+              role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+          <p id="joke"></p>
+          <div class="text-end">
+            <button id="refresh-button" type="button" class="btn btn-primary">
+              Refresh Joke
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
