@@ -3,6 +3,7 @@
 
   Given a string of words (with spaces)
   return a new string with words in reverse sequence.
+  .trim is okay with this one.
 */
 
 const strA = 'This is a test';
@@ -24,7 +25,30 @@ const expectedC = 'test a is This';
  *    themselves are not reversed.
  */
 function reverseWordOrder(wordsStr) {
-  // your code here
+  let trimmed = wordsStr.trim();
+  let result = '';
+  let word = '';
+  const words = [];
+
+  for (let i = 0; i <= trimmed.length; i++) {
+    const char = trimmed[i];
+
+    if (char === ' ' || i === trimmed.length) {
+      if (word.length > 0) {
+        words.push(word);
+        word = '';
+      }
+    } else {
+      word += char;
+    }
+  }
+
+  for (let i = words.length - 1; i >= 0; i--) {
+    result += words[i];
+    if (i !== 0) result += ' ';
+  }
+
+  return result;
 }
 
 console.log(`${reverseWordOrder(strA)} should equal ${expectedA}`);

@@ -23,7 +23,25 @@ const expected3 = 'cba fed ihg';
  * @returns {string} The given string with each word's letters reversed.
  */
 function reverseWords(str) {
-  // your code here
+  let result = '';
+  let word = '';
+
+  for (let i = 0; i <= str.length; i++) {
+    const char = str[i];
+
+    if (char === ' ' || i === str.length) {
+      // reverse the current word manually
+      for (let j = word.length - 1; j >= 0; j--) {
+        result += word[j];
+      }
+      if (i !== str.length) result += ' ';
+      word = '';
+    } else {
+      word += char;
+    }
+  }
+
+  return result;
 }
 
 console.log(`${reverseWords(str1)} should equal ${expected1}`);
