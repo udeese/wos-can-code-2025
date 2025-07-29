@@ -30,7 +30,13 @@ const expected3 = false;
  * @returns {boolean} Whether the parenthesis are valid.
  */
 function parensValid(str) {
-  // Your code here
+  let unmatchedOpens = 0;
+  for (let char of str) {
+    if (char === '(') unmatchedOpens++;
+    if (char === ')') unmatchedOpens--;
+    if (unmatchedOpens < 0) return false;
+  }
+  return unmatchedOpens === 0;
 }
 
 console.log(`${parensValid(str1)} should equal ${expected1}`);
