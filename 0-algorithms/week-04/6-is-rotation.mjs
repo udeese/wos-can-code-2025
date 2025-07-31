@@ -36,6 +36,6 @@ function isRotation(s1, s2) {
   // Your code here
 }
 
-console.log(isRotation(strA1, strA2)); // expected: true
-console.log(isRotation(strB1, strB2)); // expected: false
-console.log(isRotation(strC1, strC2)); // expected: false
+console.log(`${isRotation(strA1, strA2)} should equal ${expectedA}`);
+console.log(`${isRotation(strB1, strB2)} should equal ${expectedB}`);
+console.log(`${isRotation(strC1, strC2)} should equal ${expectedC}`);
