@@ -1,5 +1,5 @@
 /*
-  String: Rotate String
+  Rotate String
   Write a function that takes a string and a non-negative
   integer, and rotates the string’s characters to the right
   by the given amount. Characters shifted off the end wrap
@@ -47,3 +47,5 @@ console.log(`${rotateStr(str, rotateAmnt2)} should equal ${expected2}`);
 console.log(`${rotateStr(str, rotateAmnt3)} should equal ${expected3}`);
 console.log(`${rotateStr(str, rotateAmnt4)} should equal ${expected4}`);
 console.log(`${rotateStr(str, rotateAmnt5)} should equal ${expected5}`);
+
+export { rotateStr };

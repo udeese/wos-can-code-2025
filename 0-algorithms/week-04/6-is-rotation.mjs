@@ -1,4 +1,7 @@
+import { rotateStr } from './5-rotate-string.mjs';
+
 /*
+  Is Rotation
   Write a function isRotation(str1, str2) that returns true
   if the second string is a rotation of the first. A rotation
   means the characters are in the same order but shifted
