@@ -25,7 +25,19 @@ const expected2 = false;
  * @returns {boolean} True if a balance point exists, otherwise false.
  */
 function balancePoint(nums) {
-  // your code here
+  let leftSum = 0;
+  let rightSum = nums.reduce((acc, val) => acc + val, 0);
+
+  for (let i = 0; i < nums.length - 1; i++) {
+    leftSum += nums[i];
+    rightSum -= nums[i];
+
+    if (leftSum === rightSum) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 console.log(`${balancePoint(nums1)} should equal ${expected1}`);
