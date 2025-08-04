@@ -40,18 +40,45 @@ const expected4 = 4;
  * @returns {boolean} Whether the number exists in the array.
  */
 function binarySearch(sortedNumbers, searchNum) {
-  // your code here
+  let left = 0;
+  let right = sortedNumbers.length - 1;
+  let count = 0;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+
+    if (sortedNumbers[mid] === searchNum) {
+      // Bonus: Count how many times searchNum appears
+      count = 1;
+      let i = mid - 1;
+      while (i >= 0 && sortedNumbers[i] === searchNum) {
+        count++;
+        i--;
+      }
+      i = mid + 1;
+      while (i < sortedNumbers.length && sortedNumbers[i] === searchNum) {
+        count++;
+        i++;
+      }
+      return { exists: true, count };
+    } else if (sortedNumbers[mid] < searchNum) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return { exists: false, count };
 }
 
-console.log(
-  `${binarySearch(numbers1, searchNumber1)} should equal ${expected1}`
-);
-console.log(
-  `${binarySearch(numbers2, searchNumber2)} should equal ${expected2}`
-);
-console.log(
-  `${binarySearch(numbers3, searchNumber3)} should equal ${expected3}`
-);
-console.log(
-  `${binarySearch(numbers4, searchNumber4)} should equal ${expected4}`
-);
+console.log('Result 1:', binarySearch(numbers1, searchNumber1));
+console.log('Expected 1:', { exists: expected1, count: 0 });
+
+console.log('Result 2:', binarySearch(numbers2, searchNumber2));
+console.log('Expected 2:', { exists: expected2, count: 1 });
+
+console.log('Result 3:', binarySearch(numbers3, searchNumber3));
+console.log('Expected 3:', { exists: expected3, count: 1 });
+
+console.log('Result 4:', binarySearch(numbers4, searchNumber4));
+console.log('Expected 4:', { exists: true, count: 4 });
