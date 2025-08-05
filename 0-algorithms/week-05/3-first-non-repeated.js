@@ -32,7 +32,17 @@ const expectedF = 4;
  * @returns {number|null}
  */
 function firstNonRepeated(nums) {
-  // your code here
+  const freq = {};
+
+  for (const num of nums) {
+    freq[num] = (freq[num] || 0) + 1;
+  }
+
+  for (const num of nums) {
+    if (freq[num] === 1) return num;
+  }
+
+  return null;
 }
 
 console.log('Test A:', firstNonRepeated(numsA) === expectedA);
@@ -40,3 +50,4 @@ console.log('Test B:', firstNonRepeated(numsB) === expectedB);
 console.log('Test C:', firstNonRepeated(numsC) === expectedC);
 console.log('Test D:', firstNonRepeated(numsD) === expectedD);
 console.log('Test E:', firstNonRepeated(numsE) === expectedE);
+console.log('Test F:', firstNonRepeated(numsF) === expectedF);

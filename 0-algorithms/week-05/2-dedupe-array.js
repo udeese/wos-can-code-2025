@@ -35,7 +35,17 @@ const expected4 = [1];
  * @returns {number[]} A new array with duplicates removed.
  */
 function dedupeSorted(nums) {
-  // your code here
+  if (nums.length === 0) return [];
+
+  const deduped = [nums[0]];
+
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] !== nums[i - 1]) {
+      deduped.push(nums[i]);
+    }
+  }
+
+  return deduped;
 }
 
 // Console tests

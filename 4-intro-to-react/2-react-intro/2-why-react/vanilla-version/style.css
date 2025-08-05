@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
+
+body {
+  font-family: 'Balsamiq Sans', cursive;
+  display: grid;
+  place-content: center;
+}
+
+.absolute {
+  position: absolute;
+  top: 100%;
+  transform: translateY(-50%);
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border: 1px solid rgb(201, 201, 201);
+  width: 15rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 1.5rem;
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.card-header {
+  height: 5rem;
+  background-color: cornflowerblue;
+  position: relative;
+}
+
+.card-body {
+  padding: 3rem 1rem 1rem;
+}
+
+.card-title {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.card-footer {
+  background-color: rgb(240, 240, 240);
+  padding: .5rem 1rem;
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn {
+  border: 0;
+  cursor: pointer;
+  background-color: cornflowerblue;
+  color: white;
+  padding: .25rem 1rem;
+  border-radius: .25rem;
+}
+
+.avatar {
+  background-color: whitesmoke;
+  border: 3px solid whitesmoke;
+  border-radius: 50%;
+}
