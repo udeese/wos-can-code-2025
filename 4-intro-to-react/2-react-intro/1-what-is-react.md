@@ -1,3 +1,0 @@
-# What is React?
-
-A JavaScript library for building UIs.
