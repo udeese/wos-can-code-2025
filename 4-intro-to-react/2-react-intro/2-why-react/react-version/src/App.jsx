@@ -5,6 +5,7 @@ function App() {
   return (
     <div>
       <Card name="Narciso Lobo" />
+      <Card name="Janelle Monae" />
     </div>
   );
 }
