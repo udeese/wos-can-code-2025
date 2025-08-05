@@ -21,6 +21,9 @@ const expectedD = 5;
 const numsE = [];
 const expectedE = null;
 
+const numsF = [3, 5, 4, 3, 6, 5];
+const expectedF = 4;
+
 /**
  * Returns the first non-repeated integer in the array.
  * Time: O(n)
@@ -29,17 +32,7 @@ const expectedE = null;
  * @returns {number|null}
  */
 function firstNonRepeated(nums) {
-  const freq = {};
-
-  for (const num of nums) {
-    freq[num] = (freq[num] || 0) + 1;
-  }
-
-  for (const num of nums) {
-    if (freq[num] === 1) return num;
-  }
-
-  return null;
+  // your code here
 }
 
 console.log('Test A:', firstNonRepeated(numsA) === expectedA);
