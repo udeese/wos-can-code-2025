@@ -33,7 +33,8 @@ const expected6 = 21;
  * @returns {number} The Fibonacci number at the given position.
  */
 function fibonacci(num) {
-  // your code here
+  if (num < 2) return num;
+  return fibonacci(num - 1) + fibonacci(num - 2);
 }
 
 console.log('Test Case 1:', fibonacci(num1) === expected1 ? 'PASS' : 'FAIL');

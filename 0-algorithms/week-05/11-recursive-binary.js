@@ -10,8 +10,8 @@
   Approach:
     1. Compare the target value to the middle element.
     2. If it matches, return true.
-    3. If it’s less, recurse on the left half.
-    4. If it’s greater, recurse on the right half.
+    3. If it’s less, recurse on the startIdx half.
+    4. If it’s greater, recurse on the endIdx half.
     5. If the range becomes invalid, return false.
 */
 
@@ -40,8 +40,25 @@ const expected3 = true;
  * Space Complexity: O(log n) — Due to the recursive call stack.
  */
 // don't be afraid to add parameters! <---------
-function binarySearch(sortedNums, searchNum) {
-  // your code here
+function binarySearch(
+  sortedNums,
+  searchNum,
+  startIdx = 0,
+  endIdx = sortedNums.length - 1
+) {
+  if (startIdx > endIdx) {
+    return false;
+  }
+
+  const mid = Math.floor((startIdx + endIdx) / 2);
+  if (sortedNums[mid] === searchNum) {
+    return true;
+  }
+
+  if (sortedNums[mid] > searchNum) {
+    return binarySearch(sortedNums, searchNum, startIdx, mid - 1);
+  }
+  return binarySearch(sortedNums, searchNum, mid + 1, endIdx);
 }
 
 console.log(
