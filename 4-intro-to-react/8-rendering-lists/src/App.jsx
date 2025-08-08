@@ -1,5 +1,7 @@
+import TvShowsList from './components/TvShowsList';
+
 function App() {
-  return <div>App</div>;
+  return <TvShowsList />;
 }
 
 export default App;
