@@ -4,3 +4,4 @@ solution/
 node_modules/
 
 # algos
+2-selection-sort.js
