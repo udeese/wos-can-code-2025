@@ -57,17 +57,22 @@ function bubbleSort(numbers) {
  * @returns {number[]} The sorted array (same reference as the input).
  */
 function bubbleSortEarlyExit(numbers) {
+  let comparisons = 0;
+  let swaps = 0;
+
   for (let i = 0; i < numbers.length; i++) {
     let swapped = false;
     for (let j = 0; j < numbers.length - 1 - i; j++) {
+      comparisons++;
       if (numbers[j] > numbers[j + 1]) {
+        swaps++;
         swapped = true;
         [numbers[j], numbers[j + 1]] = [numbers[j + 1], numbers[j]];
       }
     }
     if (!swapped) break;
   }
-  return numbers;
+  return { numbers, comparisons, swaps };
 }
 
 /*
@@ -80,7 +85,8 @@ function bubbleSortEarlyExit(numbers) {
  *  - Average case: O(n^2)
  *  - Worst case: O(n^2)
  *  - Space: O(1) — in-place sort.
- *  - Note: Can perform fewer comparisons than the early-exit version when the array is nearly sorted.
+ *  - Note: Can perform fewer comparisons than the early-exit version
+ *    when the array is nearly sorted.
  *
  * This version improves on the early exit approach by tracking the last
  * position where a swap occurred. By doing so, it reduces the number of
@@ -106,21 +112,23 @@ function bubbleSortWithCap(numbers) {
   return numbers;
 }
 
-console.log(
-  'Ordered input:',
-  bubbleSort([...numbersOrdered]),
-  'Expected:',
-  expected
-);
-console.log(
-  'Random order input:',
-  bubbleSort([...numbersRandomOrder]),
-  'Expected:',
-  expected
-);
-console.log(
-  'Reversed input:',
-  bubbleSort([...numbersReversed]),
-  'Expected:',
-  expected
-);
+console.log(bubbleSortWithCap(numbersOrdered));
+
+// console.log(
+//   'Ordered input:',
+//   bubbleSort([...numbersOrdered]),
+//   'Expected:',
+//   expected
+// );
+// console.log(
+//   'Random order input:',
+//   bubbleSort([...numbersRandomOrder]),
+//   'Expected:',
+//   expected
+// );
+// console.log(
+//   'Reversed input:',
+//   bubbleSort([...numbersReversed]),
+//   'Expected:',
+//   expected
+// );
