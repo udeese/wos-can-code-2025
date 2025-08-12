@@ -48,7 +48,6 @@ function MovieForm({ onAddMovie }) {
     e.preventDefault();
 
     Object.entries(movie).forEach(([name, value]) => {
-      console.log(name, value);
       validateFields(name, value);
     });
 
@@ -103,7 +102,10 @@ function MovieForm({ onAddMovie }) {
                 <span className="form-text text-warning">{errors.year}</span>
               )}
             </div>
-            <button type="submit" className="btn btn-primary text-nowrap">
+            <button
+              type="submit"
+              className="btn btn-primary text-nowrap"
+              disabled={!isFormValid}>
               Add Movie
             </button>
           </div>
