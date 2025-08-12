@@ -32,7 +32,22 @@ const expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  * @returns {number[]} The sorted array (same reference as the input).
  */
 function selectionSort(numbers) {
-  // your code here
+  const n = numbers.length;
+  let minIdx;
+
+  for (let i = 0; i < n - 1; i++) {
+    minIdx = i;
+    for (let j = i + 1; j < n; j++) {
+      if (numbers[j] < numbers[minIdx]) {
+        minIdx = j;
+      }
+    }
+
+    if (i !== minIdx) {
+      [numbers[i], numbers[minIdx]] = [numbers[minIdx], numbers[i]];
+    }
+  }
+  return numbers;
 }
 
 console.log(
