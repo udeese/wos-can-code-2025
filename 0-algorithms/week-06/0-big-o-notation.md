@@ -21,6 +21,7 @@ By the end of this lesson, you will be able to:
 ---
 
 ## 3. TL;DR Cheat Sheet of Complexities
+![Big O Chart](./big-o-chart.jpeg)
 
 | Complexity     | Meaning           | Example Scenario               |
 | -------------- | ----------------- | ------------------------------ |
