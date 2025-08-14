@@ -52,7 +52,34 @@ const expectedMerge4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  *    both given halves.
  */
 function merge(left, right) {
-  // your code here
+  let result = [];
+  let indexLeft = 0;
+  let indexRight = 0;
+
+  while (indexLeft < left.length && indexRight < right.length) {
+    // Use <= to keep the algorithm stable: equal values from the left half
+    // are taken first so their original order is preserved.
+    if (left[indexLeft] <= right[indexRight]) {
+      result.push(left[indexLeft]);
+      indexLeft++;
+    } else {
+      result.push(right[indexRight]);
+      indexRight++;
+    }
+  }
+
+  // Copy any remaining items (one of the halves may have leftovers).
+  while (indexLeft < left.length) {
+    result.push(left[indexLeft]);
+    indexLeft++;
+  }
+
+  while (indexRight < right.length) {
+    result.push(right[indexRight]);
+    indexRight++;
+  }
+
+  return result;
 }
 
 // Tests:

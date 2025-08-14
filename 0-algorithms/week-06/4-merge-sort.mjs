@@ -16,7 +16,20 @@ const expectedSort = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  * @returns {number[]} A new sorted array.
  */
 function mergeSort(numbers) {
-  // your code here
+  if (numbers.length <= 1) {
+    // Base case: arrays of length 0 or 1 are already sorted
+    return numbers;
+  }
+
+  const middleIdx = Math.floor(numbers.length / 2);
+
+  const left = numbers.slice(0, middleIdx);
+  const right = numbers.slice(middleIdx);
+
+  const sortedLeft = mergeSort(left);
+  const sortedRight = mergeSort(right);
+
+  return merge(sortedLeft, sortedRight);
 }
 
 // Tests:
