@@ -50,7 +50,22 @@ const numbers4 = [2, 1];
  * @returns {number} The idx where left section of smaller items ends.
  */
 function partition(numbers = [], left = 0, right = numbers.length - 1) {
-  // your code here
+  // Teaching note:
+  // We're choosing the last element as the pivot for simplicity.
+  // This makes the code easier to follow for beginners and ensures everyone's output is consistent.
+  // However, always picking the last element can lead to poor performance (O(n^2)) on nearly sorted arrays.
+  // In practice, using a random or middle pivot helps avoid this.
+  const pivotVal = numbers[right];
+  let pivotIdx = left;
+
+  for (let i = left; i < right; i++) {
+    if (numbers[i] <= pivotVal) {
+      [numbers[i], numbers[pivotIdx]] = [numbers[pivotIdx], numbers[i]];
+      pivotIdx++;
+    }
+  }
+  [numbers[pivotIdx], numbers[right]] = [numbers[right], numbers[pivotIdx]];
+  return pivotIdx;
 }
 
 export { partition };

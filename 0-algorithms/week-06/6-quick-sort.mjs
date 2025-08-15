@@ -16,7 +16,7 @@ import { partition } from './5-partition.mjs';
   Space Complexity: O(1) — constant.
 
   Steps:
-    - Left by partitioning the entire array using the partition algorithm.
+    - Start by partitioning the entire array using the partition algorithm.
     - Recursively apply partitioning to the sub-array to the left of the returned partition index.
     - Recursively apply partitioning to the sub-array to the right of the returned partition index.
 */
@@ -56,3 +56,9 @@ function quickSort(numbers = [], left = 0, right = numbers.length - 1) {
   }
   return numbers;
 }
+
+// Tests:
+console.log('numbers1:', quickSort([...numbers1]), 'Expected:', expected1);
+console.log('numbers2:', quickSort([...numbers2]), 'Expected:', expected2);
+console.log('numbers3:', quickSort([...numbers3]), 'Expected:', expected3);
+console.log('numbers4:', quickSort([...numbers4]), 'Expected:', expected4);
