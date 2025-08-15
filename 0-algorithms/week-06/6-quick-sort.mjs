@@ -16,9 +16,9 @@ import { partition } from './5-partition.mjs';
   Space Complexity: O(1) — constant.
 
   Steps:
-    - Start by partitioning the entire array using the partition algorithm.
-    - Recursively apply partitioning to the sub-array to the start of the returned partition index.
-    - Recursively apply partitioning to the sub-array to the end of the returned partition index.
+    - Left by partitioning the entire array using the partition algorithm.
+    - Recursively apply partitioning to the sub-array to the left of the returned partition index.
+    - Recursively apply partitioning to the sub-array to the right of the returned partition index.
 */
 
 //import your partition method from yesterday or paste it into the same file you work on today
@@ -44,15 +44,15 @@ const expected4 = [1, 3, 4, 9, 12, 13, 17, 21, 27];
  * @see https://www.hackerearth.com/practice/algorithms/sorting/quick-sort/visualize/
  *    visualization.
  * @param {Array<number>} numbers
- * @param {number} start The index marking the start of the current sub-array to sort.
- * @param {number} end The index marking the end of the current sub-array to sort.
+ * @param {number} left The index marking the start of the current sub-array to sort.
+ * @param {number} right The index marking the end of the current sub-array to sort.
  * @returns {Array<number>} The given array after being sorted.
  */
-function quickSort(numbers = [], start = 0, end = numbers.length - 1) {
-  if (start < end) {
-    const pivotIdx = partition(numbers, start, end);
-    quickSort(numbers, start, pivotIdx - 1);
-    quickSort(numbers, pivotIdx + 1, end);
+function quickSort(numbers = [], left = 0, right = numbers.length - 1) {
+  if (left < right) {
+    const pivotIdx = partition(numbers, left, right);
+    quickSort(numbers, left, pivotIdx - 1);
+    quickSort(numbers, pivotIdx + 1, right);
   }
   return numbers;
 }
