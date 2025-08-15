@@ -1,7 +1,8 @@
 import { useUI } from '../store/todo-store';
 
 function TodoFilter() {
-  const { showCompleted, toggleShowCompleted } = useUI((s) => s);
+  const showCompleted = useUI((s) => s.showCompleted);
+  const toggleShowCompleted = useUI((s) => s.toggleShowCompleted);
 
   return (
     <div className="d-flex justify-content-between align-items-center gap-2 mb-2">
