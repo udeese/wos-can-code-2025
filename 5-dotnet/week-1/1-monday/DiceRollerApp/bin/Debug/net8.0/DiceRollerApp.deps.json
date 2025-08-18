@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "DiceRollerApp/1.0.0": {
+        "runtime": {
+          "DiceRollerApp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DiceRollerApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

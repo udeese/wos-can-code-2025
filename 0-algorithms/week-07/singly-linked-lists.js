@@ -55,7 +55,7 @@ class SinglyLinkedList {
    * @returns {SinglyLinkedList} This list.
    */
   insertAtBackRecursive(data, runner = this.head) {
-    //your code here
+    // your code here
   }
 
   /**
@@ -81,7 +81,15 @@ class SinglyLinkedList {
    * @returns {SinglyLinkedList} This list.
    */
   insertAtFront(data) {
-    // your code here
+    const newNode = new ListNode(data);
+    if (this.isEmpty()) {
+      this.head = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    return this;
   }
 
   /**
@@ -91,7 +99,15 @@ class SinglyLinkedList {
    * @returns {any} The data from the removed node.
    */
   removeHead() {
-    // your code here
+    if (this.isEmpty()) {
+      console.log('This list is empty.');
+      return null;
+    }
+
+    const removed = this.head.data;
+    this.head = this.head.next;
+
+    return removed;
   }
 
   // EXTRA
@@ -102,7 +118,21 @@ class SinglyLinkedList {
    * @returns {number|NaN} The average of the node's data.
    */
   average() {
-    // your code here
+    if (this.isEmpty()) {
+      console.log('This list is empty');
+      return null;
+    }
+
+    let runner = this.head;
+    let total = 0;
+    let count = 0;
+    while (runner) {
+      count++;
+      total = total + runner.data;
+      runner = runner.next;
+    }
+
+    return total / count;
   }
 
   /**
@@ -155,5 +185,6 @@ console.log(firstThreeList.toArr());
 
 const mySLL = new SinglyLinkedList();
 
-mySLL.insertAtBack(8);
-console.log(mySLL.toArr());
+mySLL.insertAtBackMany([1, 2, 3, 4]);
+console.log(mySLL.average());
+console.log(emptyList.average());

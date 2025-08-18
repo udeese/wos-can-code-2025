@@ -1,0 +1,15 @@
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/bin/Debug/net8.0/DiceRollerApp
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/bin/Debug/net8.0/DiceRollerApp.deps.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/bin/Debug/net8.0/DiceRollerApp.runtimeconfig.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/bin/Debug/net8.0/DiceRollerApp.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/bin/Debug/net8.0/DiceRollerApp.pdb
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/obj/Debug/net8.0/DiceRollerApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/obj/Debug/net8.0/DiceRollerApp.AssemblyInfoInputs.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/obj/Debug/net8.0/DiceRollerApp.AssemblyInfo.cs
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/obj/Debug/net8.0/DiceRollerApp.csproj.CoreCompileInputs.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/obj/Debug/net8.0/DiceRollerApp.sourcelink.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/obj/Debug/net8.0/DiceRollerApp.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/obj/Debug/net8.0/refint/DiceRollerApp.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/obj/Debug/net8.0/DiceRollerApp.pdb
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/obj/Debug/net8.0/DiceRollerApp.genruntimeconfig.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DiceRollerApp/obj/Debug/net8.0/ref/DiceRollerApp.dll

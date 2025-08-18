@@ -1,0 +1,15 @@
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/bin/Debug/net8.0/DateChallenges
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/bin/Debug/net8.0/DateChallenges.deps.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/bin/Debug/net8.0/DateChallenges.runtimeconfig.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/bin/Debug/net8.0/DateChallenges.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/bin/Debug/net8.0/DateChallenges.pdb
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/obj/Debug/net8.0/DateChallenges.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/obj/Debug/net8.0/DateChallenges.AssemblyInfoInputs.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/obj/Debug/net8.0/DateChallenges.AssemblyInfo.cs
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/obj/Debug/net8.0/DateChallenges.csproj.CoreCompileInputs.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/obj/Debug/net8.0/DateChallenges.sourcelink.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/obj/Debug/net8.0/DateChallenges.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/obj/Debug/net8.0/refint/DateChallenges.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/obj/Debug/net8.0/DateChallenges.pdb
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/obj/Debug/net8.0/DateChallenges.genruntimeconfig.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/1-monday/DateChallenges/obj/Debug/net8.0/ref/DateChallenges.dll
