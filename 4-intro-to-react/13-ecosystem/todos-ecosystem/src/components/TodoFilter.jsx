@@ -17,7 +17,7 @@ function TodoFilter() {
           onChange={toggleShowCompleted}
         />
         <label className="form-check-label" htmlFor="filter-toggle">
-          show completed
+          {showCompleted ? 'hide completed' : 'show completed'}
         </label>
       </div>
     </div>
