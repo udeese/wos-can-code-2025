@@ -1,0 +1,6 @@
+{
+  "Wrap in Console WriteLine": {
+    "prefix": "wwl",
+    "body": ["Console.WriteLine(${TM_SELECTED_TEXT});"]
+  }
+}
