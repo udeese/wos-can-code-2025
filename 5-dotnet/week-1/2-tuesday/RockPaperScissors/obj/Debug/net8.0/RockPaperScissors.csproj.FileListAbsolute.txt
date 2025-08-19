@@ -1,0 +1,15 @@
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/bin/Debug/net8.0/RockPaperScissors
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/bin/Debug/net8.0/RockPaperScissors.deps.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/bin/Debug/net8.0/RockPaperScissors.runtimeconfig.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/bin/Debug/net8.0/RockPaperScissors.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/bin/Debug/net8.0/RockPaperScissors.pdb
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/obj/Debug/net8.0/RockPaperScissors.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/obj/Debug/net8.0/RockPaperScissors.AssemblyInfoInputs.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/obj/Debug/net8.0/RockPaperScissors.AssemblyInfo.cs
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/obj/Debug/net8.0/RockPaperScissors.csproj.CoreCompileInputs.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/obj/Debug/net8.0/RockPaperScissors.sourcelink.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/obj/Debug/net8.0/RockPaperScissors.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/obj/Debug/net8.0/refint/RockPaperScissors.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/obj/Debug/net8.0/RockPaperScissors.pdb
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/obj/Debug/net8.0/RockPaperScissors.genruntimeconfig.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/obj/Debug/net8.0/ref/RockPaperScissors.dll
