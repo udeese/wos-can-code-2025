@@ -78,6 +78,6 @@ Console.WriteLine($"10 + 20 = {AddNumbers(10, 20)}"); // Output: 10 + 20 = 30
 
 var rand = new Random();
 
-rand.Next();
-rand.Next(10);
-rand.Next(5, 12);
+Console.WriteLine(rand.Next());
+Console.WriteLine(rand.Next(10));
+Console.WriteLine(rand.Next(5, 12));
