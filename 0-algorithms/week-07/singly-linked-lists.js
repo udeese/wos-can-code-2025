@@ -136,6 +136,40 @@ class SinglyLinkedList {
   }
 
   /**
+   * Removes the last node of this list.
+   * - Time: O(?).
+   * - Space: O(?).
+   * @returns {any} The data from the node that was removed.
+   */
+  removeBack() {
+    // your code here
+  }
+
+  /**
+   * Determines whether or not the given search value exists in this list.
+   * - Time: O(?).
+   * - Space: O(?).
+   * @param {any} val The data to search for in the nodes of this list.
+   * @returns {boolean}
+   */
+  contains(val) {
+    // your code here
+  }
+
+  /**
+   * Determines whether or not the given search value exists in this list.
+   * - Time: O(?).
+   * - Space: O(?).
+   * @param {any} val The data to search for in the nodes of this list.
+   * @param {?ListNode} current The current node during the traversal of this list
+   *    or null when the end of the list has been reached.
+   * @returns {boolean}
+   */
+  containsRecursive(val, current = this.head) {
+    // your code here
+  }
+
+  /**
    * Converts this list into an array containing the data of each node.
    * - Time: O(n) linear.
    * - Space: O(n).
@@ -160,31 +194,7 @@ after completing it, uncomment the code.
 */
 const emptyList = new SinglyLinkedList();
 
-const singleNodeList = new SinglyLinkedList().insertAtBackMany([1]);
-const biNodeList = new SinglyLinkedList().insertAtBackMany([1, 2]);
-const firstThreeList = new SinglyLinkedList().insertAtBackMany([1, 2, 3]);
-const secondThreeList = new SinglyLinkedList().insertAtBackMany([4, 5, 6]);
-const unorderedList = new SinglyLinkedList().insertAtBackMany([
-  -5, -10, 4, -3, 6, 1, -7, -2,
-]);
-
-/* node 4 connects to node 1, back to head */
-const perfectLoopList = new SinglyLinkedList().insertAtBackMany([1, 2, 3, 4]);
-perfectLoopList.head.next.next.next = perfectLoopList.head;
-
-/* node 4 connects to node 2 */
-const loopList = new SinglyLinkedList().insertAtBackMany([1, 2, 3, 4]);
-loopList.head.next.next.next = loopList.head.next;
-
-const sortedDupeList = new SinglyLinkedList().insertAtBackMany([
-  1, 1, 1, 2, 3, 3, 4, 5, 5,
-]);
-
-// Print your list like so:
-console.log(firstThreeList.toArr());
-
 const mySLL = new SinglyLinkedList();
-
 mySLL.insertAtBackMany([1, 2, 3, 4]);
-console.log(mySLL.average());
 console.log(emptyList.average());
+console.log(mySLL.average());
