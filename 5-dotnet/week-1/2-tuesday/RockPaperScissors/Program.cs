@@ -45,6 +45,9 @@ class Program
         // - Trim whitespace and ensure the name has at least 3 characters.
         // - If invalid, explain the rule and prompt again until valid.
         // - Return the validated username string.
+        Console.Write("What should I call you?");
+        string? username = (Console.ReadLine() ?? "").Trim();
+        Console.WriteLine($"Hello, {username}!");
         throw new NotImplementedException("Prompt for a username and validate length >= 3.");
     }
 

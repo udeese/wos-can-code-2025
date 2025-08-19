@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/cisocodes/.nuget/packages/": {}
+    "C:\\Users\\udees\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/RockPaperScissors.csproj",
+      "projectUniqueName": "C:\\Users\\udees\\wos-can-code-2025\\5-dotnet\\week-1\\2-tuesday\\RockPaperScissors\\RockPaperScissors.csproj",
       "projectName": "RockPaperScissors",
-      "projectPath": "/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/RockPaperScissors.csproj",
-      "packagesPath": "/Users/cisocodes/.nuget/packages/",
-      "outputPath": "/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/2-tuesday/RockPaperScissors/obj/",
+      "projectPath": "C:\\Users\\udees\\wos-can-code-2025\\5-dotnet\\week-1\\2-tuesday\\RockPaperScissors\\RockPaperScissors.csproj",
+      "packagesPath": "C:\\Users\\udees\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\udees\\wos-can-code-2025\\5-dotnet\\week-1\\2-tuesday\\RockPaperScissors\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/cisocodes/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\udees\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
