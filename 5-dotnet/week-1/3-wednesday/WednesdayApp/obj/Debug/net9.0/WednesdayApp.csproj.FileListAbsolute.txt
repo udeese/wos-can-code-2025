@@ -1,0 +1,15 @@
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\bin\Debug\net9.0\WednesdayApp.exe
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\bin\Debug\net9.0\WednesdayApp.deps.json
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\bin\Debug\net9.0\WednesdayApp.runtimeconfig.json
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\bin\Debug\net9.0\WednesdayApp.dll
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\bin\Debug\net9.0\WednesdayApp.pdb
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\obj\Debug\net9.0\WednesdayApp.GeneratedMSBuildEditorConfig.editorconfig
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\obj\Debug\net9.0\WednesdayApp.AssemblyInfoInputs.cache
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\obj\Debug\net9.0\WednesdayApp.AssemblyInfo.cs
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\obj\Debug\net9.0\WednesdayApp.csproj.CoreCompileInputs.cache
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\obj\Debug\net9.0\WednesdayApp.sourcelink.json
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\obj\Debug\net9.0\WednesdayApp.dll
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\obj\Debug\net9.0\refint\WednesdayApp.dll
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\obj\Debug\net9.0\WednesdayApp.pdb
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\obj\Debug\net9.0\WednesdayApp.genruntimeconfig.cache
+E:\Ciso Codes\repos\wos-can-code-2025\5-dotnet\week-1\3-wednesday\WednesdayApp\obj\Debug\net9.0\ref\WednesdayApp.dll
