@@ -26,7 +26,7 @@
 public class Car
 {
     // ===== Static members (shared by ALL cars) =====
-    // TODO-1: Make a public static int field or property named NumberOfCars, initialized to 0.
+    // TODO-1: Make a public static int field named _numberOfCars, initialized to 0.
 
     // ===== Instance state (unique per car) =====
     // TODO-2: Create a **private** backing field for current speed (e.g., `_currentSpeed`).
@@ -47,7 +47,7 @@ public class Car
     // TODO-8: `private void UpdateSpeedometer()` — temporarily just `Console.WriteLine` the speed
 
     // ===== Static method (class-level behavior) =====
-    // TODO-10: `public static void ShowTrafficReport()` — print the total NumberOfCars.
+    // TODO-10: `public static void ShowTrafficReport()` — print the total _numberOfCars.
 }
 ```
 
@@ -67,7 +67,7 @@ var c2 = new Car("Honda", "Civic");
 
 // Static: belongs to the class, not the instance
 Car.ShowTrafficReport(); // expect: Total cars on the road: 2
-// Console.WriteLine(c1.NumberOfCars); // ❌ should not compile (access static via type)
+// Console.WriteLine(c1._numberOfCars); // ❌ should not compile (access static via type)
 
 // Instance behavior
 c1.Accelerate(15);
@@ -116,10 +116,3 @@ Total cars on the road: 3
 - Where did encapsulation help us prevent bad states?
 - Which members must be instance vs which should be static?
 - How would access rules change if we changed `protected` to `internal` or `protected internal`?
-
----
-
-### Instructor Notes (you can delete this section)
-- Purposefully uncomment the error lines one at a time to show compile-time feedback.
-- Ask students: *Why is `NumberOfCars` static? What happens if it were instance-based?*
-- If time allows, pair students to implement Stretch Goal #3 and compare fleet sizes.
