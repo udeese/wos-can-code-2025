@@ -176,10 +176,15 @@ class SinglyLinkedList {
     // Your code here
     let prev = null;
     let runner = this.head;
-    let next = runner.next;
-    // in while loop:
-    // pseudocode
-    // after the while loop, set new head
+
+    while (runner) {
+      let next = runner.next;
+      runner.next = prev;
+      prev = runner;
+      runner = next;
+    }
+
+    this.head = prev;
     return this;
   }
 
@@ -202,7 +207,13 @@ class SinglyLinkedList {
 
   // TODO: Return the concatenated string of node.data from head -> tail.
   toString() {
-    // Your code here
+    let output = '';
+    let current = this.head;
+    while (current) {
+      output += current.data;
+      current = current.next;
+    }
+    return output;
   }
 }
 
@@ -211,11 +222,8 @@ Multiple test lists already constructed to test your methods on.
 Below commented code depends on insertAtBack method to be completed,
 after completing it, uncomment the code.
 */
-const emptyList = new SinglyLinkedList();
+// const emptyList = new SinglyLinkedList();
 
-const mySLL = new SinglyLinkedList();
-mySLL.insertAtBackMany([1, 2, 3, 4]);
-console.log(emptyList.average());
-console.log(mySLL.average());
+// const mySLL = new SinglyLinkedList();
 
-export { SinglyLinkedList };
+export { SinglyLinkedList, ListNode };
