@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OOPCarApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+84e1dabdc1fdea9ed4afdbd820ed530bd5d48da6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17d0cb4ce81d2796f8fe95e4f7ba8a68f0e86ff7")]
 [assembly: System.Reflection.AssemblyProductAttribute("OOPCarApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OOPCarApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

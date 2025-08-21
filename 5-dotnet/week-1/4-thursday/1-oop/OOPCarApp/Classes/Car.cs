@@ -1,13 +1,11 @@
-using System.Threading.Tasks.Dataflow;
-
 namespace OOPCarApp.Classes;
 
 class Car
 {
     // private string _make; created automagically
-    public string? Make { get; set; } // now a property
-    public string Model { get; set; } // now a property
-    public string Color { get; set; } // now a property
+    public string? Make { get; set; } // now a auto-implemented property
+    public string Model { get; set; } // now a auto-implemented property
+    public string Color { get; set; } // now a auto-implemented property
     private int _year; // backing field
 
     public string MakeModel // read only property
@@ -18,7 +16,7 @@ class Car
     public int Year
     {
         get { return _year; }
-        set
+        private set
         {
             if (value > 1885 && value < DateTime.Now.Year + 1)
             {
