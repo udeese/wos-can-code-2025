@@ -169,6 +169,20 @@ class SinglyLinkedList {
     // your code here
   }
 
+  // TODO: Reverse the list in place.
+  // Use three pointers: prev, runner, next.
+  // Return the list.
+  reverse() {
+    // Your code here
+    let prev = null;
+    let runner = this.head;
+    let next = runner.next;
+    // in while loop:
+    // pseudocode
+    // after the while loop, set new head
+    return this;
+  }
+
   /**
    * Converts this list into an array containing the data of each node.
    * - Time: O(n) linear.
@@ -185,6 +199,11 @@ class SinglyLinkedList {
     }
     return arr;
   }
+
+  // TODO: Return the concatenated string of node.data from head -> tail.
+  toString() {
+    // Your code here
+  }
 }
 
 /******************************************************************* 
@@ -198,3 +217,5 @@ const mySLL = new SinglyLinkedList();
 mySLL.insertAtBackMany([1, 2, 3, 4]);
 console.log(emptyList.average());
 console.log(mySLL.average());
+
+export { SinglyLinkedList };
