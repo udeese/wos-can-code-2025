@@ -189,6 +189,57 @@ class SinglyLinkedList {
   }
 
   /**
+   * Concatenates the nodes of a given list onto the back of this list.
+   * - Time: O(n) to reach this list's tail (0 if this list is empty).
+   * - Space: O(1).
+   * @param {SinglyLinkedList} addList An instance of a different list whose
+   *    nodes will be added to the back of this list.
+   * @returns {SinglyLinkedList} This list with the added nodes.
+   */
+  concat(addList) {
+    // your code here
+  }
+
+  /**
+   * Finds the node with the smallest data and moves that node to the front of
+   * this list.
+   * - Time: O(n).
+   * - Space: O(1).
+   * @returns {SinglyLinkedList} This list.
+   */
+  moveMinToFront() {
+    // your code here
+  }
+
+  // ============================================================
+  // STRETCH GOAL: Selection Sort (O(n^2) time, O(1) extra space)
+  // Repeatedly move the minimum of the *unsorted suffix* to the
+  // front of that suffix—exactly the selection-sort step.
+  // ============================================================
+
+  /**
+   * Helper: move the min node of the sublist starting at `start`
+   * to the front of that sublist, returning the new sublist head.
+   * - Time: O(k) where k is length of the sublist.
+   * - Space: O(1).
+   * @param {ListNode} start
+   * @returns {ListNode} new head of the sublist
+   */
+  static _moveMinToFrontFrom(start) {
+    // your code here
+  }
+
+  /**
+   * Stretch Goal: In-place selection sort for the entire list.
+   * - Time: O(n^2) (n passes, each pass scans the remaining suffix).
+   * - Space: O(1).
+   * @returns {SinglyLinkedList} This list sorted ascending.
+   */
+  selectionSort() {
+    // your code here
+  }
+
+  /**
    * Converts this list into an array containing the data of each node.
    * - Time: O(n) linear.
    * - Space: O(n).
