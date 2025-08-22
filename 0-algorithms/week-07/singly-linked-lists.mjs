@@ -197,7 +197,17 @@ class SinglyLinkedList {
    * @returns {SinglyLinkedList} This list with the added nodes.
    */
   concat(addList) {
-    // your code here
+    if (!addList || !addList.head) return this;
+    if (!this.head) {
+      this.head = addList.head;
+      addList.head = null;
+      return this;
+    }
+    let runner = this.head;
+    while (runner.next) runner = runner.next;
+    runner.next = addList.head;
+    addList.head = null;
+    return this;
   }
 
   /**
@@ -208,7 +218,26 @@ class SinglyLinkedList {
    * @returns {SinglyLinkedList} This list.
    */
   moveMinToFront() {
-    // your code here
+    if (!this.head || !this.head.next) return this;
+    let prev = null;
+    let runner = this.head;
+    let minPrev = null;
+    let minNode = this.head;
+
+    while (runner) {
+      if (runner.data < minNode.data) {
+        minNode = runner;
+        minPrev = prev;
+      }
+      prev = runner;
+      runner = runner.next;
+    }
+
+    if (minNode === this.head) return this;
+    minPrev.next = minNode.next;
+    minNode.next = this.head;
+    this.head = minNode;
+    return this;
   }
 
   // ============================================================
@@ -226,7 +255,23 @@ class SinglyLinkedList {
    * @returns {ListNode} new head of the sublist
    */
   static _moveMinToFrontFrom(start) {
-    // your code here
+    if (!start || !start.next) return start;
+    let prev = null;
+    let runner = start;
+    let minPrev = null;
+    let minNode = start;
+    while (runner) {
+      if (runner.data < minNode.data) {
+        minNode = runner;
+        minPrev = prev;
+      }
+      prev = runner;
+      runner = runner.next;
+    }
+    if (minNode === start) return start;
+    minPrev.next = minNode.next;
+    minNode.next = start;
+    return minNode;
   }
 
   /**
@@ -236,7 +281,20 @@ class SinglyLinkedList {
    * @returns {SinglyLinkedList} This list sorted ascending.
    */
   selectionSort() {
-    // your code here
+    if (!this.head || !this.head.next) return this;
+    let sortedTail = null;
+    let unsortedHead = this.head;
+    while (unsortedHead) {
+      unsortedHead = SinglyLinkedList._moveMinToFrontFrom(unsortedHead);
+      if (!sortedTail) {
+        this.head = unsortedHead;
+      } else {
+        sortedTail.next = unsortedHead;
+      }
+      sortedTail = unsortedHead;
+      unsortedHead = unsortedHead.next;
+    }
+    return this;
   }
 
   /**
