@@ -197,7 +197,13 @@ class SinglyLinkedList {
    * @returns {SinglyLinkedList} This list with the added nodes.
    */
   concat(addList) {
-    // your code here
+    runner = this.head;
+    while(runner.next) {
+      runner = runner.next
+    }
+
+    runner.next = addList.head;
+    return this;
   }
 
   /**
@@ -275,6 +281,8 @@ after completing it, uncomment the code.
 */
 // const emptyList = new SinglyLinkedList();
 
-// const mySLL = new SinglyLinkedList();
+const mySLL = new SinglyLinkedList();
+const mySLL2 = new SinglyLikedList();
 
 export { SinglyLinkedList, ListNode };
+console.log(mySLL.addList())
