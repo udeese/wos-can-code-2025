@@ -1,8 +1,9 @@
 ﻿using OopInheritanceAndPolymorphismApp.Classes;
+using OopInheritanceAndPolymorphismApp.Interfaces;
 
-var myCar = new Car("Jeep", "Wrangler", 2021, 2);
+// var myCar = new Car("Jeep", "Wrangler", 2021, 2);
 
-var myMotorcycle = new Motorcycle("Honda", "Rebel", 2015, true);
+// var myMotorcycle = new Motorcycle("Honda", "Rebel", 2015, true);
 
 // myCar.Honk();
 // myCar.Start();
@@ -17,35 +18,47 @@ var myMotorcycle = new Motorcycle("Honda", "Rebel", 2015, true);
 
 // var myShape = new Shape("Green"); // COMPILE-TIME ERROR: Cannot create an instance of the abstract type or interface 'Shape'
 
-var myCircle = new Circle("Blue", 5);
-var myRectangle = new Rectangle("Red", 4, 6);
+// var myCircle = new Circle("Blue", 5);
+// var myRectangle = new Rectangle("Red", 4, 6);
 
-Console.WriteLine("--- Shape Information ---");
-myCircle.DisplayColor(); // Inherited concrete method
-Console.WriteLine($"Circle Area: {myCircle.GetArea()}"); // Calls overridden abstract method
-myCircle.Draw(); // Calls overridden abstract method
+// Console.WriteLine("--- Shape Information ---");
+// myCircle.DisplayColor(); // Inherited concrete method
+// Console.WriteLine($"Circle Area: {myCircle.GetArea()}"); // Calls overridden abstract method
+// myCircle.Draw(); // Calls overridden abstract method
 
-Console.WriteLine();
+// Console.WriteLine();
 
-myRectangle.DisplayColor(); // Inherited concrete method
-Console.WriteLine($"Rectangle Area: {myRectangle.GetArea()}"); // Calls overridden abstract method
-myRectangle.Draw(); // Calls overridden abstract method
+// myRectangle.DisplayColor(); // Inherited concrete method
+// Console.WriteLine($"Rectangle Area: {myRectangle.GetArea()}"); // Calls overridden abstract method
+// myRectangle.Draw(); // Calls overridden abstract method
 
-Console.WriteLine("\n--- Polymorphism with Abstract Base Class ---");
+// Console.WriteLine("\n--- Polymorphism with Abstract Base Class ---");
 
 // We can store concrete derived classes in a list of the abstract base class
-var shapes = new List<Shape>
-{
-    myCircle,
-    myRectangle,
-    new Circle("Yellow", 3), // Add another circle
-    new Rectangle("Purple", 2, 8), // Add another rectangle
-};
+// var shapes = new List<Shape>
+// {
+//     myCircle,
+//     myRectangle,
+//     new Circle("Yellow", 3), // Add another circle
+//     new Rectangle("Purple", 2, 8), // Add another rectangle
+// };
 
-foreach (Shape shape in shapes)
+// foreach (Shape shape in shapes)
+// {
+//     Console.WriteLine($"\nProcessing a {shape.Color} shape:");
+//     shape.DisplayColor(); // Calls inherited concrete method
+//     Console.WriteLine($"Calculated Area: {shape.GetArea()}"); // Polymorphic call to overridden abstract method
+//     shape.Draw(); // Polymorphic call to overridden abstract method
+// }
+
+var myHero = new Hero("Knight", "Warrior", 100, 20);
+var goblin = new Monster("Goblin", 50, 10);
+var dragon = new Monster("Dragon", 500, 50);
+
+var combatants = new List<IAttackable> { myHero, goblin, dragon };
+
+Console.WriteLine("--- Combatant Status Report ---");
+foreach (IAttackable combatant in combatants)
 {
-    Console.WriteLine($"\nProcessing a {shape.Color} shape:");
-    shape.DisplayColor(); // Calls inherited concrete method
-    Console.WriteLine($"Calculated Area: {shape.GetArea()}"); // Polymorphic call to overridden abstract method
-    shape.Draw(); // Polymorphic call to overridden abstract method
+    combatant.DisplayStatus(); // Polymorphic call: calls Hero's or Monster's DisplayStatus
 }

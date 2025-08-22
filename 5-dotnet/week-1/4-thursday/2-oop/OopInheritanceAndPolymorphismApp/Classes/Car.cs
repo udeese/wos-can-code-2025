@@ -12,6 +12,7 @@ class Car : Vehicle // Car inherits from Vehicle
         Console.WriteLine("Car constructor called.");
     }
 
+    // void Start() method signature
     public override void Start() // 'override' provides a new implementation
     {
         Console.WriteLine($"{Make} {Model} starts with a smooth purr.");

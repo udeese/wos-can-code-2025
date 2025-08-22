@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OopInheritanceAndPolymorphismApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca645a8c536f71d1e925d73e68801ec8d92bab87")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fae42b7207273db7cfda6ce24a91edb8c24c734b")]
 [assembly: System.Reflection.AssemblyProductAttribute("OopInheritanceAndPolymorphismApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OopInheritanceAndPolymorphismApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
