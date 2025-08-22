@@ -197,12 +197,13 @@ class SinglyLinkedList {
    * @returns {SinglyLinkedList} This list with the added nodes.
    */
   concat(addList) {
-    runner = this.head;
+    let runner = this.head;
     while(runner.next) {
       runner = runner.next
     }
 
     runner.next = addList.head;
+    console.log(this.toArr());
     return this;
   }
 
@@ -214,7 +215,25 @@ class SinglyLinkedList {
    * @returns {SinglyLinkedList} This list.
    */
   moveMinToFront() {
-    // your code here
+    let runner = this.head;
+    let minNode = this.head;
+    let prev = null;
+    let minPrev = null;
+
+    while (runner) {
+      if (runner.data < minNode.data) {
+        minNode = runner;
+        minPrev = prev;
+      }
+      prev = runner;
+      runner = runner.next;
+    }
+
+    if (minPrev === null)
+      return this;
+    minPrev.next = minNode.next;
+    this.insertAtFront(minNode.data);
+    return this;
   }
 
   // ============================================================
@@ -232,7 +251,11 @@ class SinglyLinkedList {
    * @returns {ListNode} new head of the sublist
    */
   static _moveMinToFrontFrom(start) {
-    // your code here
+    const subList = new SinglyLinkedList();
+    subList.head = start;
+    subList.moveMinToFront();
+
+    return subList.head;
   }
 
   /**
@@ -242,7 +265,13 @@ class SinglyLinkedList {
    * @returns {SinglyLinkedList} This list sorted ascending.
    */
   selectionSort() {
-    // your code here
+    let runner = this.head;
+    while (runner) {
+      const newHead = this._moveMinToFrontFrom(runner);
+      runner = newHead.next;
+    }
+
+    return this;
   }
 
   /**
@@ -281,7 +310,7 @@ after completing it, uncomment the code.
 */
 // const emptyList = new SinglyLinkedList();
 
-// const mySLL = new SinglyLinkedList();
+const mySLL = new SinglyLinkedList();
 // const mySLL2 = new SinglyLikedList();
 
 // ===================== TEST SUITE =====================
@@ -331,56 +360,57 @@ test('Concat: non-empty <- empty', () => {
   a.insertAtBack(10).insertAtBack(20);
   const b = new SinglyLinkedList();
   a.concat(b);
+  console.log(a.toArr(), "test");
   assertArrayEq(a.toArr(), [10, 20], 'concat no-op');
   assertArrayEq(b.toArr(), [], 'empty addList unchanged');
 });
 
-// // --- moveMinToFront ---
-// test('moveMinToFront: min already at front', () => {
-//   const s = new SinglyLinkedList();
-//   s.insertAtBack(1).insertAtBack(50).insertAtBack(100);
-//   s.moveMinToFront();
-//   assertArrayEq(s.toArr(), [1, 50, 100], 'no change');
-// });
+// --- moveMinToFront ---
+test('moveMinToFront: min already at front', () => {
+  const s = new SinglyLinkedList();
+  s.insertAtBack(1).insertAtBack(50).insertAtBack(100);
+  s.moveMinToFront();
+  assertArrayEq(s.toArr(), [1, 50, 100], 'no change');
+});
 
-// test('moveMinToFront: min in middle', () => {
-//   const s = new SinglyLinkedList();
-//   s.insertAtBack(50).insertAtBack(10).insertAtBack(70);
-//   s.moveMinToFront();
-//   assertArrayEq(s.toArr(), [10, 50, 70], 'min to front');
-// });
+test('moveMinToFront: min in middle', () => {
+  const s = new SinglyLinkedList();
+  s.insertAtBack(50).insertAtBack(10).insertAtBack(70);
+  s.moveMinToFront();
+  assertArrayEq(s.toArr(), [10, 50, 70], 'min to front');
+});
 
-// test('moveMinToFront: min at end', () => {
-//   const s = new SinglyLinkedList();
-//   s.insertAtBack(100).insertAtBack(90).insertAtBack(5);
-//   s.moveMinToFront();
-//   assertArrayEq(s.toArr(), [5, 100, 90], 'min to front');
-// });
+test('moveMinToFront: min at end', () => {
+  const s = new SinglyLinkedList();
+  s.insertAtBack(100).insertAtBack(90).insertAtBack(5);
+  s.moveMinToFront();
+  assertArrayEq(s.toArr(), [5, 100, 90], 'min to front');
+});
 
-// // --- selectionSort (stretch) ---
-// test('selectionSort: random order', () => {
-//   const s = new SinglyLinkedList();
-//   [50, 10, 70, 20].forEach((v) => s.insertAtBack(v));
-//   s.selectionSort();
-//   assertArrayEq(s.toArr(), [10, 20, 50, 70], 'sorted ascending');
-// });
+// --- selectionSort (stretch) ---
+test('selectionSort: random order', () => {
+  const s = new SinglyLinkedList();
+  [50, 10, 70, 20].forEach((v) => s.insertAtBack(v));
+  s.selectionSort();
+  assertArrayEq(s.toArr(), [10, 20, 50, 70], 'sorted ascending');
+});
 
-// test('selectionSort: already sorted', () => {
-//   const s = new SinglyLinkedList();
-//   [1, 2, 3, 4].forEach((v) => s.insertAtBack(v));
-//   s.selectionSort();
-//   assertArrayEq(s.toArr(), [1, 2, 3, 4], 'unchanged');
-// });
+test('selectionSort: already sorted', () => {
+  const s = new SinglyLinkedList();
+  [1, 2, 3, 4].forEach((v) => s.insertAtBack(v));
+  s.selectionSort();
+  assertArrayEq(s.toArr(), [1, 2, 3, 4], 'unchanged');
+});
 
-// test('selectionSort: reverse order', () => {
-//   const s = new SinglyLinkedList();
-//   [5, 4, 3, 2, 1].forEach((v) => s.insertAtBack(v));
-//   s.selectionSort();
-//   assertArrayEq(s.toArr(), [1, 2, 3, 4, 5], 'sorted ascending');
-// });
+test('selectionSort: reverse order', () => {
+  const s = new SinglyLinkedList();
+  [5, 4, 3, 2, 1].forEach((v) => s.insertAtBack(v));
+  s.selectionSort();
+  assertArrayEq(s.toArr(), [1, 2, 3, 4, 5], 'sorted ascending');
+});
 
-// // --- summary ---
-// console.log(`\n${PASSED}/${TOTAL} tests passed`);
+// --- summary ---
+console.log(`\n${PASSED}/${TOTAL} tests passed`);
 
 export { SinglyLinkedList, ListNode };
-console.log(mySLL.addList())
+// console.log(mySLL.addList())
