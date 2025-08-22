@@ -1,0 +1,15 @@
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/bin/Debug/net8.0/OopInheritanceAndPolymorphismApp
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/bin/Debug/net8.0/OopInheritanceAndPolymorphismApp.deps.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/bin/Debug/net8.0/OopInheritanceAndPolymorphismApp.runtimeconfig.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/bin/Debug/net8.0/OopInheritanceAndPolymorphismApp.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/bin/Debug/net8.0/OopInheritanceAndPolymorphismApp.pdb
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/obj/Debug/net8.0/OopInheritanceAndPolymorphismApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/obj/Debug/net8.0/OopInheritanceAndPolymorphismApp.AssemblyInfoInputs.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/obj/Debug/net8.0/OopInheritanceAndPolymorphismApp.AssemblyInfo.cs
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/obj/Debug/net8.0/OopInheritanceAndPolymorphismApp.csproj.CoreCompileInputs.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/obj/Debug/net8.0/OopInheritanceAndPolymorphismApp.sourcelink.json
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/obj/Debug/net8.0/OopInheritanceAndPolymorphismApp.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/obj/Debug/net8.0/refint/OopInheritanceAndPolymorphismApp.dll
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/obj/Debug/net8.0/OopInheritanceAndPolymorphismApp.pdb
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/obj/Debug/net8.0/OopInheritanceAndPolymorphismApp.genruntimeconfig.cache
+/Users/cisocodes/Desktop/2025-wos/5-dotnet/week-1/4-thursday/2-oop/OopInheritanceAndPolymorphismApp/obj/Debug/net8.0/ref/OopInheritanceAndPolymorphismApp.dll
