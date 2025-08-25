@@ -36,11 +36,13 @@ class BinarySearchTree {
    * @returns {BSTNode} The updated subtree root.
    */
   #insertRec(node, value) {
-    // TODO: If node is null, return new BSTNode(value).
     if (node === null) return new BSTNode(value);
-    // Otherwise compare and assign: node.left = #insertRec(node.left, value)
-    // or node.right = #insertRec(node.right, value).
-    throw new Error('not implemented');
+    if (value < node.value) {
+      node.left = this.#insertRec(node.left, value);
+    } else if (value > node.value) {
+      node.right = this.#insertRec(node.right, value);
+    }
+    return node;
   }
 
   /**
@@ -59,8 +61,11 @@ class BinarySearchTree {
    * @returns {boolean}
    */
   #containsRec(node, value) {
-    // TODO: Standard BST search recursion.
-    throw new Error('not implemented');
+    if (node === null) return false;
+    if (value === node.value) return true;
+    return value < node.value
+      ? this.#containsRec(node.left, value)
+      : this.#containsRec(node.right, value);
   }
 
   /**
