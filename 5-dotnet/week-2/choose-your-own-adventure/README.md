@@ -65,10 +65,4 @@ public IActionResult Choice(string direction)
 ## Extra Challenges
 
 - Add more complex branching paths with multiple choices.
-- Use query parameters or form submissions instead of route parameters.
-- Store the user's choices in session or cookies to create a persistent adventure.
-- Add images or sounds to enhance the storytelling experience.
-
-## Debrief
-
-This activity helps you practice attribute-based routing, a powerful feature in ASP.NET Core MVC that allows you to precisely control URL patterns and map them to controller actions. By building a "Choose Your Own Adventure" app, you learn how to create dynamic, interactive web applications that respond to user input through URL routes.
+- Use query parameters instead of route parameters.
