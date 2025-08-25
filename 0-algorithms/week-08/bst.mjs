@@ -37,6 +37,7 @@ class BinarySearchTree {
    */
   #insertRec(node, value) {
     // TODO: If node is null, return new BSTNode(value).
+    if (node === null) return new BSTNode(value);
     // Otherwise compare and assign: node.left = #insertRec(node.left, value)
     // or node.right = #insertRec(node.right, value).
     throw new Error('not implemented');
