@@ -66,7 +66,7 @@ class Program
         }
         // - Return the validated username string.
         Console.Write("What should I call you?");
-        string? username = (Console.ReadLine() ?? "").Trim();
+        // string? username = (Console.ReadLine() ?? "").Trim();
         Console.WriteLine($"Hello, {username}!");
         throw new NotImplementedException("Prompt for a username and validate length >= 3.");
     }
