@@ -59,7 +59,7 @@ namespace MvcApp.Models
 ### 2) Strongly‑Typed View
 
 - Create a view at `Views/Bugs/Index.cshtml`.
-- Make it **strongly‑typed**: `@model List<MvcApp.Models.Bug>`
+- Make it **strongly‑typed**: `@model List<Bug>`
 - Display at the top:
   - An `<h1>` using `@ViewData["Title"]`
   - A subtitle paragraph using `@ViewBag.Subtitle`
