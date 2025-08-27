@@ -56,3 +56,28 @@ describe('traversals', () => {
     expect(bst.postOrder()).toEqual([1, 4, 7, 6, 3, 13, 14, 10, 8]);
   });
 });
+
+describe('height', () => {
+  let bst = new BinarySearchTree();
+  seed.forEach((v) => bst.insert(v));
+
+  it('computes height (0 for empty, === 4 once seeded)', () => {
+    const empty = new BinarySearchTree();
+    expect(empty.height()).toBe(0);
+    expect(bst.height()).toBe(4);
+  });
+});
+
+describe('isValidBST', () => {
+  let bst = new BinarySearchTree();
+  seed.forEach((v) => bst.insert(v));
+
+  it('validates BST invariant', () => {
+    expect(bst.isValidBST()).toBe(true);
+
+    // Break the invariant
+    const root = bst.root;
+    root.left.right.left.value = 9;
+    expect(bst.isValidBST()).toBe(false);
+  });
+});

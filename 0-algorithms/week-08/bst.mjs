@@ -190,7 +190,6 @@ class BinarySearchTree {
    */
   #heightRec(node) {
     // TODO: Implement standard height recursion.
-    throw new Error('not implemented');
   }
 
   /**
