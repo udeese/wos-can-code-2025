@@ -189,7 +189,10 @@ class BinarySearchTree {
    * @returns {number}
    */
   #heightRec(node) {
-    // TODO: Implement standard height recursion.
+    if (!node) return 0;
+    const leftHeight = this.#heightRec(node.left);
+    const rightHeight = this.#heightRec(node.right);
+    return 1 + Math.max(leftHeight, rightHeight);
   }
 
   /**
@@ -209,7 +212,15 @@ class BinarySearchTree {
    */
   #isValidBSTRec(node, min, max) {
     // TODO: Return false if node.value ≤ min or ≥ max; recurse with updated bounds.
-    throw new Error('not implemented');
+    if (node === null) return true;
+    if (node.value <= min || node.value >= max) {
+      return false;
+    }
+
+    const leftIsValid = this.#isValidBSTRec(node.left, min, node.value);
+    const rightIsValid = this.#isValidBSTRec(node.right, node.value, max);
+
+    return leftIsValid && rightIsValid;
   }
 
   /**
