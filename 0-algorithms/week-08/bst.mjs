@@ -17,6 +17,14 @@ class BinarySearchTree {
   }
 
   /**
+   * Checks whether the Binary Search Tree is empty.
+   * @returns {boolean} True if the tree has no nodes, false otherwise.
+   */
+  isEmpty() {
+    return this.root === null;
+  }
+
+  /**
    * Recursively inserts a value into the BST while maintaining the BST invariant.
    *
    * Duplicate policy: If the value is already present in the tree, this method
@@ -73,8 +81,12 @@ class BinarySearchTree {
    * @returns {number|null} The minimum value, or null if the tree is empty.
    */
   min() {
-    // TODO: Walk left from root until null; return the last node's value.
-    throw new Error('not implemented');
+    if (this.isEmpty()) return null;
+    let runner = this.root;
+    while (runner.left) {
+      runner = runner.left;
+    }
+    return runner.value;
   }
 
   /**
@@ -82,8 +94,12 @@ class BinarySearchTree {
    * @returns {number|null} The maximum value, or null if the tree is empty.
    */
   max() {
-    // TODO: Walk right from root until null; return the last node's value.
-    throw new Error('not implemented');
+    if (this.isEmpty()) return null;
+    let runner = this.root;
+    while (runner.right) {
+      runner = runner.right;
+    }
+    return runner.value;
   }
 
   /**
@@ -104,8 +120,10 @@ class BinarySearchTree {
    * @returns {void}
    */
   #inOrderRec(node, out) {
-    // TODO: Traverse left, push node.value, traverse right.
-    throw new Error('not implemented');
+    if (node === null) return out;
+    this.#inOrderRec(node.left, out);
+    out.push(node.value);
+    this.#inOrderRec(node.right, out);
   }
 
   /**
@@ -126,8 +144,10 @@ class BinarySearchTree {
    * @returns {void}
    */
   #preOrderRec(node, out) {
-    // TODO: Push node.value, then traverse left and right.
-    throw new Error('not implemented');
+    if (node === null) return out;
+    out.push(node.value);
+    this.#preOrderRec(node.left, out);
+    this.#preOrderRec(node.right, out);
   }
 
   /**
@@ -148,8 +168,10 @@ class BinarySearchTree {
    * @returns {void}
    */
   #postOrderRec(node, out) {
-    // TODO: Traverse left and right, then push node.value.
-    throw new Error('not implemented');
+    if (node === null) return out;
+    this.#postOrderRec(node.left, out);
+    this.#postOrderRec(node.right, out);
+    out.push(node.value);
   }
 
   /**
@@ -168,7 +190,6 @@ class BinarySearchTree {
    */
   #heightRec(node) {
     // TODO: Implement standard height recursion.
-    throw new Error('not implemented');
   }
 
   /**

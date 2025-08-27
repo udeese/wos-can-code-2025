@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "About Us";
+    var username = "Kermit the Frog";
+}
+
+<h1>Hello and welcome to the about us page.</h1>
+<h2>Welcome back, @username!</h2>
+
+<p>The result of 2 + 2 is @(2 + 2)</p>
+
+@{
+    // You can have multiple code blocks
+    int bonusPoints = 50;
+    Console.WriteLine($"Debugging from Razor: Bonus points are {bonusPoints}");
+}
+
+<p>Bonus value: @bonusPoints</p>

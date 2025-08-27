@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Loops";
+    var colors = new List<string> { "purple", "blue", "green", "yellow", "red" };
+}
+
+<h1>Loops</h1>
+
+<h3>Traditional for loop</h3>
+@for (int i = 0; i < colors.Count; i++)
+{
+    <p>@colors[i]</p>
+}
+
+<h3>For each loop</h3>
+@foreach (var color in colors)
+{
+    <p>@color</p>
+}
