@@ -35,3 +35,5 @@ console.log(`isValidBST: ${bst.isValidBST()} should equal false`);
 
 // repair invariant
 root.left.right.left.value = 4;
+
+console.log(bst.height());
