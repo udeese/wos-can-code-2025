@@ -21,6 +21,7 @@
 <p>Last Login: @ViewBag.LastLoginDate</p>
 
 <h2>Product Details</h2>
+<p>Available Product Count: @Model.AvailableProductsCount</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem; 1fr));">
     @foreach (var product in products)
     {

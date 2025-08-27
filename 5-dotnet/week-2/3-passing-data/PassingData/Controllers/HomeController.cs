@@ -56,6 +56,7 @@ public class HomeController : Controller
         };
 
         var vm = new ProductPageViewModel { Products = [product, product2] };
+        vm.AvailableProductsCount = vm.Products.Count((product) => product.IsAvailable);
         return View(vm);
     }
 
