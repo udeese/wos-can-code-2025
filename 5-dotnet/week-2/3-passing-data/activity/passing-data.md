@@ -1,60 +1,140 @@
-# Activity: Passing Data in MVC
+# Activity: Bug Board — Passing Data in MVC
 
-In this activity, your group will explore how to pass data from a controller to a view using **ViewData**, **ViewBag**, and a **strongly-typed model**.
+In this activity, your group will build a single page of a mini **Bug Tracker** called **Bug Board**. You’ll practice passing data from a controller to a view using **ViewData**, **ViewBag**, and a **strongly‑typed model**. You’ll also practice **conditional rendering** and (bonus) a **partial view** per list item.
 
-Each group should consist of three students. Divide up the tasks so that each member contributes to a different piece of the puzzle.
+Each group has **three students**. Suggested roles:
+
+- **Modeler** — ensures model compiles, advises on properties (we provide the class code below).
+- **Controller** — seeds data and passes it to the view, sets ViewData / ViewBag.
+- **Viewsmith** — builds the strongly‑typed view, conditional UI, and bonus partial.
+
+---
+
+## Provided Model (copy into `Models/Bug.cs`)
+
+> ✅ You may paste this verbatim. All other sections below should be implemented without copying full solutions—follow the requirements and hints.
+
+```csharp
+namespace MvcApp.Models
+{
+    public enum Severity { Low, Medium, High, Critical }
+
+    public class Bug
+    {
+        public int Id { get; set; }
+        public string Title { get; set; } = "";
+        public Severity Severity { get; set; }
+        public bool IsOpen { get; set; }
+        public string? Owner { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    }
+}
+```
 
 ---
 
 ## Requirements
 
-### 1. Use ViewData and ViewBag
+### 1) Controller & Routing
 
-- Add at least one value to **ViewData** in your controller.
-- Add at least one value to **ViewBag** in your controller.
-- Display both values in your view.
-  _Hint: These are great for page titles, subtitles, or other bits of metadata._
+- Create a controller named **`BugsController`** with an action **`Index()`** that returns a view.
+- Inside `Index()`:
+  - **Seed a list** of at least **5** `Bug` objects with a variety of values:
+    - Mix of `Severity` values (`Low`, `Medium`, `High`, `Critical`)
+    - Mix of `IsOpen` being `true` and `false`
+    - Some with `Owner`, at least one **unassigned** (`Owner = null`)
+  - Set the following:
+    - `ViewData["Title"] = "Bug Board"`
+    - `ViewBag.Subtitle = "Sprint Triage"`
+    - `ViewData["OpenCount"] =` (the number of bugs where `IsOpen` is true)
+  - **Pass** the list to the view using `return View(yourList);`
 
-### 2. Create a Model for a Strongly-Typed View
+**Hints**
 
-- Define a simple model class (e.g., `Bug`, `Task`, `Movie`, `Product`, etc.).
-- Include at least 3–4 properties.
-  _Hint: Use a mix of string, number, or boolean properties._
-
-### 3. Instantiate the Model in the Controller
-
-- In your controller action, create a **list** of model objects.
-- Pass this list to your view using `return View(modelList);`.
-
-### 4. Display the Model in the View
-
-- Make the view strongly typed with `@model List<YourModel>`.
-- Use a `foreach` loop to render the list items.
-- Include **conditional rendering** for one property.
-  _Hint: Example – show a “Completed” badge if a task is done, or highlight an item if it meets a condition._
+- _Think in terms of “page metadata” (title, subtitle, counts) for `ViewData` / `ViewBag`._
+- _If you’re unsure how to count open bugs, look up LINQ methods like `Count` with a predicate._
 
 ---
 
-## Bonus
+### 2) Strongly‑Typed View
 
-### Partial View
+- Create a view at `Views/Bugs/Index.cshtml`.
+- Make it **strongly‑typed**: `@model List<MvcApp.Models.Bug>`
+- Display at the top:
+  - An `<h1>` using `@ViewData["Title"]`
+  - A subtitle paragraph using `@ViewBag.Subtitle`
+  - A short line: `X open bugs` using `ViewData["OpenCount"]`
+- Render the **list of bugs** using a `foreach` loop.
 
-- Extract the markup for a single list item into a **partial view**.
-- Update your main view to render each item by calling the partial view.
+**Conditional Rendering (must-have)**
+
+- Show a visible **status badge**:
+  - If `IsOpen == true` → show **OPEN**
+  - Else → show **FIXED**
+- Visually **emphasize critical/high** bugs (e.g., extra border, icon, bold text).
+- For **unassigned** bugs (`Owner == null`), display something like **“Unassigned”**.
+
+**Hints**
+
+- _Use simple class names like `bug critical open` to style via CSS or Bootstrap utilities._
+- _You can compute small helper strings inside Razor, e.g., `var sev = bug.Severity.ToString().ToLower();`_
 
 ---
 
-## Styling
+### 3) Styling (choose one)
 
-- You may use **Bootstrap** for quick styling, or create your own **custom CSS**.
-- Consider adding classes for conditional states (e.g., “open/closed”, “high/low priority”).
+- **Bootstrap** (recommended for speed): use utility classes for badges, borders, and spacing.
+- **Custom CSS**: add a small `<style>` block in the view or a scoped stylesheet.
+
+**Minimum styling**: list items should be visually distinct (spacing, border/background) and the status badge should be easy to spot.
+
+**Hints**
+
+- _Bootstrap: `badge`, `text-bg-danger`, `border`, `rounded`, `mb-2` can go a long way._
+- _Custom CSS: define `.bug-list`, `.bug`, `.badge`, `.critical`, `.high`, `.open`, `.closed`._
 
 ---
 
-## Deliverables
+## Bonus (Partial View)
 
-By the end of the activity, your group should have:
+### 4) Partial per List Item
 
-- A controller action that sets **ViewData**, **ViewBag**, and passes a **list of models**.
-- A **strongly-typed view** that displays the list with conditional rendering.
-- (Bonus) A **partial view** for rendering individual items.
+- Create a partial view named **`_BugItem.cshtml`** in `Views/Bugs/`.
+- The partial should be **strongly‑typed** to a single `Bug`.
+- Move the **markup for a single list item** from `Index.cshtml` into this partial.
+- In `Index.cshtml`, replace the inline markup with a call to the partial for each item.
+
+**Hints**
+
+- _Signature: `@model MvcApp.Models.Bug` inside the partial._
+- _Call from parent view with `@await Html.PartialAsync("_BugItem", bug)` or `@Html.Partial("_BugItem", bug)`._
+
+---
+
+## Deliverables Checklist
+
+Your submission should include:
+
+- [ ] `Models/Bug.cs` present (as provided) and compiled.
+- [ ] `BugsController.Index()` seeds **≥ 5** diverse `Bug` instances and passes the list to the view.
+- [ ] Uses **both** `ViewData` and `ViewBag` (with the keys above).
+- [ ] `Views/Bugs/Index.cshtml` is **strongly‑typed** to `List<Bug>`.
+- [ ] View displays title, subtitle, and open bug count from `ViewData` / `ViewBag`.
+- [ ] List renders with **conditional** elements (OPEN/FIXED, severity emphasis, Unassigned fallback).
+- [ ] **Styling** present (Bootstrap or custom) that clearly differentiates items and states.
+- [ ] (**Bonus**) `_BugItem.cshtml` partial created and used to render each item.
+
+---
+
+## Stretch (optional if you finish early)
+
+- Add a query string filter `?openOnly=true` that shows only open bugs.
+- Sort bugs by severity, then by `CreatedAt`.
+- Add a small legend showing what each severity means.
+
+---
+
+## What to Submit
+
+- A short README note or comment in the controller describing **who did what** (roles).
+- Screenshots of the **Bug Board** page demonstrating conditional rendering (one open, one fixed, one unassigned, one critical).

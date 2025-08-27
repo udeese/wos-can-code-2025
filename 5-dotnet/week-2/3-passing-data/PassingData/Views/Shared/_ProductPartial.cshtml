@@ -1,0 +1,13 @@
+@model Product
+@{
+    var product = Model;
+}
+
+<div class="card shadow">
+    <div class="card-body">
+        <p>ID: @product.Id</p>
+        <p>Price: @product.Price.ToString("C")</p> @* Use ToString("C") for currency formatting *@
+        <p>Status: @(product.IsAvailable ? "In Stock" : "Out of Stock")</p>
+        <p>Description: @product.Description</p>
+    </div>
+</div>
