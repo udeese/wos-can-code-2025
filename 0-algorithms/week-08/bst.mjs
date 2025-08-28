@@ -238,29 +238,15 @@ class BinarySearchTree {
    * @returns {BSTNode|null}
    */
   #removeRec(node, value) {
-    // TODO: Standard delete logic; on two-children case, find inorder successor via #minNode(node.right).
-    throw new Error('not implemented');
-  }
-
-  /**
-   * Finds the inorder successor (the next larger value) of a given value in the BST.
-   * @param {number} value - The reference value whose successor is sought.
-   * @returns {number|null} The next larger value, or null if none exists.
-   */
-  findSuccessor(value) {
-    // Option B: Walk from root tracking the last greater ancestor.
-    return this.#findSuccessorFromRoot(this.root, value);
-  }
-
-  /**
-   * Finds successor by walking from the root and tracking candidate.
-   * @param {BSTNode|null} root
-   * @param {number} value
-   * @returns {number|null}
-   */
-  #findSuccessorFromRoot(root, value) {
-    // TODO: While current exists, update candidate when going left on current.value > value.
-    throw new Error('not implemented');
+    // TODO: Standard delete logic.
+    // handle case where value does not exist
+    // if value is less than current node's value, recurse left
+    // if value is greater than current node's value, recurse right
+    // if value is equal to current node's value, we found the node
+    // Scenarios:
+    // 0 children: set parent's pointer to null
+    // 1 child: replace with only child
+    // 2 children: replace with in order successor (min of right subtree)
   }
 
   /**
@@ -270,7 +256,7 @@ class BinarySearchTree {
    */
   #minNode(node) {
     // TODO: Walk left until null.
-    throw new Error('not implemented');
+    // not walking from root, we're walking from given node
   }
 
   /**
