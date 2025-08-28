@@ -247,6 +247,24 @@ class BinarySearchTree {
     // 0 children: set parent's pointer to null
     // 1 child: replace with only child
     // 2 children: replace with in order successor (min of right subtree)
+    if (node === null) return null;
+    if (value < node.value) {
+      node.left = this.#removeRec(node.left, value);
+    } else if (value > node.value) {
+      node.right = this.#removeRec(node.right, value);
+    } else {
+      if ((node.left === null) && (node.right === null)) {
+        return null;
+      } else if ((node.left != null && (node.right === null))) { 
+        return node.left;
+      } else if ((node.right != null && (node.left === null))) {
+        return node.right;
+      } else {
+        node.value = this.#minNode(node.right).value;
+        // node.right = this.#removeRec()
+        return node;
+      }
+    }
   }
 
   /**
@@ -257,6 +275,11 @@ class BinarySearchTree {
   #minNode(node) {
     // TODO: Walk left until null.
     // not walking from root, we're walking from given node
+    let currentNode = node;
+    while (currentNode.left !== null) {
+      currentNode = currentNode.left;
+    }
+    return currentNode;
   }
 
   /**

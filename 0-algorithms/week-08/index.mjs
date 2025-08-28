@@ -37,3 +37,6 @@ console.log(`isValidBST: ${bst.isValidBST()} should equal false`);
 root.left.right.left.value = 4;
 
 console.log(bst.height());
+
+console.log(bst.remove(1));
+bst.prettyPrint;
