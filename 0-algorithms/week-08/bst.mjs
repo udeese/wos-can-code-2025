@@ -211,7 +211,6 @@ class BinarySearchTree {
    * @returns {boolean}
    */
   #isValidBSTRec(node, min, max) {
-    // TODO: Return false if node.value ≤ min or ≥ max; recurse with updated bounds.
     if (node === null) return true;
     if (node.value <= min || node.value >= max) {
       return false;
@@ -242,13 +241,30 @@ class BinarySearchTree {
   #removeRec(node, value) {
     // TODO: Standard delete logic.
     // handle case where value does not exist
+    if (node === null) return null;
     // if value is less than current node's value, recurse left
+    if (value < node.value) {
+      node.left = this.#removeRec(node.left, value);
+      return node;
+    }
     // if value is greater than current node's value, recurse right
+    else if (value > node.value) {
+      node.right = this.#removeRec(node.right, value);
+      return node;
+    }
     // if value is equal to current node's value, we found the node
-    // Scenarios:
-    // 0 children: set parent's pointer to null
-    // 1 child: replace with only child
-    // 2 children: replace with in order successor (min of right subtree)
+    else {
+      // 0 children: set parent's pointer to null
+      if (!node.left && !node.right) return null;
+      // 1 child: replace with only child
+      if (!node.left) return node.right;
+      else if (!node.right) return node.left;
+      // 2 children: replace with in order successor (min of right subtree)
+      const successor = this.#minNode(node.right);
+      node.value = successor.value;
+      node.right = this.#removeRec(node.right, successor.value);
+      return node;
+    }
   }
 
   /**
@@ -257,8 +273,9 @@ class BinarySearchTree {
    * @returns {BSTNode}
    */
   #minNode(node) {
-    // TODO: Walk left until null.
-    // not walking from root, we're walking from given node
+    let runner = node;
+    while (runner.left) runner = runner.left;
+    return runner;
   }
 
   /**
