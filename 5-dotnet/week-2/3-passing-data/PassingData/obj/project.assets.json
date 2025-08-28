@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/narcisolobo/.nuget/packages/": {}
+    "C:\\Users\\udees\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-2/3-passing-data/PassingData/PassingData.csproj",
+      "projectUniqueName": "C:\\Users\\udees\\wos-can-code-2025\\5-dotnet\\week-2\\3-passing-data\\PassingData\\PassingData.csproj",
       "projectName": "PassingData",
-      "projectPath": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-2/3-passing-data/PassingData/PassingData.csproj",
-      "packagesPath": "/Users/narcisolobo/.nuget/packages/",
-      "outputPath": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-2/3-passing-data/PassingData/obj/",
+      "projectPath": "C:\\Users\\udees\\wos-can-code-2025\\5-dotnet\\week-2\\3-passing-data\\PassingData\\PassingData.csproj",
+      "packagesPath": "C:\\Users\\udees\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\udees\\wos-can-code-2025\\5-dotnet\\week-2\\3-passing-data\\PassingData\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/narcisolobo/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\udees\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -67,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.411/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
