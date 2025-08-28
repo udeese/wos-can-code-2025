@@ -1,0 +1,82 @@
+@model FormViewModel
+
+@{
+    ViewData["Title"] = "Form";
+}
+
+<div asp-validation-summary="All" class="form-text text-danger"></div>
+
+<div class="card shadow">
+    <div class="card-body">
+        <form asp-action="ProcessForm" asp-controller="MadLibs" method="post">
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Adjective1" class="form-label"></label>
+                <input asp-for="Adjective1" class="form-control" />
+                <span asp-validation-for="Adjective1" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Adjective2" class="form-label"></label>
+                <input asp-for="Adjective2" class="form-control" />
+                <span asp-validation-for="Adjective2" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PluralNoun1" class="form-label"></label>
+                <input asp-for="PluralNoun1" class="form-control" />
+                <span asp-validation-for="PluralNoun1" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PluralNoun2" class="form-label"></label>
+                <input asp-for="PluralNoun2" class="form-control" />
+                <span asp-validation-for="PluralNoun2" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Place" class="form-label"></label>
+                <input asp-for="Place" class="form-control" />
+                <span asp-validation-for="Place" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Exclamation" class="form-label"></label>
+                <input asp-for="Exclamation" class="form-control" />
+                <span asp-validation-for="Exclamation" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Noun" class="form-label"></label>
+                <input asp-for="Noun" class="form-control" />
+                <span asp-validation-for="Noun" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PastTenseVerb" class="form-label"></label>
+                <input asp-for="PastTenseVerb" class="form-control" />
+                <span asp-validation-for="PastTenseVerb" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Animal" class="form-label"></label>
+                <input asp-for="Animal" class="form-control" />
+                <span asp-validation-for="Animal" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Object" class="form-label"></label>
+                <input asp-for="Object" class="form-control" />
+                <span asp-validation-for="Object" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="GeographicFeature" class="form-label"></label>
+                <input asp-for="GeographicFeature" class="form-control" />
+                <span asp-validation-for="GeographicFeature" class="text-danger form-text"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Number" class="form-label"></label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger form-text"></span>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
