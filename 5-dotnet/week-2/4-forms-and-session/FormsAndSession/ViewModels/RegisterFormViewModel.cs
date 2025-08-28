@@ -21,5 +21,6 @@ public class RegisterFormViewModel
     [Required(ErrorMessage = "Please confirm password.")]
     [MinLength(8, ErrorMessage = "Username must be at least eight characters.")]
     [DataType(DataType.Password)]
+    [Compare("Password", ErrorMessage = "Passwords do not match.")]
     public string PasswordConfirm { get; set; } = string.Empty;
 }

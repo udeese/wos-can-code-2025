@@ -1,0 +1,38 @@
+@model FormViewModel
+
+@{
+    ViewData["Title"] = "Success";
+}
+
+<h1 class="display-4">Success!</h1>
+<p class="lead">Here is your story:</p>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <p>
+            Far beyond the <strong>@Model.Adjective1</strong> stars, Captain <strong>@Model.Name</strong> soared through
+            the galaxy in their trusty ship, the <strong>@Model.PluralNoun1</strong> Blazer.
+        </p>
+        <p>
+            When they landed on planet <strong>@Model.Place</strong>, a horde of <strong>@Model.PluralNoun2</strong>
+            emerged from the shadows, their <strong>@Model.Adjective2</strong> eyes glowing.
+        </p>
+        <p>
+            “<strong>@Model.Exclamation</strong>!” cried the captain, drawing their <strong>@Model.Noun</strong>. With a
+            swift <strong>@Model.PastTenseVerb</strong>, they battled the alien swarm.
+        </p>
+        <p>
+            Just as victory seemed impossible, a giant <strong>@Model.Animal</strong> descended from the sky, armed with
+            a <strong>@Model.Object</strong> and shouting, “I fight for the galaxy!” Together, they drove the invaders
+            back into the <strong>@Model.GeographicFeature</strong>.
+        </p>
+        <p>
+            The people of <strong>@Model.Place</strong> cheered, and Captain <strong>@Model.Name</strong> knew that the
+            universe was safe… at least until the <strong>@Model.Number</strong> suns rose again.
+        </p>
+    </div>
+</div>
+
+<div class="d-flex gap-2">
+    <a asp-action="DisplayForm" class="btn btn-primary">Create Another Story</a>
+</div>
