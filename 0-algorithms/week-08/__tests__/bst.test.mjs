@@ -3,13 +3,9 @@ import { BinarySearchTree } from '../bst.mjs';
 import { seed } from '../index.mjs';
 
 describe('Binary Search Tree', () => {
-  let bst;
-
   // arrange
-  beforeEach(() => {
-    bst = new BinarySearchTree();
-    seed.forEach((v) => bst.insert(v));
-  });
+  let bst = new BinarySearchTree();
+  seed.forEach((v) => bst.insert(v));
 
   // act and assert
   it('inserts and contains values', () => {
@@ -21,12 +17,8 @@ describe('Binary Search Tree', () => {
 });
 
 describe('Min and max', () => {
-  let bst;
-
-  beforeEach(() => {
-    bst = new BinarySearchTree();
-    seed.forEach((v) => bst.insert(v));
-  });
+  let bst = new BinarySearchTree();
+  seed.forEach((v) => bst.insert(v));
 
   it('returns min and max (and null for empty)', () => {
     expect(bst.min()).toBe(1);
@@ -81,5 +73,58 @@ describe('isValidBST', () => {
     const root = bst.root;
     root.left.right.left.value = 9;
     expect(bst.isValidBST()).toBe(false);
+  });
+});
+
+describe('remove (delete)', () => {
+  let bst;
+
+  beforeEach(() => {
+    bst = new BinarySearchTree();
+    seed.forEach((v) => bst.insert(v));
+  });
+
+  it('removes a leaf node', () => {
+    expect(bst.contains(1)).toBe(true); // sanity
+    bst.remove(1); // leaf in the seeded tree
+    expect(bst.contains(1)).toBe(false);
+    expect(bst.isValidBST()).toBe(true);
+    expect(bst.inOrder()).toEqual([3, 4, 6, 7, 8, 10, 13, 14]);
+  });
+
+  it('removes a node with one child', () => {
+    // In the seeded tree, 14 has a single left child 13
+    expect(bst.contains(14)).toBe(true);
+    bst.remove(14);
+    expect(bst.contains(14)).toBe(false);
+    expect(bst.max()).toBe(13); // new max after removing 14
+    expect(bst.isValidBST()).toBe(true);
+    expect(bst.inOrder()).toEqual([1, 3, 4, 6, 7, 8, 10, 13]);
+  });
+
+  it('removes a node with two children (uses inorder successor)', () => {
+    // Node 3 has two children in the seeded tree (1 and 6)
+    expect(bst.contains(3)).toBe(true);
+    bst.remove(3);
+    expect(bst.contains(3)).toBe(false);
+    // After removing 3, successor should be 4, keeping order intact
+    expect(bst.inOrder()).toEqual([1, 4, 6, 7, 8, 10, 13, 14]);
+    expect(bst.isValidBST()).toBe(true);
+  });
+
+  it('removes the root when it has two children', () => {
+    expect(bst.contains(8)).toBe(true);
+    bst.remove(8);
+    expect(bst.contains(8)).toBe(false);
+    // With our seed, successor of 8 is 10 (min of right subtree)
+    expect(bst.inOrder()).toEqual([1, 3, 4, 6, 7, 10, 13, 14]);
+    expect(bst.isValidBST()).toBe(true);
+  });
+
+  it('removing a non-existent value leaves the tree unchanged', () => {
+    const before = bst.inOrder();
+    bst.remove(9999); // not present
+    expect(bst.inOrder()).toEqual(before);
+    expect(bst.isValidBST()).toBe(true);
   });
 });
