@@ -148,6 +148,12 @@ describe('isBalanced', () => {
     [4, 2, 6, 1, 3, 5, 7].forEach((v) => bst.insert(v));
     expect(bst.isBalanced()).toBe(true);
   });
+
+  it('returns false for an unbalanced subtree', () => {
+    const bst = new BinarySearchTree();
+    [8, 3, 10, 1, 6, 14, 4, 7, 13].forEach((v) => bst.insert(v));
+    expect(bst.isBalanced()).toBe(false);
+  });
 });
 
 describe('rebalance', () => {
