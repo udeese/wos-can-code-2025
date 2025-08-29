@@ -128,3 +128,64 @@ describe('remove (delete)', () => {
     expect(bst.isValidBST()).toBe(true);
   });
 });
+
+describe('isBalanced', () => {
+  it('returns true for an empty tree', () => {
+    const empty = new BinarySearchTree();
+    expect(empty.isBalanced()).toBe(true);
+  });
+
+  it('detects an unbalanced (skewed) tree', () => {
+    const bst = new BinarySearchTree();
+    // strictly increasing insertions create a right-skewed tree
+    [1, 2, 3, 4, 5, 6, 7, 8].forEach((v) => bst.insert(v));
+    expect(bst.isBalanced()).toBe(false);
+  });
+
+  it('returns true for a reasonably balanced tree', () => {
+    const bst = new BinarySearchTree();
+    // A near-complete tree
+    [4, 2, 6, 1, 3, 5, 7].forEach((v) => bst.insert(v));
+    expect(bst.isBalanced()).toBe(true);
+  });
+});
+
+describe('rebalance', () => {
+  it('rebalances a skewed tree and preserves values', () => {
+    const bst = new BinarySearchTree();
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+    arr.forEach((v) => bst.insert(v)); // skewed
+
+    expect(bst.isBalanced()).toBe(false);
+
+    bst.rebalance();
+
+    // Values preserved in-order
+    expect(bst.inOrder()).toEqual(arr);
+
+    // Now balanced and height is minimal for n=8 (== 4)
+    expect(bst.isBalanced()).toBe(true);
+    expect(bst.height()).toBe(4);
+  });
+
+  it('is a no-op for an empty tree', () => {
+    const empty = new BinarySearchTree();
+    empty.rebalance();
+    expect(empty.root).toBeNull();
+    expect(empty.isBalanced()).toBe(true);
+  });
+
+  it('keeps an already balanced tree balanced without changing the set', () => {
+    const bst = new BinarySearchTree();
+    const before = [4, 2, 6, 1, 3, 5, 7];
+    before.forEach((v) => bst.insert(v));
+
+    const inorderBefore = bst.inOrder();
+    expect(bst.isBalanced()).toBe(true);
+
+    bst.rebalance();
+
+    expect(bst.inOrder()).toEqual(inorderBefore);
+    expect(bst.isBalanced()).toBe(true);
+  });
+});
