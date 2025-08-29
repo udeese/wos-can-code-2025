@@ -277,7 +277,7 @@ class BinarySearchTree {
   }
 
   /**
-   * Checks whether the tree is height-balanced (AVL-style).
+   * Checks whether the tree is height-balanced.
    * For every node, the heights of left and right subtrees differ by at most 1.
    * @returns {boolean} True if balanced, false otherwise.
    */
@@ -288,36 +288,47 @@ class BinarySearchTree {
 
   /**
    * Bottom-up balance checker.
+   * Compute left/right first, then this node.
+   * A subtree is balanced if both children are balanced AND
+   * |left.height - right.height| <= 1.
    * @param {BSTNode|null} node
-   * @returns {{balanced: boolean, height: number}}
+   * @returns {{ balanced: boolean, height: number }}
    */
   #checkBalance(node) {
-    // TODO: Post-order: compute left/right info; node is balanced if both balanced and |hl-hr| <= 1.
-    // return { balanced: true, height: 0 };
-    throw new Error('not implemented');
+    if (!node) {
+      return { balanced: true, height: 0 };
+    }
+    // TODO: Compute left/right info first; this node is balanced
+    // if both children are balanced and Math.abs(left.height - right.height) <= 1.
+    // Return { balanced, height } upward.
+    return { balanced, height };
   }
 
   /**
-   * (Optional stretch) Rebalances the tree into a near-perfectly balanced form.
+   * Rebalances the tree into a near-perfectly balanced form.
    * Typical approach: collect values via inOrder() then build a balanced BST from the sorted array.
    * @returns {void}
    */
   rebalance() {
-    // Optional: collect sorted values then rebuild.
-    // const sorted = this.inOrder();
-    // this.root = this.#buildBalancedFromSorted(sorted, 0, sorted.length - 1);
+    if (!this.root) return null;
+    // Collect sorted values then rebuild.
+    const sorted = this.inOrder();
+    this.root = this.#buildBalancedFromSorted(sorted, 0, sorted.length - 1);
   }
 
   /**
    * Builds a balanced BST from a sorted array slice [lo..hi].
    * @param {number[]} arr
-   * @param {number} lo
-   * @param {number} hi
+   * @param {number} low
+   * @param {number} high
    * @returns {BSTNode|null}
    */
-  #buildBalancedFromSorted(arr, lo, hi) {
-    // TODO: Middle element as root; recurse on left/right slices.
-    throw new Error('not implemented');
+  #buildBalancedFromSorted(arr, low, high) {
+    // base case
+    // find mid
+    // create root
+    // recurse on left/right slices.
+    return root;
   }
 
   /**
