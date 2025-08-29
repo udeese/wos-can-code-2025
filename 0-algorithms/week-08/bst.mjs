@@ -297,8 +297,11 @@ class BinarySearchTree {
    * @returns {{ balanced: boolean, height: number }}
    */
   #checkBalance(node) {
+    if (!node) {
+      return { balanced: true, height: 0 };
+    }
     // TODO: Compute left/right info first; this node is balanced
-    // if both children are balanced and |left.height - right.height| <= 1.
+    // if both children are balanced and Math.abs(left.height - right.height) <= 1.
     // Return { balanced, height } upward.
     return { balanced, height };
   }
