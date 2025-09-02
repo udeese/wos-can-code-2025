@@ -22,7 +22,7 @@ class ArrayStack {
 
   /**
    * Adds a value to the top of the stack.
-   * @param {*} val - The value to push onto the stack.
+   * @param {any} val - The value to push onto the stack.
    * @returns {ArrayStack} The stack instance (for chaining).
    */
   push(val) {
@@ -32,7 +32,7 @@ class ArrayStack {
 
   /**
    * Removes and returns the value at the top of the stack.
-   * @returns {*} The value removed from the top, or null if the stack is empty.
+   * @returns {any} The value removed from the top, or null if the stack is empty.
    */
   pop() {
     if (this.isEmpty()) return null;
@@ -41,7 +41,7 @@ class ArrayStack {
 
   /**
    * Returns the value at the top of the stack without removing it.
-   * @returns {*} The value at the top, or null if the stack is empty.
+   * @returns {any} The value at the top, or null if the stack is empty.
    */
   peek() {
     if (this.isEmpty()) return null;
