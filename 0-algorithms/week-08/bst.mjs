@@ -301,6 +301,15 @@ class BinarySearchTree {
     // TODO: Compute left/right info first; this node is balanced
     // if both children are balanced and Math.abs(left.height - right.height) <= 1.
     // Return { balanced, height } upward.
+    const left = this.#checkBalance(node.left);
+    const right = this.#checkBalance(node.right);
+  
+    const balanced =
+      left.balanced &&
+      right.balanced &&
+      Math.abs(left.height - right.height) <= 1;
+  
+    const height = 1 + Math.max(left.height, right.height);
     return { balanced, height };
   }
 
@@ -328,6 +337,13 @@ class BinarySearchTree {
     // find mid
     // create root
     // recurse on left/right slices.
+    if (low > high) return null;
+
+    const mid = Math.floor((low + high) / 2); 
+    const root = new BSTNode(arr[mid]);
+  
+    root.left = this.#buildBalancedFromSorted(arr, low, mid - 1);
+    root.right = this.#buildBalancedFromSorted(arr, mid + 1, high);
     return root;
   }
 
