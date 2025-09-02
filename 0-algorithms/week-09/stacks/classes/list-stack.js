@@ -3,7 +3,7 @@
  */
 class StackNode {
   /**
-   * @param {any} value - The value to store in the stack node.
+   * @param {*} value - The value to store in the stack node.
    */
   constructor(value) {
     this.value = value;
@@ -29,7 +29,7 @@ class LinkedListStack {
    * @returns {boolean} True if stack has no elements, false otherwise.
    */
   isEmpty() {
-    throw NotImplementedError('Method stub only');
+    return this.head === null;
   }
 
   /**
@@ -38,7 +38,11 @@ class LinkedListStack {
    * @returns {LinkedListStack} The stack instance for chaining.
    */
   push(val) {
-    throw NotImplementedError('Method stub only');
+    const node = new StackNode(val);
+    node.next = this.head;
+    this.head = node;
+    this._size++;
+    return this;
   }
 
   /**
@@ -46,7 +50,11 @@ class LinkedListStack {
    * @returns {*|null} The popped value, or null if stack is empty.
    */
   pop() {
-    throw NotImplementedError('Method stub only');
+    if (this.isEmpty()) return null;
+    const val = this.head.value;
+    this.head = this.head.next;
+    this._size--;
+    return val;
   }
 
   /**
@@ -54,7 +62,7 @@ class LinkedListStack {
    * @returns {*|null} The value at the top, or null if stack is empty.
    */
   peek() {
-    throw NotImplementedError('Method stub only');
+    return this.isEmpty() ? null : this.head.value;
   }
 
   /**
@@ -62,7 +70,7 @@ class LinkedListStack {
    * @returns {number} The size of the stack.
    */
   size() {
-    throw NotImplementedError('Method stub only');
+    return this._size;
   }
 
   /**
@@ -70,7 +78,9 @@ class LinkedListStack {
    * @returns {LinkedListStack} The stack instance for chaining.
    */
   clear() {
-    throw NotImplementedError('Method stub only');
+    this.head = null;
+    this._size = 0;
+    return this;
   }
 
   /**
@@ -78,7 +88,13 @@ class LinkedListStack {
    * @returns {Array<*>} An array representation of the stack.
    */
   toArray() {
-    throw NotImplementedError('Method stub only');
+    const arr = [];
+    let runner = this.head;
+    while (runner) {
+      arr.push(runner.value);
+      runner = runner.next;
+    }
+    return arr;
   }
 
   /**
@@ -86,7 +102,12 @@ class LinkedListStack {
    * @returns {LinkedListStack} The stack instance for chaining.
    */
   print() {
-    throw NotImplementedError('Method stub only');
+    if (this.isEmpty()) {
+      console.log('(empty)');
+      return this;
+    }
+    console.log(this.toArray().join(' → ') + ' → null');
+    return this;
   }
 }
 
