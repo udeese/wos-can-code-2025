@@ -1,0 +1,15 @@
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/bin/Debug/net8.0/LinqApp
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/bin/Debug/net8.0/LinqApp.deps.json
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/bin/Debug/net8.0/LinqApp.runtimeconfig.json
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/bin/Debug/net8.0/LinqApp.dll
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/bin/Debug/net8.0/LinqApp.pdb
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/obj/Debug/net8.0/LinqApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/obj/Debug/net8.0/LinqApp.AssemblyInfoInputs.cache
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/obj/Debug/net8.0/LinqApp.AssemblyInfo.cs
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/obj/Debug/net8.0/LinqApp.csproj.CoreCompileInputs.cache
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/obj/Debug/net8.0/LinqApp.sourcelink.json
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/obj/Debug/net8.0/LinqApp.dll
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/obj/Debug/net8.0/refint/LinqApp.dll
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/obj/Debug/net8.0/LinqApp.pdb
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/obj/Debug/net8.0/LinqApp.genruntimeconfig.cache
+/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-3/LinqApp/obj/Debug/net8.0/ref/LinqApp.dll
