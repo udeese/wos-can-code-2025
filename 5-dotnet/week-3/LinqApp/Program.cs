@@ -107,16 +107,6 @@ Console.WriteLine($"avgStarsAll: {avgStarsAll}");
 var firstSantaMonica = trails.First(t => t.Region == "Santa Monica Mtns");
 
 // 14. Try to find a Catalina Island trail; null if none exists
-var maybeCatalina = trails.FirstOrDefault(t => t.Region == "Catalina Island");
-if (maybeCatalina is null)
-{
-    Console.WriteLine("No Catalina Island trails found.");
-}
-else
-{
-    Console.WriteLine("Catalina Island Trail:");
-    Console.WriteLine(maybeCatalina.ToString());
-}
 
 /*
     Projection is the process of transforming elements in a
@@ -133,12 +123,8 @@ else
 
 /******** Projection with .Select() ********/
 // 15. Select only the name of each trail
-var trailNames = trails.Select(t => t.Name);
-ConsoleUtils.PrintEach(trailNames, "Trail Names");
 
 // 16. Select a new anonymous object containing both the name and the length in miles
-var nameAndMiles = trails.Select(t => new { t.Name, Miles = t.LengthMiles });
-ConsoleUtils.PrintEach(nameAndMiles, "Name and Miles");
 
 /*
     The .ToList() method is one of the most common ways to force
@@ -147,9 +133,5 @@ ConsoleUtils.PrintEach(nameAndMiles, "Name and Miles");
 
 /******** Conversion with .ToList() ********/
 // 17. Convert a query to a List<T>: Top 5 longest trails
-var top5Longest = trails.OrderByDescending(t => t.LengthMiles).Take(5).ToList();
-ConsoleUtils.PrintEach(top5Longest, "Top 5 Longest");
 
 // 18. Build a distinct, sorted list of all tags across trails
-var uniqueTags = trails.SelectMany(t => t.Tags).Distinct().OrderBy(tag => tag).ToList();
-ConsoleUtils.PrintEach(uniqueTags, "Unique Tags");
