@@ -17,7 +17,7 @@ class ArrayStack {
    * @returns {boolean} True if the stack has no elements, false otherwise.
    */
   isEmpty() {
-    throw NotImplementedError('Method stub only');
+    return this.items.length === 0;
   }
 
   /**
@@ -26,7 +26,8 @@ class ArrayStack {
    * @returns {ArrayStack} The stack instance (for chaining).
    */
   push(val) {
-    throw NotImplementedError('Method stub only');
+    this.items.push(val);
+    return this;
   }
 
   /**
@@ -34,7 +35,8 @@ class ArrayStack {
    * @returns {*} The value removed from the top, or null if the stack is empty.
    */
   pop() {
-    throw NotImplementedError('Method stub only');
+    if (this.isEmpty()) return null;
+    return this.items.pop();
   }
 
   /**
@@ -42,7 +44,8 @@ class ArrayStack {
    * @returns {*} The value at the top, or null if the stack is empty.
    */
   peek() {
-    throw NotImplementedError('Method stub only');
+    if (this.isEmpty()) return null;
+    return this.items[this.items.length - 1];
   }
 
   /**
@@ -50,7 +53,7 @@ class ArrayStack {
    * @returns {number} The size of the stack.
    */
   size() {
-    throw NotImplementedError('Method stub only');
+    return this.items.length;
   }
 
   /**
@@ -58,7 +61,8 @@ class ArrayStack {
    * @returns {ArrayStack} The stack instance (for chaining).
    */
   clear() {
-    throw NotImplementedError('Method stub only');
+    this.items.length = 0;
+    return this;
   }
 
   /**
@@ -66,7 +70,7 @@ class ArrayStack {
    * @returns {Array} An array representing the stack from top to bottom.
    */
   toArray() {
-    throw NotImplementedError('Method stub only');
+    return [...this.items].reverse();
   }
 
   /**
@@ -75,7 +79,11 @@ class ArrayStack {
    * @returns {ArrayStack} The stack instance (for chaining).
    */
   print() {
-    throw NotImplementedError('Method stub only');
+    const arr = this.toArray();
+    for (let i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+    }
+    return this;
   }
 }
 

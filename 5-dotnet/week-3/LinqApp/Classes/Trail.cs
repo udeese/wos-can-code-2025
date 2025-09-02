@@ -20,6 +20,22 @@ public class Trail
     public List<int> Ratings { get; init; } = [];
     public List<string> Tags { get; init; } = [];
 
+    public override string ToString()
+    {
+        return $@"Id: {Id}
+Name: {Name}
+Region: {Region}
+LengthMiles: {LengthMiles}
+ElevationGainFt: {ElevationGainFt}
+Difficulty: {Difficulty}
+DogFriendly: {DogFriendly}
+OpenedYear: {OpenedYear}
+AverageRating: {(Ratings.Count > 0 ? Ratings.Average().ToString("0.00") : "N/A")}
+Ratings: {string.Join(", ", Ratings)}
+Tags: {string.Join(", ", Tags)}
+";
+    }
+
     public static List<Trail> GetTrails()
     {
         var trails = new List<Trail>
