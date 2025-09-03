@@ -5,7 +5,6 @@ import {
   parensValid,
   nextGreaterRight,
 } from '../algorithms/index.js';
-import * as algos from '../algorithms/index.js';
 
 // NOTE: These tests define the expected behavior for the three stack algorithms.
 // Implementations may be done later; until then, these will fail if methods throw.
