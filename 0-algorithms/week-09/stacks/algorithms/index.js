@@ -1,5 +1,6 @@
 import { NotImplementedError } from '../classes/not-implemented-error';
 import { ArrayStack } from '../classes/array-stack';
+import { LinkedListStack } from '../classes/list-stack';
 
 /**
  * Reverses a string using a stack.
@@ -11,7 +12,7 @@ function reverseString(str) {
 }
 
 /**
- * Checks if a string is a palindrome using a stack.
+ * Checks if a string is a palindrome using a stack (case sensitive).
  * @param {string} str - The input string to check.
  * @returns {boolean} True if the string is a palindrome, false otherwise.
  */
