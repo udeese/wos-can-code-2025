@@ -104,9 +104,24 @@ Console.WriteLine($"avgStarsAll: {avgStarsAll}");
 
 /******** .First() vs. .FirstOrDefault() ********/
 // 13. First trail found in the Santa Monica Mountains (throws if none found)
-var firstSantaMonica = trails.First(t => t.Region == "Santa Monica Mtns");
+var firstSantaMonica = trails.First((trail) => trail.Region == "Santa Monica Mtns");
+Console.WriteLine($"firstSantaMonica: {firstSantaMonica}");
+
+var firstOrDefaultSantaMonica = trails.FirstOrDefault(
+    (trail) => trail.Region == "Santa Monica Mountains"
+);
+Console.WriteLine($"firstOrDefaultSantaMonica: {firstOrDefaultSantaMonica}");
 
 // 14. Try to find a Catalina Island trail; null if none exists
+var catalinaIslandTrail = trails.FirstOrDefault((trail) => trail.Region == "Catalina Island");
+if (catalinaIslandTrail is null)
+{
+    Console.WriteLine("No trail found.");
+}
+else
+{
+    Console.WriteLine(catalinaIslandTrail.ToString());
+}
 
 /*
     Projection is the process of transforming elements in a
@@ -123,8 +138,12 @@ var firstSantaMonica = trails.First(t => t.Region == "Santa Monica Mtns");
 
 /******** Projection with .Select() ********/
 // 15. Select only the name of each trail
+var trailNames = trails.Select((trail) => trail.Name);
+ConsoleUtils.PrintEach(trailNames, "Trail Names Only");
 
 // 16. Select a new anonymous object containing both the name and the length in miles
+var trailNamesAndLengths = trails.Select((trail) => new { trail.Name, trail.LengthMiles });
+ConsoleUtils.PrintEach(trailNamesAndLengths, "Trail Names and Lengths");
 
 /*
     The .ToList() method is one of the most common ways to force
@@ -133,5 +152,34 @@ var firstSantaMonica = trails.First(t => t.Region == "Santa Monica Mtns");
 
 /******** Conversion with .ToList() ********/
 // 17. Convert a query to a List<T>: Top 5 longest trails
+var topFiveLongest = trails.OrderByDescending((trail) => trail.LengthMiles).Take(5).ToList();
+ConsoleUtils.PrintEach(topFiveLongest, "Top Five Longest");
 
 // 18. Build a distinct, sorted list of all tags across trails
+var uniqueTags = trails.SelectMany((trail) => trail.Tags).Distinct().OrderBy((tag) => tag).ToList();
+ConsoleUtils.PrintEach(uniqueTags, "Unique Tags");
+
+// 19. Build a list of tags that appear only once in the dataset
+var tagsAppearingOnce = trails
+    .SelectMany(trail => trail.Tags) // flatten all tag lists into one sequence
+    .GroupBy(tag => tag) // group by tag string
+    .Where(g => g.Count() == 1) // keep groups that have exactly one occurrence
+    .Select(g => g.Key) // take the tag value
+    .OrderBy(tag => tag) // sort alphabetically
+    .ToList();
+
+/*
+    Explanation:
+    - SelectMany(trail => trail.Tags) flattens all the Tags lists into one sequence.
+    - GroupBy(tag => tag) groups the sequence by the tag value.
+    - Where(g => g.Count() == 1) keeps only tags that appear exactly once in the dataset.
+    - Select(g => g.Key) extracts the tag string itself.
+    - OrderBy(tag => tag) sorts the tags alphabetically.
+    - ToList() materializes the results.
+
+    Difference from Distinct():
+    - Distinct() returns each tag at least once, regardless of frequency.
+    - This query returns only those tags that appear exactly once.
+*/
+
+ConsoleUtils.PrintEach(tagsAppearingOnce, "Tags Appearing Once");
