@@ -19,4 +19,10 @@ Director: {Director}
 Genre: {Genre}
 Rating: {Rating}";
     }
+
+    public static List<Movie> GetMovies()
+    {
+        string filePath = "Data/movies.json";
+        return Serializer.DeserializeFromFile<List<Movie>>(filePath) ?? [];
+    }
 }

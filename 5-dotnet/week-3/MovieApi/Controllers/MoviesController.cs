@@ -7,14 +7,7 @@ namespace MovieApi.Controllers;
 [Route("api/movies")]
 public class MoviesController : ControllerBase
 {
-    private readonly List<Movie> _movies;
-
-    public MoviesController()
-    {
-        // Load movie data from the JSON file on startup
-        string filePath = "Data/movies.json";
-        _movies = Serializer.DeserializeFromFile<List<Movie>>(filePath) ?? [];
-    }
+    private static readonly List<Movie> _movies = Movie.GetMovies();
 
     // Action method to get all movies
     [HttpGet("")]
@@ -62,5 +55,50 @@ public class MoviesController : ControllerBase
             return NotFound("No movies found matching the search criteria.");
         }
         return Ok(results);
+    }
+
+    [HttpPost("")]
+    public ActionResult<Movie> CreateMovie([FromBody] Movie newMovie)
+    {
+        var nextId = _movies.Count == 0 ? 1 : _movies.Max((m) => m.MovieId) + 1;
+        newMovie.MovieId = nextId;
+
+        _movies.Add(newMovie);
+        return CreatedAtAction(nameof(GetOneMovie), new { id = nextId }, newMovie);
+    }
+
+    [HttpPut("{id}")]
+    public IActionResult UpdateMovie(int id, [FromBody] Movie updatedMovie)
+    {
+        // 1. Check if the provided ID from the URL matches the ID in the request body
+        if (id != updatedMovie.MovieId)
+        {
+            return BadRequest("Movie ID in the URL does not match the ID in the request body.");
+        }
+
+        var maybeMovie = _movies.FirstOrDefault((m) => m.MovieId == id);
+        if (maybeMovie is null)
+        {
+            return NotFound("Movie not found.");
+        }
+
+        var movieIndex = _movies.IndexOf(maybeMovie);
+        _movies[movieIndex] = updatedMovie;
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteMovie(int id)
+    {
+        var movieToRemove = _movies.FirstOrDefault(m => m.MovieId == id);
+
+        if (movieToRemove is null)
+        {
+            return NotFound("Movie not found.");
+        }
+
+        _movies.Remove(movieToRemove);
+        return NoContent();
     }
 }
