@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { hotPotato } from '../algorithms/index.js';
+import { hotPotato } from '../algorithms/hot-potato.js';
 
 describe('hotPotato', () => {
   it('returns the only player if there is one', () => {
