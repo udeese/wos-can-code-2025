@@ -11,7 +11,17 @@ import { ArrayQueue } from '../classes/array-queue.js';
  * @returns {string} The name of the winning player who remains at the end.
  */
 function hotPotato(names, k) {
-  throw new Error('Not implemented');
+  const q = new ArrayQueue();
+  names.forEach((name) => q.enqueue(name));
+
+  while (q.size() > 1) {
+    for (let i = 0; i < k; i++) {
+      q.enqueue(q.dequeue());
+    }
+    console.log(`${q.dequeue()} is out!`);
+  }
+
+  return q.dequeue();
 }
 
 export { hotPotato };
