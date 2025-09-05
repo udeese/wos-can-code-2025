@@ -8,7 +8,15 @@ import { LinkedListStack } from '../classes/list-stack';
  * @returns {string} The reversed string.
  */
 function reverseString(str) {
-  throw NotImplementedError('Method stub only');
+  const stack = new ArrayStack();
+  for (let char of str) {
+    stack.push(char);
+  }
+  let reversed = '';
+  while (!stack.isEmpty()) {
+    reversed += stack.pop();
+  }
+  return reversed;
 }
 
 /**
@@ -17,7 +25,16 @@ function reverseString(str) {
  * @returns {boolean} True if the string is a palindrome, false otherwise.
  */
 function isPalindrome(str) {
-  throw NotImplementedError('Method stub only');
+  const stack = new ArrayStack();
+  for (let char of str) {
+    stack.push(char);
+  }
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== stack.pop()) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
@@ -28,7 +45,18 @@ function isPalindrome(str) {
  * in the correct order, false otherwise.
  */
 function parensValid(str) {
-  throw NotImplementedError('Method stub only');
+  const stack = new ArrayStack();
+  for (const char of str) {
+    if (char === '(') {
+      stack.push(char);
+    } else if (char === ')') {
+      if (stack.isEmpty()) {
+        return false;
+      }
+      stack.pop();
+    }
+  }
+  return stack.isEmpty();
 }
 
 /**
@@ -40,7 +68,20 @@ function parensValid(str) {
  * the right of the corresponding input element.
  */
 function nextGreaterRight(arr) {
-  throw NotImplementedError('Method stub only');
+  const stack = new ArrayStack();
+  const result = new Array(arr.length).fill(-1);
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    while (!stack.isEmpty() && stack.peek() <= arr[i]) {
+      stack.pop();
+    }
+    if (!stack.isEmpty()) {
+      result[i] = stack.peek();
+    }
+    stack.push(arr[i]);
+  }
+
+  return result;
 }
 
 export { reverseString, isPalindrome, parensValid, nextGreaterRight };
