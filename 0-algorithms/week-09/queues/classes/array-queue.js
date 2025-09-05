@@ -15,7 +15,7 @@ class ArrayQueue {
    * @returns {boolean} True if the queue is empty, false otherwise.
    */
   isEmpty() {
-    throw new Error('Not implemented');
+    return this.items.length === 0;
   }
 
   /**
@@ -24,7 +24,8 @@ class ArrayQueue {
    * @returns {ArrayQueue} The queue instance for chaining.
    */
   enqueue(val) {
-    throw new Error('Not implemented');
+    this.items.push(val);
+    return this;
   }
 
   /**
@@ -32,7 +33,7 @@ class ArrayQueue {
    * @returns {any} The value removed from the front of the queue.
    */
   dequeue() {
-    throw new Error('Not implemented');
+    return this.items.shift();
   }
 
   /**
@@ -40,7 +41,7 @@ class ArrayQueue {
    * @returns {any} The value at the front of the queue.
    */
   peek() {
-    throw new Error('Not implemented');
+    return this.items[0];
   }
 
   /**
@@ -48,7 +49,7 @@ class ArrayQueue {
    * @returns {number} The size of the queue.
    */
   size() {
-    throw new Error('Not implemented');
+    return this.items.length;
   }
 }
 
