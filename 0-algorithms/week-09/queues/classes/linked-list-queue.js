@@ -14,8 +14,11 @@ class LinkedListQueue {
    * Creates a new empty LinkedListQueue.
    */
   constructor() {
-    // TODO: Initialize the queue's front, back, and size properties.
-    throw new Error('Not implemented');
+    /** @type {QueueNode|null} */
+    this.front = null;
+    /** @type {QueueNode|null} */
+    this.back = null;
+    this._size = 0;
   }
 
   /**
