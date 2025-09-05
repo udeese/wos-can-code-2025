@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MovieApi.Classes;
+using MovieApi.Models;
 
 namespace MovieApi.Controllers;
 
@@ -7,30 +7,29 @@ namespace MovieApi.Controllers;
 [Route("api/movies")]
 public class MoviesController : ControllerBase
 {
-    private readonly List<Movie> _movies;
+    private readonly MovieContext _context;
 
-    public MoviesController()
+    public MoviesController(MovieContext context)
     {
-        // Load movie data from the JSON file on startup
-        string filePath = "Data/movies.json";
-        _movies = Serializer.DeserializeFromFile<List<Movie>>(filePath) ?? [];
+        _context = context;
     }
 
-    // Action method to get all movies
     [HttpGet("")]
     public ActionResult<List<Movie>> GetAllMovies()
     {
-        if (_movies.Count == 0)
+        if (!_context.Movies.Any())
         {
-            return NotFound("No movies found."); // Returns a 404 Not Found status code
+            return NotFound("No movies found.");
         }
-        return Ok(_movies); // Returns a 200 OK status code with the movie list
+
+        var movies = _context.Movies.ToList();
+        return Ok(movies);
     }
 
     [HttpGet("{id}")]
     public ActionResult<Movie> GetOneMovie(int id)
     {
-        var maybeMovie = _movies.FirstOrDefault((movie) => movie.MovieId == id);
+        var maybeMovie = _context.Movies.FirstOrDefault((movie) => movie.Id == id);
         if (maybeMovie is null)
         {
             return NotFound();
@@ -41,7 +40,7 @@ public class MoviesController : ControllerBase
     [HttpGet("search")]
     public ActionResult<List<Movie>> Search(string? keyword, double? minRating)
     {
-        var query = _movies.AsQueryable();
+        var query = _context.Movies.AsQueryable();
 
         if (!string.IsNullOrEmpty(keyword))
         {
@@ -62,5 +61,49 @@ public class MoviesController : ControllerBase
             return NotFound("No movies found matching the search criteria.");
         }
         return Ok(results);
+    }
+
+    [HttpPost("")]
+    public ActionResult<Movie> CreateMovie([FromBody] Movie newMovie)
+    {
+        var nextId = _context.Movies.Count() == 0 ? 1 : _context.Movies.Max((m) => m.Id) + 1;
+        newMovie.Id = nextId;
+
+        _context.Movies.Add(newMovie);
+        return CreatedAtAction(nameof(GetOneMovie), new { id = nextId }, newMovie);
+    }
+
+    [HttpPut("{id}")]
+    public IActionResult UpdateMovie(int id, [FromBody] Movie updatedMovie)
+    {
+        if (id != updatedMovie.Id)
+        {
+            return BadRequest("Movie ID in the URL does not match the ID in the request body.");
+        }
+
+        var maybeMovie = _context.Movies.FirstOrDefault((m) => m.Id == id);
+        if (maybeMovie is null)
+        {
+            return NotFound("Movie not found.");
+        }
+
+        // var movieIndex = _context.Movies.IndexOf(maybeMovie);
+        // _context.Movies[movieIndex] = updatedMovie;
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteMovie(int id)
+    {
+        var movieToRemove = _context.Movies.FirstOrDefault(m => m.Id == id);
+
+        if (movieToRemove is null)
+        {
+            return NotFound("Movie not found.");
+        }
+
+        _context.Movies.Remove(movieToRemove);
+        return NoContent();
     }
 }

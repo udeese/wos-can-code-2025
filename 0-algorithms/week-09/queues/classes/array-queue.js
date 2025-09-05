@@ -33,7 +33,7 @@ class ArrayQueue {
    * @returns {any} The value removed from the front of the queue.
    */
   dequeue() {
-    return this.items.shift();
+    return this.isEmpty() ? undefined : this.items.shift();
   }
 
   /**
@@ -41,7 +41,7 @@ class ArrayQueue {
    * @returns {any} The value at the front of the queue.
    */
   peek() {
-    return this.items[0];
+    return this.isEmpty() ? undefined : this.items[0];
   }
 
   /**
