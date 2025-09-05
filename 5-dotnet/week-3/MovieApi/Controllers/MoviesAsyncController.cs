@@ -1,35 +1,36 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MovieApi.Models;
 
 namespace MovieApi.Controllers;
 
 [ApiController]
-[Route("api/movies")]
-public class MoviesController : ControllerBase
+[Route("api/async/movies")]
+public class MoviesAsyncController : ControllerBase
 {
     private readonly MovieContext _context;
 
-    public MoviesController(MovieContext context)
+    public MoviesAsyncController(MovieContext context)
     {
         _context = context;
     }
 
     [HttpGet("")]
-    public ActionResult<List<Movie>> GetAllMovies()
+    public async Task<ActionResult<List<Movie>>> GetAllMovies()
     {
         if (!_context.Movies.Any())
         {
             return NotFound("No movies found.");
         }
 
-        var movies = _context.Movies.ToList();
+        var movies = await _context.Movies.ToListAsync();
         return Ok(movies);
     }
 
     [HttpGet("{id}")]
-    public ActionResult<Movie> GetOneMovie(int id)
+    public async Task<ActionResult<Movie>> GetOneMovie(int id)
     {
-        var maybeMovie = _context.Movies.FirstOrDefault((movie) => movie.Id == id);
+        var maybeMovie = await _context.Movies.FirstOrDefaultAsync((movie) => movie.Id == id);
         if (maybeMovie is null)
         {
             return NotFound();
@@ -38,7 +39,7 @@ public class MoviesController : ControllerBase
     }
 
     [HttpGet("search")]
-    public ActionResult<List<Movie>> Search(string? keyword, double? minRating)
+    public async Task<ActionResult<List<Movie>>> Search(string? keyword, double? minRating)
     {
         var query = _context.Movies.AsQueryable();
 
@@ -52,7 +53,7 @@ public class MoviesController : ControllerBase
             query = query.Where(m => m.Rating >= minRating.Value);
         }
 
-        var results = query.ToList();
+        var results = await query.ToListAsync();
 
         if (results.Count == 0)
         {
@@ -62,26 +63,22 @@ public class MoviesController : ControllerBase
     }
 
     [HttpPost("")]
-    public ActionResult<Movie> CreateMovie([FromBody] Movie newMovie)
+    public async Task<ActionResult<Movie>> CreateMovie([FromBody] Movie newMovie)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(newMovie);
-        }
-        _context.Movies.Add(newMovie);
-        _context.SaveChanges();
+        await _context.Movies.AddAsync(newMovie);
+        await _context.SaveChangesAsync();
         return CreatedAtAction(nameof(GetOneMovie), new { id = newMovie.Id }, newMovie);
     }
 
     [HttpPut("{id}")]
-    public IActionResult UpdateMovie(int id, [FromBody] Movie updatedMovie)
+    public async Task<IActionResult> UpdateMovie(int id, [FromBody] Movie updatedMovie)
     {
         if (id != updatedMovie.Id)
         {
             return BadRequest("Movie ID in the URL does not match the ID in the request body.");
         }
 
-        var maybeMovie = _context.Movies.FirstOrDefault((m) => m.Id == id);
+        var maybeMovie = await _context.Movies.FirstOrDefaultAsync((m) => m.Id == id);
         if (maybeMovie is null)
         {
             return NotFound("Movie not found.");
@@ -95,15 +92,15 @@ public class MoviesController : ControllerBase
         maybeMovie.DurationInMinutes = updatedMovie.DurationInMinutes;
         maybeMovie.UpdatedAt = DateTime.UtcNow;
 
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
 
         return NoContent();
     }
 
     [HttpDelete("{id}")]
-    public IActionResult DeleteMovie(int id)
+    public async Task<IActionResult> DeleteMovie(int id)
     {
-        var movieToRemove = _context.Movies.FirstOrDefault(m => m.Id == id);
+        var movieToRemove = await _context.Movies.FirstOrDefaultAsync(m => m.Id == id);
 
         if (movieToRemove is null)
         {
@@ -111,7 +108,7 @@ public class MoviesController : ControllerBase
         }
 
         _context.Movies.Remove(movieToRemove);
-        _context.SaveChanges();
+        await _context.SaveChangesAsync();
         return NoContent();
     }
 }
