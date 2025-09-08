@@ -40,7 +40,7 @@ class DoublyLinkedList {
    * @complexity O(1)
    */
   isEmpty() {
-    throw new Error('Not implemented');
+    return this.length === 0;
   }
 
   /**
@@ -49,7 +49,7 @@ class DoublyLinkedList {
    * @complexity O(1)
    */
   size() {
-    throw new Error('Not implemented');
+    return this.length;
   }
 
   /**
@@ -59,7 +59,15 @@ class DoublyLinkedList {
    * @complexity O(1)
    */
   insertAtHead(val) {
-    throw new Error('Not implemented');
+    const newNode = new DLLNode(val);
+    if (this.isEmpty()) {
+      this.head = this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head.prev = newNode;
+      this.head = newNode;
+    }
+    this.length++;
   }
 
   /**
@@ -68,7 +76,16 @@ class DoublyLinkedList {
    * @complexity O(1)
    */
   removeHead() {
-    throw new Error('Not implemented');
+    if (this.isEmpty()) return null;
+    const removedValue = this.head.value;
+    if (this.head === this.tail) {
+      this.head = this.tail = null;
+    } else {
+      this.head = this.head.next;
+      this.head.prev = null;
+    }
+    this.length--;
+    return removedValue;
   }
 
   /**
@@ -77,7 +94,13 @@ class DoublyLinkedList {
    * @complexity O(n)
    */
   toArray() {
-    throw new Error('Not implemented');
+    const arr = [];
+    let current = this.head;
+    while (current) {
+      arr.push(current.value);
+      current = current.next;
+    }
+    return arr;
   }
 }
 
