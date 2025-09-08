@@ -1,0 +1,33 @@
+@model List<BookRowViewModel>
+
+@{
+    ViewData["Title"] = "All Books";
+    var books = Model;
+}
+
+<h1 class="display-4">All Books</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in books)
+        {
+            <tr>
+                <td class="align-middle">@book.Title</td>
+                <td class="align-middle">@book.Author</td>
+                <td class="align-middle">@book.Genre</td>
+                <td class="d-flex align-items-center gap-2">
+                    <a class="btn btn-sm btn-primary" href="/books/@book.Id">View</a>
+                    <a class="btn btn-sm btn-warning" href="/books/@book.Id/edit">Edit</a>
+                    <a class="btn btn-sm btn-danger" href="/books/@book.Id/delete">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

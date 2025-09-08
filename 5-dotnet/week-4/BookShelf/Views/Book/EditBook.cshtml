@@ -1,0 +1,55 @@
+@model BookFormViewModel
+@{
+    ViewData["Title"] = "Edit Book";
+}
+
+<h1 class="display-4">Edit Book</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<div class="card shadow">
+    <form asp-action="UpdateBook" asp-controller="Book" asp-route-id="@Model.Id" method="post">
+        <input type="hidden" asp-for="Id" value="@Model.Id">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="Title" class="form-label">Title:</label>
+                    <input asp-for="Title" class="form-control">
+                    <span asp-validation-for="Title" class="form-text text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="Author" class="form-label">Author:</label>
+                    <input asp-for="Author" class="form-control">
+                    <span asp-validation-for="Author" class="form-text text-danger"></span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label asp-for="Genre" class="form-label">Genre:</label>
+                    <input asp-for="Genre" class="form-control">
+                    <span asp-validation-for="Genre" class="form-text text-danger"></span>
+                </div>
+                <div class="col">
+                    <label asp-for="ReleaseYear" class="form-labl">Release Year</label>
+                    <input asp-for="ReleaseYear" class="form-control">
+                    <span asp-validation-for="ReleaseYear" class="form-text text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" asp-for="HasBeenRead">
+                    <label class="form-check-label" asp-for="HasBeenRead">Have you read this book?</label>
+                    <span asp-validation-for="HasBeenRead" class="form-text text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label">Description:</label>
+                <textarea asp-for="Description" class="form-control" style="height: 7rem;"></textarea>
+                <span asp-validation-for="Description" class="form-text text-danger"></span>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Edit book</button>
+            </div>
+        </div>
+    </form>
+</div>

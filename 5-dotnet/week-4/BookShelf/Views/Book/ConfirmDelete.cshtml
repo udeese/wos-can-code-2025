@@ -1,0 +1,16 @@
+@model ConfirmDeleteViewModel
+
+@{
+    ViewData["Title"] = "Confirm Delete";
+    var book = Model;
+}
+
+<h1 class="display-4">Confirm Delete</h1>
+
+<p>Are you sure you want to delete @book.Title?</p>
+<p>This action cannot be undone.</p>
+
+<form asp-action="DeleteBook" asp-controller="Book" asp-route-id="@book.Id" method="post">
+    <input type="hidden" asp-for="Id" value="@book.Id">
+    <button type="submit" class="btn btn-danger">Delete Book</button>
+</form>
