@@ -6,6 +6,9 @@ public class Movie
 {
     [Key]
     public int Id { get; set; }
+
+    [Required]
+    [MinLength(2, ErrorMessage = "Title must be at least two characters.")]
     public string Title { get; set; } = string.Empty;
     public string Director { get; set; } = string.Empty;
     public string Genre { get; set; } = string.Empty;

@@ -81,15 +81,22 @@ class BinarySearchTree {
    * @returns {number[]} An array of node values in level-order.
    */
   levelOrder() {
-    // TODO: level-order traversal with queue
-    // 1. If root is null, return empty array.
-    // 2. Create a queue and enqueue the root.
-    // 3. While the queue is not empty:
-    //    a. Dequeue the next node.
-    //    b. Add its value to the results array.
-    //    c. If the node has a left child, enqueue it.
-    //    d. If the node has a right child, enqueue it.
-    // 4. Return the results array.
+    if (this.root === null) return [];
+
+    const result = [];
+    const q = new LinkedListQueue();
+
+    q.enqueue(this.root);
+
+    while (q._size > 0) {
+      const dequeued = q.dequeue();
+      result.push(dequeued.value);
+
+      if (dequeued.left) q.enqueue(dequeued.left);
+      if (dequeued.right) q.enqueue(dequeued.right);
+    }
+
+    return result;
   }
 
   /**

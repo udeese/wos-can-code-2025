@@ -26,7 +26,6 @@ class LinkedListQueue {
    * @returns {boolean} True if the queue is empty, false otherwise.
    */
   isEmpty() {
-    // TODO: Return true if the queue is empty, false otherwise.
     return this._size === 0;
   }
 
@@ -36,16 +35,14 @@ class LinkedListQueue {
    * @returns {LinkedListQueue} The queue instance for chaining.
    */
   enqueue(val) {
-    // TODO: Add a value to the rear of the queue and return the queue instance.
-    const queueNode = new QueueNode(val);
-
+    const newBack = new QueueNode(val);
     if (this.isEmpty()) {
-      this.front = queueNode;
-      this.back = queueNode;
-    } else if(this.back) {
-      this.back.next = queueNode;
-    } 
-
+      this.front = newBack;
+      this.back = newBack;
+    } else {
+      this.back.next = newBack;
+      this.back = newBack;
+    }
     this._size++;
     return this;
   }
@@ -55,14 +52,19 @@ class LinkedListQueue {
    * @returns {any} The value removed from the front of the queue.
    */
   dequeue() {
-    // TODO: Remove and return the value at the front of the queue.
-    const removeNode = this.front.value;
+    if (!this.front) {
+      return undefined;
+    }
 
+    const dequeued = this.front;
     this.front = this.front.next;
 
-    this._size = Math.max(0, --this._size);
-    console.log({removeNode});
-    return removeNode;
+    if (this.front === null) {
+      this.back = null;
+    }
+
+    this._size--;
+    return dequeued.value;
   }
 
   /**
@@ -70,8 +72,7 @@ class LinkedListQueue {
    * @returns {any} The value at the front of the queue.
    */
   peek() {
-    // TODO: Return the value at the front of the queue without removing it.
-    return this.front.value;
+    return this.front ? this.front.value : undefined;
   }
 
   /**
@@ -79,7 +80,6 @@ class LinkedListQueue {
    * @returns {number} The size of the queue.
    */
   size() {
-    // TODO: Return the number of elements in the queue.
     return this._size;
   }
 }
