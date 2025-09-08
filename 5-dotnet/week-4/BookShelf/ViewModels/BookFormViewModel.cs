@@ -4,6 +4,8 @@ namespace BookShelf.ViewModels;
 
 public class BookFormViewModel
 {
+    public int? Id { get; set; }
+
     [Required(ErrorMessage = "Title is required.")]
     [MinLength(2, ErrorMessage = "Title must be at least two characters.")]
     public string Title { get; set; } = string.Empty;

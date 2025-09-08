@@ -1,0 +1,25 @@
+@model BookViewModel
+
+@{
+    ViewData["Title"] = "Book Details";
+    var book = Model;
+}
+
+<h1 class="display-4">Book Details</h1>
+
+<div class="card shadow">
+    <div class="card-body">
+        <h5 class="card-title">@book.Title</h5>
+        <p>
+            <strong>Author: </strong> @book.Author<br />
+            <strong>Genre: </strong> @book.Genre<br />
+            <strong>ReleaseYear: </strong> @book.ReleaseYear<br />
+            <strong>HasBeenRead: </strong> @(book.HasBeenRead ? "yes" : "no")<br />
+            <strong>Description: </strong><br /> @book.Description
+        </p>
+    </div>
+    <div class="card-footer text-end">
+        <a href="/books/@book.Id/edit" class="btn btn-sm btn-warning me-2">Edit</a>
+        <a href="/books/@book.Id/delete" class="btn btn-sm btn-danger">Delete</a>
+    </div>
+</div>
