@@ -27,7 +27,7 @@ class LinkedListQueue {
    */
   isEmpty() {
     // TODO: Return true if the queue is empty, false otherwise.
-    throw new Error('Not implemented');
+    return this._size === 0;
   }
 
   /**
@@ -37,7 +37,17 @@ class LinkedListQueue {
    */
   enqueue(val) {
     // TODO: Add a value to the rear of the queue and return the queue instance.
-    throw new Error('Not implemented');
+    const queueNode = new QueueNode(val);
+
+    if (this.isEmpty()) {
+      this.front = queueNode;
+      this.back = queueNode;
+    } else if(this.back) {
+      this.back.next = queueNode;
+    } 
+
+    this._size++;
+    return this;
   }
 
   /**
@@ -46,7 +56,13 @@ class LinkedListQueue {
    */
   dequeue() {
     // TODO: Remove and return the value at the front of the queue.
-    throw new Error('Not implemented');
+    const removeNode = this.front.value;
+
+    this.front = this.front.next;
+
+    this._size = Math.max(0, --this._size);
+    console.log({removeNode});
+    return removeNode;
   }
 
   /**
@@ -55,7 +71,7 @@ class LinkedListQueue {
    */
   peek() {
     // TODO: Return the value at the front of the queue without removing it.
-    throw new Error('Not implemented');
+    return this.front.value;
   }
 
   /**
@@ -64,7 +80,7 @@ class LinkedListQueue {
    */
   size() {
     // TODO: Return the number of elements in the queue.
-    throw new Error('Not implemented');
+    return this._size;
   }
 }
 
