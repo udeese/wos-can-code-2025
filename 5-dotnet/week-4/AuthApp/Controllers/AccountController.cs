@@ -70,9 +70,94 @@ public class AccountController : Controller
         return RedirectToAction(nameof(ProtectedPage));
     }
 
+    [HttpGet("login")]
+    public IActionResult LoginForm(string? message)
+    {
+        var vm = new LoginFormViewModel { Message = message };
+        return View(vm);
+    }
+
+    [ValidateAntiForgeryToken]
+    [HttpPost("login/process")]
+    public IActionResult ProcessLogin(LoginFormViewModel vm)
+    {
+        // normalize input
+        vm.Email = (vm.Email ?? "").Trim().ToLowerInvariant();
+        vm.Password = (vm.Password ?? "").Trim();
+
+        // check if input is valid
+        if (!ModelState.IsValid)
+        {
+            return View(nameof(LoginForm), vm);
+        }
+
+        // check if user exists
+        if (!_context.Users.Any((u) => u.Email == vm.Email))
+        {
+            // manually add an error to model state
+            ModelState.AddModelError("", "Invalid user credentials.");
+            return View(nameof(LoginForm), vm);
+        }
+
+        // email exists, find user
+        var maybeUser = _context.Users.FirstOrDefault((u) => u.Email == vm.Email);
+
+        if (maybeUser is null)
+        {
+            return Unauthorized();
+        }
+
+        // verify password
+        if (!_passwords.Verify(vm.Password, maybeUser.PasswordHash))
+        {
+            return Unauthorized();
+        }
+
+        // Log the user in
+        HttpContext.Session.SetInt32(SessionUserId, maybeUser.Id);
+        return RedirectToAction(nameof(ProtectedPage));
+    }
+
+    [HttpGet("logout")]
+    public IActionResult ConfirmLogout()
+    {
+        var userId = HttpContext.Session.GetInt32(SessionUserId);
+
+        if (userId is null)
+        {
+            return Unauthorized();
+        }
+
+        return View();
+    }
+
+    [ValidateAntiForgeryToken]
+    [HttpPost("logout/process")]
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Clear();
+
+        return RedirectToAction(nameof(LoginForm), new { message = "logout-successful" });
+    }
+
     [HttpGet("protected")]
     public IActionResult ProtectedPage()
     {
-        return View();
+        var userid = HttpContext.Session.GetInt32(SessionUserId);
+        if (userid is not int uid)
+        {
+            return Unauthorized();
+        }
+
+        var user = _context.Users.Where((u) => u.Id == uid).FirstOrDefault();
+        var username = user!.Username;
+
+        return View("ProtectedPage", username);
+    }
+
+    [HttpGet("redirect-to-privacy")]
+    public IActionResult RedirectToPrivacy()
+    {
+        return RedirectToAction(nameof(HomeController.Privacy), "Home");
     }
 }
