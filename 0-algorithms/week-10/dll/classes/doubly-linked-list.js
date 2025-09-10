@@ -89,6 +89,35 @@ class DoublyLinkedList {
   }
 
   /**
+   * Inserts a new node with the given value at the tail of the list.
+   * @param {any} val - The value to insert.
+   * @returns {void}
+   * @complexity O(1)
+   */
+  insertAtTail(val) {
+    throw new Error('Not implemented');
+  }
+
+  /**
+   * Removes and returns the value at the tail of the list.
+   * @returns {any} The value removed, or null if the list is empty.
+   * @complexity O(1)
+   */
+  removeTail() {
+    throw new Error('Not implemented');
+  }
+
+  /**
+   * Finds the first node with the specified value.
+   * @param {any} val - The value to search for.
+   * @returns {DLLNode|null} The found node, or null if not found.
+   * @complexity O(n)
+   */
+  find(val) {
+    throw new Error('Not implemented');
+  }
+
+  /**
    * Converts the list to an array of values.
    * @returns {Array<*>} An array containing all values in the list.
    * @complexity O(n)
