@@ -142,6 +142,67 @@ class DoublyLinkedList {
   }
 
   /**
+   * Inserts a new node with the given value before the specified node.
+   * @param {DLLNode} node - The node before which to insert.
+   * @param {any} val - The value to insert.
+   * @returns {void}
+   * @complexity O(1)
+   */
+  insertBefore(node, val) {
+    // TODO:
+    // 1. Check if the node is null or undefined; if so, do nothing.
+    // 2. If the node is the head of the list, create a new node and update head accordingly.
+    // 3. Otherwise, create a new node and properly link it between node.prev and node.
+    throw new Error('Not implemented');
+  }
+
+  /**
+   * Inserts a new node with the given value after the specified node.
+   * @param {DLLNode} node - The node after which to insert.
+   * @param {any} val - The value to insert.
+   * @returns {void}
+   * @complexity O(1)
+   */
+  insertAfter(node, val) {
+    // TODO:
+    // 1. Check if the node is null or undefined; if so, do nothing.
+    // 2. If the node is the tail of the list, create a new node and update tail accordingly.
+    // 3. Otherwise, create a new node and properly link it between node and node.next.
+    throw new Error('Not implemented');
+  }
+
+  /**
+   * Removes the first node with the specified value from the list.
+   * @param {any} val - The value to remove.
+   * @returns {boolean} True if a node was removed; otherwise, false.
+   * @complexity O(n)
+   */
+  remove(val) {
+    // TODO:
+    // 1. Find the node containing the given value.
+    // 2. If not found, return false.
+    // 3. If the node is the only node (head and tail), clear head and tail.
+    // 4. If the node is the head, update head and fix links.
+    // 5. If the node is the tail, update tail and fix links.
+    // 6. Otherwise, unlink the node from its previous and next nodes.
+    // 7. Decrement length and return true.
+    throw new Error('Not implemented');
+  }
+
+  /**
+   * Reverses the order of the nodes in the list in-place.
+   * @returns {void}
+   * @complexity O(n)
+   */
+  reverse() {
+    // TODO:
+    // 1. If the list is empty or has one node, do nothing.
+    // 2. Iterate through each node, swapping its prev and next pointers.
+    // 3. After iteration, swap the head and tail references.
+    throw new Error('Not implemented');
+  }
+
+  /**
    * Converts the list to an array of values.
    * @returns {Array<*>} An array containing all values in the list.
    * @complexity O(n)
