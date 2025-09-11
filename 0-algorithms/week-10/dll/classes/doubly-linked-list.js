@@ -149,11 +149,23 @@ class DoublyLinkedList {
    * @complexity O(1)
    */
   insertBefore(node, val) {
-    // TODO:
-    // 1. Check if the node is null or undefined; if so, do nothing.
-    // 2. If the node is the head of the list, create a new node and update head accordingly.
-    // 3. Otherwise, create a new node and properly link it between node.prev and node.
-    throw new Error('Not implemented');
+    if (!node) return;
+    const newNode = new DLLNode(val);
+
+    if (node === this.head) {
+      newNode.next = node;
+      node.prev = newNode;
+      this.head = newNode;
+      this.length++;
+      return;
+    }
+
+    const prev = node.prev;
+    if (prev) prev.next = newNode;
+    newNode.prev = prev;
+    newNode.next = node;
+    node.prev = newNode;
+    this.length++;
   }
 
   /**
@@ -164,11 +176,23 @@ class DoublyLinkedList {
    * @complexity O(1)
    */
   insertAfter(node, val) {
-    // TODO:
-    // 1. Check if the node is null or undefined; if so, do nothing.
-    // 2. If the node is the tail of the list, create a new node and update tail accordingly.
-    // 3. Otherwise, create a new node and properly link it between node and node.next.
-    throw new Error('Not implemented');
+    if (!node) return;
+    const newNode = new DLLNode(val);
+
+    if (node === this.tail) {
+      node.next = newNode;
+      newNode.prev = node;
+      this.tail = newNode;
+      this.length++;
+      return;
+    }
+
+    const next = node.next;
+    newNode.next = next;
+    newNode.prev = node;
+    node.next = newNode;
+    if (next) next.prev = newNode;
+    this.length++;
   }
 
   /**
