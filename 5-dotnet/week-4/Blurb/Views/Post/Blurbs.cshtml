@@ -9,3 +9,8 @@
 @await Html.PartialAsync("_BlurbForm", emptyBlurb)
 
 <h1 class="display-4">All Blurbs</h1>
+
+@foreach (var blurb in blurbs)
+{
+    @await Html.PartialAsync("_BlurbItem", blurb)
+}

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Blurb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6261f3d663b140d38c20be1cfa334d6c6e40501")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+47d239e4813ea65580e2c2726a115615123d0a8c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Blurb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Blurb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
