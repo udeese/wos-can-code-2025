@@ -116,4 +116,58 @@ describe('DoublyLinkedList', () => {
     expect(list.size()).toBe(2);
     expect(list.toArray()).toEqual(['a', 'b']);
   });
+
+  // New tests for insertBefore, insertAfter, remove(val), reverse()
+
+  describe('insertBefore', () => {
+    it('inserts before the head node', () => {
+      list.insertAtTail('b');
+      list.insertAtTail('c');
+      list.insertBefore(list.head, 'a');
+
+      expect(list.head.value).toBe('a');
+      expect(list.head.next.value).toBe('b');
+      expect(list.size()).toBe(3);
+      expect(list.toArray()).toEqual(['a', 'b', 'c']);
+    });
+
+    it('inserts before a middle node', () => {
+      list.insertAtTail('a');
+      list.insertAtTail('c');
+      list.insertAtTail('d');
+      list.insertBefore(list.find('c'), 'b');
+
+      expect(list.size()).toBe(4);
+      expect(list.toArray()).toEqual(['a', 'b', 'c', 'd']);
+      const bNode = list.find('b');
+      expect(bNode.prev.value).toBe('a');
+      expect(bNode.next.value).toBe('c');
+    });
+  });
+
+  describe('insertAfter', () => {
+    it('inserts after the tail node', () => {
+      list.insertAtTail('a');
+      list.insertAtTail('b');
+      list.insertAfter(list.tail, 'c');
+
+      expect(list.tail.value).toBe('c');
+      expect(list.tail.prev.value).toBe('b');
+      expect(list.size()).toBe(3);
+      expect(list.toArray()).toEqual(['a', 'b', 'c']);
+    });
+
+    it('inserts after a middle node', () => {
+      list.insertAtTail('a');
+      list.insertAtTail('b');
+      list.insertAtTail('d');
+      list.insertAfter(list.find('b'), 'c');
+
+      expect(list.size()).toBe(4);
+      expect(list.toArray()).toEqual(['a', 'b', 'c', 'd']);
+      const bNode = list.find('b');
+      expect(bNode.prev.value).toBe('a');
+      expect(bNode.next.value).toBe('c');
+    });
+  });
 });

@@ -119,7 +119,7 @@
    - Redirect the user to the login page, optionally passing a non-sensitive reason (e.g., “please sign in”).
 3. **If Present**
    - Allow the request to proceed.
-   - Optionally, load the user from the database and attach it to the request context for later use.
+   - Optionally, load the user from the database to show a friendly welcome message.
 
 ---
 

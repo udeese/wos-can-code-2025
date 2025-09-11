@@ -142,6 +142,36 @@ class DoublyLinkedList {
   }
 
   /**
+   * Inserts a new node with the given value before the specified node.
+   * @param {DLLNode} node - The node before which to insert.
+   * @param {any} val - The value to insert.
+   * @returns {void}
+   * @complexity O(1)
+   */
+  insertBefore(node, val) {
+    // TODO:
+    // 1. Check if the node is null or undefined; if so, do nothing.
+    // 2. If the node is the head of the list, create a new node and update head accordingly.
+    // 3. Otherwise, create a new node and properly link it between node.prev and node.
+    throw new Error('Not implemented');
+  }
+
+  /**
+   * Inserts a new node with the given value after the specified node.
+   * @param {DLLNode} node - The node after which to insert.
+   * @param {any} val - The value to insert.
+   * @returns {void}
+   * @complexity O(1)
+   */
+  insertAfter(node, val) {
+    // TODO:
+    // 1. Check if the node is null or undefined; if so, do nothing.
+    // 2. If the node is the tail of the list, create a new node and update tail accordingly.
+    // 3. Otherwise, create a new node and properly link it between node and node.next.
+    throw new Error('Not implemented');
+  }
+
+  /**
    * Converts the list to an array of values.
    * @returns {Array<*>} An array containing all values in the list.
    * @complexity O(n)
