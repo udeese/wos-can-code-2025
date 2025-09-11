@@ -67,7 +67,7 @@ public class AccountController : Controller
         HttpContext.Session.SetInt32(SessionUserId, newUser.Id);
 
         // redirect to dashboard or home, etc.
-        return RedirectToAction(nameof(ProtectedPage));
+        return RedirectToAction(nameof(PostController.Blurbs), nameof(PostController));
     }
 
     [HttpGet("login")]
@@ -115,7 +115,7 @@ public class AccountController : Controller
 
         // Log the user in
         HttpContext.Session.SetInt32(SessionUserId, maybeUser.Id);
-        return RedirectToAction(nameof(ProtectedPage));
+        return RedirectToAction("Blurbs", "Post");
     }
 
     [HttpGet("logout")]

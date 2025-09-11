@@ -1,0 +1,11 @@
+@model BlurbIndexViewModel
+@{
+    ViewData["Title"] = "All Blurbs";
+    var blurbs = Model.Blurbs;
+    var emptyBlurb = Model.BlurbFormViewModel;
+}
+
+
+@await Html.PartialAsync("_BlurbForm", emptyBlurb)
+
+<h1 class="display-4">All Blurbs</h1>

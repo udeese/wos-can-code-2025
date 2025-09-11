@@ -2,17 +2,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Blurb.Models;
 
-public class User
+public class Post
 {
     [Key]
     public int Id { get; set; }
-
-    public string Username { get; set; } = string.Empty;
-    public string Email { get; set; } = string.Empty;
-    public string PasswordHash { get; set; } = string.Empty;
+    public string Content { get; set; } = string.Empty;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
+    // foreign key
+    public int UserId { get; set; }
+
     // navigation property
-    public List<Post> Posts { get; set; } = [];
+    public User? User { get; set; }
 }
