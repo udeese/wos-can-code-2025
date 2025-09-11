@@ -172,37 +172,6 @@ class DoublyLinkedList {
   }
 
   /**
-   * Removes the first node with the specified value from the list.
-   * @param {any} val - The value to remove.
-   * @returns {boolean} True if a node was removed; otherwise, false.
-   * @complexity O(n)
-   */
-  remove(val) {
-    // TODO:
-    // 1. Find the node containing the given value.
-    // 2. If not found, return false.
-    // 3. If the node is the only node (head and tail), clear head and tail.
-    // 4. If the node is the head, update head and fix links.
-    // 5. If the node is the tail, update tail and fix links.
-    // 6. Otherwise, unlink the node from its previous and next nodes.
-    // 7. Decrement length and return true.
-    throw new Error('Not implemented');
-  }
-
-  /**
-   * Reverses the order of the nodes in the list in-place.
-   * @returns {void}
-   * @complexity O(n)
-   */
-  reverse() {
-    // TODO:
-    // 1. If the list is empty or has one node, do nothing.
-    // 2. Iterate through each node, swapping its prev and next pointers.
-    // 3. After iteration, swap the head and tail references.
-    throw new Error('Not implemented');
-  }
-
-  /**
    * Converts the list to an array of values.
    * @returns {Array<*>} An array containing all values in the list.
    * @complexity O(n)
