@@ -67,7 +67,7 @@ public class AccountController : Controller
         HttpContext.Session.SetInt32(SessionUserId, newUser.Id);
 
         // redirect to dashboard or home, etc.
-        return RedirectToAction(nameof(PostController.Blurbs), nameof(PostController));
+        return RedirectToAction("Blurbs", "Post");
     }
 
     [HttpGet("login")]

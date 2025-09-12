@@ -5,19 +5,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Blurb.Controllers;
 
-[Route("posts")]
-public class PostController : Controller
+[Route("posts/async")]
+public class AsyncPostController : Controller
 {
     private readonly ApplicationContext _context;
     private const string SessionUserId = "userId";
 
-    public PostController(ApplicationContext context)
+    public AsyncPostController(ApplicationContext context)
     {
         _context = context;
     }
 
     [HttpGet("")]
-    public IActionResult Blurbs()
+    public async Task<IActionResult> Blurbs()
     {
         var userId = HttpContext.Session.GetInt32(SessionUserId);
         if (userId is not int uid)
@@ -26,7 +26,7 @@ public class PostController : Controller
         }
 
         // projection
-        var blurbItems = _context
+        var blurbItems = await _context
             .Posts.AsNoTracking()
             .Select(
                 (p) =>
@@ -41,7 +41,7 @@ public class PostController : Controller
                     }
             )
             .OrderByDescending((p) => p.CreatedAt)
-            .ToList();
+            .ToListAsync();
 
         var vm = new BlurbIndexViewModel
         {
@@ -53,7 +53,7 @@ public class PostController : Controller
 
     [HttpPost("create")]
     [ValidateAntiForgeryToken]
-    public IActionResult CreatePost(BlurbFormViewModel formViewModel)
+    public async Task<IActionResult> CreatePost(BlurbFormViewModel formViewModel)
     {
         var userId = HttpContext.Session.GetInt32(SessionUserId);
         if (userId is not int uid)
@@ -67,7 +67,7 @@ public class PostController : Controller
         // validate
         if (!ModelState.IsValid)
         {
-            var blurbItems = _context
+            var blurbItems = await _context
                 .Posts.Select(
                     (p) =>
                         new BlurbItemViewModel
@@ -79,7 +79,7 @@ public class PostController : Controller
                         }
                 )
                 .OrderByDescending((p) => p.CreatedAt)
-                .ToList();
+                .ToListAsync();
 
             var vm = new BlurbIndexViewModel
             {
@@ -91,14 +91,14 @@ public class PostController : Controller
 
         var newPost = new Post { UserId = uid, Content = formViewModel.Content };
 
-        _context.Posts.Add(newPost);
-        _context.SaveChanges();
+        await _context.Posts.AddAsync(newPost);
+        await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Blurbs));
     }
 
     [HttpPost("{id}/like")]
     [ValidateAntiForgeryToken]
-    public IActionResult Like(int id)
+    public async Task<IActionResult> Like(int id)
     {
         var userId = HttpContext.Session.GetInt32(SessionUserId);
         if (userId is not int uid)
@@ -107,14 +107,14 @@ public class PostController : Controller
         }
 
         // secondary check
-        var alreadyLiked = _context.Likes.Any((l) => l.UserId == uid && l.PostId == id);
+        var alreadyLiked = await _context.Likes.AnyAsync((l) => l.UserId == uid && l.PostId == id);
 
         if (!alreadyLiked)
         {
             var newLike = new Like { UserId = uid, PostId = id };
 
-            _context.Likes.Add(newLike);
-            _context.SaveChanges();
+            await _context.Likes.AddAsync(newLike);
+            await _context.SaveChangesAsync();
         }
 
         return RedirectToAction(nameof(Blurbs));
@@ -122,7 +122,7 @@ public class PostController : Controller
 
     [HttpPost("{id}/unlike")]
     [ValidateAntiForgeryToken]
-    public IActionResult Unlike(int id)
+    public async Task<IActionResult> Unlike(int id)
     {
         var userId = HttpContext.Session.GetInt32(SessionUserId);
         if (userId is not int uid)
@@ -130,18 +130,20 @@ public class PostController : Controller
             return RedirectToAction("LoginForm", "Account", new { message = "not-authenticated" });
         }
 
-        var maybeLike = _context.Likes.FirstOrDefault((l) => l.UserId == uid && l.PostId == id);
+        var maybeLike = await _context.Likes.FirstOrDefaultAsync(
+            (l) => l.UserId == uid && l.PostId == id
+        );
         if (maybeLike is not null)
         {
             _context.Likes.Remove(maybeLike);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         return RedirectToAction(nameof(Blurbs));
     }
 
     [HttpGet("{id}")]
-    public IActionResult BlurbDetails(int id)
+    public async Task<IActionResult> BlurbDetails(int id)
     {
         var userId = HttpContext.Session.GetInt32(SessionUserId);
         if (userId is not int uid)
@@ -149,12 +151,12 @@ public class PostController : Controller
             return RedirectToAction("LoginForm", "Account", new { message = "not-authenticated" });
         }
 
-        var maybePost = _context
+        var maybePost = await _context
             .Posts.AsNoTracking()
             .Include((p) => p.User)
             .Include((p) => p.Likes)
             .ThenInclude((l) => l.User)
-            .FirstOrDefault((p) => p.Id == id);
+            .FirstOrDefaultAsync((p) => p.Id == id);
 
         if (maybePost is null)
         {
@@ -176,7 +178,7 @@ public class PostController : Controller
     }
 
     [HttpGet("{id}/projected")]
-    public IActionResult BlurbDetailsProjected(int id)
+    public async Task<IActionResult> BlurbDetailsProjected(int id)
     {
         var userId = HttpContext.Session.GetInt32(SessionUserId);
         if (userId is not int uid)
@@ -184,7 +186,7 @@ public class PostController : Controller
             return RedirectToAction("LoginForm", "Account", new { message = "not-authenticated" });
         }
 
-        var vm = _context
+        var vm = await _context
             .Posts.AsNoTracking()
             .Where((p) => p.Id == id)
             .Select(
@@ -200,7 +202,7 @@ public class PostController : Controller
                         Likers = p.Likes.Select((l) => l.User!.Username).ToList(),
                     }
             )
-            .FirstOrDefault();
+            .FirstOrDefaultAsync();
 
         return View(nameof(BlurbDetails), vm);
     }
