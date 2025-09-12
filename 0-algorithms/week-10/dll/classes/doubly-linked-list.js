@@ -151,9 +151,19 @@ class DoublyLinkedList {
   insertBefore(node, val) {
     // TODO:
     // 1. Check if the node is null or undefined; if so, do nothing.
+    const newNode = new DLLnode(val);
+
+    if (!node == null) {
+      if (node === this.head) {
+        insertAtHead(newNode)
+      }
+      newNode.prev = node.prev;
+      newNode.next = node;
+      node.prev.next = newNode;
+      newNode.prev = newNode;
+    }
     // 2. If the node is the head of the list, create a new node and update head accordingly.
     // 3. Otherwise, create a new node and properly link it between node.prev and node.
-    throw new Error('Not implemented');
   }
 
   /**
