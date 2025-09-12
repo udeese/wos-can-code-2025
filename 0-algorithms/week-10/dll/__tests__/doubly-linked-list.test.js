@@ -170,4 +170,109 @@ describe('DoublyLinkedList', () => {
       expect(bNode.next.value).toBe('c');
     });
   });
+
+  describe('remove(val)', () => {
+    it('removes the head node', () => {
+      list.insertAtTail('a');
+      list.insertAtTail('b');
+      list.insertAtTail('c');
+
+      expect(list.remove('a')).toBe(true);
+      expect(list.head.value).toBe('b');
+      expect(list.head.prev).toBeNull();
+      expect(list.size()).toBe(2);
+      expect(list.toArray()).toEqual(['b', 'c']);
+    });
+
+    it('removes the tail node', () => {
+      list.insertAtTail('a');
+      list.insertAtTail('b');
+      list.insertAtTail('c');
+
+      expect(list.remove('c')).toBe(true);
+      expect(list.tail.value).toBe('b');
+      expect(list.tail.next).toBeNull();
+      expect(list.size()).toBe(2);
+      expect(list.toArray()).toEqual(['a', 'b']);
+    });
+
+    it('removes a middle node', () => {
+      list.insertAtTail('a');
+      list.insertAtTail('b');
+      list.insertAtTail('c');
+
+      expect(list.remove('b')).toBe(true);
+      expect(list.size()).toBe(2);
+      expect(list.toArray()).toEqual(['a', 'c']);
+      expect(list.head.next.value).toBe('c');
+      expect(list.tail.prev.value).toBe('a');
+    });
+
+    it('returns false when removing non-existent value', () => {
+      list.insertAtTail('a');
+      list.insertAtTail('b');
+
+      expect(list.remove('x')).toBe(false);
+      expect(list.size()).toBe(2);
+      expect(list.toArray()).toEqual(['a', 'b']);
+    });
+
+    it('removes the only node in the list', () => {
+      list.insertAtTail('a');
+
+      expect(list.remove('a')).toBe(true);
+      expect(list.isEmpty()).toBe(true);
+      expect(list.head).toBeNull();
+      expect(list.tail).toBeNull();
+      expect(list.toArray()).toEqual([]);
+    });
+  });
+
+  describe('reverse', () => {
+    it('reverses an empty list', () => {
+      list.reverse();
+      expect(list.isEmpty()).toBe(true);
+      expect(list.toArray()).toEqual([]);
+    });
+
+    it('reverses a single-node list', () => {
+      list.insertAtTail('a');
+      list.reverse();
+      expect(list.size()).toBe(1);
+      expect(list.head.value).toBe('a');
+      expect(list.tail.value).toBe('a');
+      expect(list.head.prev).toBeNull();
+      expect(list.head.next).toBeNull();
+      expect(list.toArray()).toEqual(['a']);
+    });
+
+    it('reverses a multi-node list and maintains integrity', () => {
+      list.insertAtTail('a');
+      list.insertAtTail('b');
+      list.insertAtTail('c');
+      list.insertAtTail('d');
+
+      list.reverse();
+
+      expect(list.toArray()).toEqual(['d', 'c', 'b', 'a']);
+      expect(list.head.value).toBe('d');
+      expect(list.tail.value).toBe('a');
+
+      // Check links integrity
+      expect(list.head.prev).toBeNull();
+      expect(list.head.next.value).toBe('c');
+
+      expect(list.tail.next).toBeNull();
+      expect(list.tail.prev.value).toBe('b');
+
+      // Check middle links
+      const c = list.head.next;
+      expect(c.prev.value).toBe('d');
+      expect(c.next.value).toBe('b');
+
+      const b = c.next;
+      expect(b.prev.value).toBe('c');
+      expect(b.next.value).toBe('a');
+    });
+  });
 });
