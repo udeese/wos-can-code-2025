@@ -1,0 +1,13 @@
+@using Humanizer
+@model BlurbItemViewModel
+
+@{
+    var blurb = Model;
+}
+
+<div class="card shadow mb-3">
+    <div class="card-body">
+        <p class="lead card-text">@blurb.Content</p>
+        <small class="text-muted">Posted by: @blurb.AuthorUsername (@blurb.CreatedAt.Humanize())</small>
+    </div>
+</div>

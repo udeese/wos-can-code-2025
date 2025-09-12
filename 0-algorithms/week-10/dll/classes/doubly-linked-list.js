@@ -149,21 +149,23 @@ class DoublyLinkedList {
    * @complexity O(1)
    */
   insertBefore(node, val) {
-    // TODO:
-    // 1. Check if the node is null or undefined; if so, do nothing.
-    const newNode = new DLLnode(val);
+    if (!node) return;
+    const newNode = new DLLNode(val);
 
-    if (!node == null) {
-      if (node === this.head) {
-        insertAtHead(newNode)
-      }
-      newNode.prev = node.prev;
+    if (node === this.head) {
       newNode.next = node;
-      node.prev.next = newNode;
-      newNode.prev = newNode;
+      node.prev = newNode;
+      this.head = newNode;
+      this.length++;
+      return;
     }
-    // 2. If the node is the head of the list, create a new node and update head accordingly.
-    // 3. Otherwise, create a new node and properly link it between node.prev and node.
+
+    const prev = node.prev;
+    if (prev) prev.next = newNode;
+    newNode.prev = prev;
+    newNode.next = node;
+    node.prev = newNode;
+    this.length++;
   }
 
   /**
@@ -174,10 +176,53 @@ class DoublyLinkedList {
    * @complexity O(1)
    */
   insertAfter(node, val) {
+    if (!node) return;
+    const newNode = new DLLNode(val);
+
+    if (node === this.tail) {
+      node.next = newNode;
+      newNode.prev = node;
+      this.tail = newNode;
+      this.length++;
+      return;
+    }
+
+    const next = node.next;
+    newNode.next = next;
+    newNode.prev = node;
+    node.next = newNode;
+    if (next) next.prev = newNode;
+    this.length++;
+  }
+
+  /**
+   * Removes the first node with the specified value from the list.
+   * @param {any} val - The value to remove.
+   * @returns {boolean} True if a node was removed; otherwise, false.
+   * @complexity O(n)
+   */
+  remove(val) {
     // TODO:
-    // 1. Check if the node is null or undefined; if so, do nothing.
-    // 2. If the node is the tail of the list, create a new node and update tail accordingly.
-    // 3. Otherwise, create a new node and properly link it between node and node.next.
+    // 1. Find the node containing the given value.
+    // 2. If not found, return false.
+    // 3. If the node is the only node (head and tail), clear head and tail.
+    // 4. If the node is the head, update head and fix links.
+    // 5. If the node is the tail, update tail and fix links.
+    // 6. Otherwise, unlink the node from its previous and next nodes.
+    // 7. Decrement length and return true.
+    throw new Error('Not implemented');
+  }
+
+  /**
+   * Reverses the order of the nodes in the list in-place.
+   * @returns {void}
+   * @complexity O(n)
+   */
+  reverse() {
+    // TODO:
+    // 1. If the list is empty or has one node, do nothing.
+    // 2. Iterate through each node, swapping its prev and next pointers.
+    // 3. After iteration, swap the head and tail references.
     throw new Error('Not implemented');
   }
 

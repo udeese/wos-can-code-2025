@@ -1,0 +1,18 @@
+@model BlurbFormViewModel
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<div class="card shadow mb-3">
+    <div class="card-body">
+        <form asp-action="CreatePost" asp-controller="Post" method="post">
+            <div class="mb-3">
+                <label asp-for="Content" class="form-label">Blurb it!</label>
+                <textarea asp-for="Content" class="form-control" style="height: 7rem;"></textarea>
+                <span asp-validation-for="Content" class="form-text text-danger"></span>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Post Blurb</button>
+            </div>
+        </form>
+    </div>
+</div>
