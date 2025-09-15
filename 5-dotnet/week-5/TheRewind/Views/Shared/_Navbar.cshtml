@@ -1,0 +1,40 @@
+@using Microsoft.AspNetCore.Http
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-3">
+    <div class="container">
+        <a class="navbar-brand" href="/">TheRewind</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+
+                @if (Context.Session.GetInt32("userId") is not null)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="/movies">All Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/movies/new">Add Movie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account/profile">Profile</a>
+                    </li>
+                }
+            </ul>
+        </div>
+        @if (Context.Session.GetInt32("userId") is not null)
+        {
+            <a class="btn btn-sm btn-primary me-2" href="/account/logout">Log out</a>
+        }
+        else
+        {
+            <a class="btn btn-sm btn-primary me-2" href="/account/register">Register</a>
+            <a class="btn btn-sm btn-primary" href="/account/login">Login</a>
+        }
+    </div>
+</nav>

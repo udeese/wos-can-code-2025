@@ -1,0 +1,105 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/obj/Debug/net8.0/scopedcss/projectbundle/ErrorHandling.bundle.scp.css",
+      "PackagePath": "staticwebassets/ErrorHandling.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/ErrorHandling/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.ErrorHandling.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.ErrorHandling.props",
+      "PackagePath": "build\\ErrorHandling.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.ErrorHandling.props",
+      "PackagePath": "buildMultiTargeting\\ErrorHandling.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.ErrorHandling.props",
+      "PackagePath": "buildTransitive\\ErrorHandling.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
