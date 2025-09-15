@@ -15,4 +15,5 @@ public class User
 
     // navigation property
     public List<Post> Posts { get; set; } = [];
+    public List<Like> Likes { get; set; } = [];
 }

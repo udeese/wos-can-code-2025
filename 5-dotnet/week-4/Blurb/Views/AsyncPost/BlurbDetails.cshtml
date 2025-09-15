@@ -1,16 +1,25 @@
 @using Humanizer
 @model BlurbItemViewModel
-
 @{
+    ViewData["Title"] = "Blurb Details";
     var blurb = Model;
 }
 
+<h1 class="display-4">Blurb Details</h1>
+
 <div class="card shadow mb-3">
     <div class="card-body">
-        <p class="lead card-text">
-            <a href="/posts/@blurb.Id">@blurb.Content</a>
-        </p>
-        <small class="text-muted">Posted by: @blurb.AuthorUsername (@blurb.CreatedAt.Humanize())</small>
+        <p class="lead card-text">@blurb.Content</p>
+        <p class="card-text"><small class="text-muted">Posted by: @blurb.AuthorUsername
+                (@blurb.CreatedAt.Humanize())</small></p>
+        <div class="d-flex align-items-center gap-2">
+            <p class="card-text">Liked by:
+                @foreach (var liker in blurb.Likers)
+                {
+                    <span class="badge rounded-pill text-bg-primary">@liker</span>
+                }
+            </p>
+        </div>
     </div>
     <div class="card-footer">
         <div class="d-flex justify-content-end align-items-center gap-2">
