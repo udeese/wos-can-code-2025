@@ -210,7 +210,37 @@ class DoublyLinkedList {
     // 5. If the node is the tail, update tail and fix links.
     // 6. Otherwise, unlink the node from its previous and next nodes.
     // 7. Decrement length and return true.
-    throw new Error('Not implemented');
+    let curr = this.head;
+    let found = false;
+
+    if (this.size() == 1 && curr.value == val) {
+      this.head = null;
+      this.tail = null;
+      this.length--;
+      return true;
+    }
+
+    while (curr) {
+      if (curr.value == val) {
+        if (!curr.prev) {
+          this.head = this.head.next;
+          this.head.prev = null;
+        } else {
+          curr.prev.next = curr.next;
+        }
+
+        if (!curr.next) {
+          this.tail = this.tail.prev;
+          this.tail.next = null;
+        } else {
+          curr.next.prev = curr.prev;
+        }
+        this.length--;
+        return true;
+      }
+      curr = curr.next;
+    }
+    return false;
   }
 
   /**
@@ -223,8 +253,20 @@ class DoublyLinkedList {
     // 1. If the list is empty or has one node, do nothing.
     // 2. Iterate through each node, swapping its prev and next pointers.
     // 3. After iteration, swap the head and tail references.
-    throw new Error('Not implemented');
-  }
+      if (this.size() <= 1) return;
+  
+      let curr = this.head;
+  
+      while (curr) {
+        let trueNext = curr.next;
+        [curr.next, curr.prev] = [curr.prev, curr.next];
+  
+        curr = trueNext;
+      }
+  
+      [this.head, this.tail] = [this.tail, this.head];
+    }
+
 
   /**
    * Converts the list to an array of values.
