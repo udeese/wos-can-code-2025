@@ -18,11 +18,9 @@ class HashTable {
    * @param {number} [size=16] - Number of buckets (array length).
    */
   constructor(size = 16) {
-    // TODO: Initialize this.buckets as an array of length `size`,
-    // where each element is an empty array (the bucket).
-    // Also store `size` on `this.size` for the hash function to use.
-    // Example shape after init: [[/* pairs */], [/* pairs */], ...]
-    throw new Error('Not implemented');
+    /** @type {Array<Array<[string, any]>>} */
+    this.buckets = new Array(size).fill(null).map(() => []);
+    this.size = size;
   }
 
   /**
@@ -33,11 +31,11 @@ class HashTable {
    * @complexity O(k) where k is the key length
    */
   #hash(key) {
-    // TODO: Start from 0 and for each character:
-    //   - add `key.charCodeAt(i) * i` (or another simple mix)
-    //   - take modulo `this.size` to stay within bounds
-    // Return the final index.
-    throw new Error('Not implemented');
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+      hash = (hash + key.charCodeAt(i) * i) % this.size;
+    }
+    return hash;
   }
 
   /**
@@ -52,8 +50,15 @@ class HashTable {
    * @returns {void}
    */
   set(key, value) {
-    // TODO: Implement the logic described above using this.#hash and this.buckets
-    throw new Error('Not implemented');
+    const index = this.#hash(key);
+    const bucket = this.buckets[index];
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        bucket[i][1] = value;
+        return;
+      }
+    }
+    bucket.push([key, value]);
   }
 }
 
