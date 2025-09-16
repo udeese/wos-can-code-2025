@@ -26,8 +26,6 @@ public class MovieController : Controller
             return Unauthorized();
         }
 
-        var movies = _context.Movies.Include((m) => m.User).Include((m) => m.Ratings);
-
         var vm = _context
             .Movies.AsNoTracking()
             .Select(
