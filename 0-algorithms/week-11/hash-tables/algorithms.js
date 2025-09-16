@@ -13,12 +13,29 @@ function charFrequency(
   str,
   { ignoreWhitespace = true, caseInsensitive = true } = {}
 ) {
-  // TODO:
-  // Initialize a HashTable.
-  // Loop through each character of the string.
-  // Apply options: lowercase if caseInsensitive, skip whitespace if ignoreWhitespace.
-  // If table.has(ch), increment the stored value, else set to 1.
-  // At the end, collect key–value pairs from table into a plain object and return it.
+  const table = new HashTable(32);
+
+  for (let ch of str) {
+    if (caseInsensitive) ch = ch.toLowerCase();
+    if (ignoreWhitespace && /\s/.test(ch)) continue;
+
+    if (table.has(ch)) {
+      const current = table.get(ch);
+      table.set(ch, current + 1);
+    } else {
+      table.set(ch, 1);
+    }
+  }
+
+  // Collect into a plain object
+  /** @type {Record<string, number>} */
+  const out = {};
+  for (const bucket of table.buckets) {
+    for (const [key, value] of bucket) {
+      out[key] = value;
+    }
+  }
+  return out;
 }
 
-export { charFrequency, charFrequencyRaw };
+export { charFrequency };

@@ -1,15 +1,5 @@
 /**
  * A simple Hash Table implementation using buckets (arrays) to handle collisions.
- *
- * Day 1 scope:
- *  - constructor(size)
- *  - #hash(key)
- *  - set(key, value)
- *
- * Later days (commented out below):
- *  - get, has (Day 2)
- *  - remove, keys, values (Day 3)
- *  - entries (Day 4)
  */
 class HashTable {
   /**
@@ -40,11 +30,6 @@ class HashTable {
 
   /**
    * Inserts or updates a [key, value] pair in the appropriate bucket.
-   * Steps:
-   *  1) Compute the bucket index via #hash(key).
-   *  2) Scan the bucket array:
-   *     - If an entry with the same key exists, update its value and return.
-   *  3) Otherwise, push a new pair [key, value] to the bucket.
    * @param {string} key
    * @param {any} value
    * @returns {void}
@@ -67,7 +52,14 @@ class HashTable {
    * @returns {any|undefined}
    */
   get(key) {
-    // TODO: hash → scan bucket → return matching value or undefined
+    const index = this.#hash(key);
+    const bucket = this.buckets[index];
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        return bucket[i][1];
+      }
+    }
+    return undefined;
   }
 
   /**
@@ -76,7 +68,14 @@ class HashTable {
    * @returns {boolean}
    */
   has(key) {
-    // TODO: return true if get(key) !== undefined
+    const index = this.#hash(key);
+    const bucket = this.buckets[index];
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        return true;
+      }
+    }
+    return false;
   }
 }
 
