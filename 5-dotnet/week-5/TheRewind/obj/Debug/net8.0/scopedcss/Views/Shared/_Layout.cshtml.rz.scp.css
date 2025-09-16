@@ -17,7 +17,8 @@ a[b-u8jdac3xp7] {
   border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active[b-u8jdac3xp7], .nav-pills .show > .nav-link[b-u8jdac3xp7] {
+.nav-pills .nav-link.active[b-u8jdac3xp7],
+.nav-pills .show > .nav-link[b-u8jdac3xp7] {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
@@ -31,18 +32,10 @@ a[b-u8jdac3xp7] {
 }
 
 .box-shadow[b-u8jdac3xp7] {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
 }
 
 button.accept-policy[b-u8jdac3xp7] {
   font-size: 1rem;
   line-height: inherit;
-}
-
-.footer[b-u8jdac3xp7] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
 }

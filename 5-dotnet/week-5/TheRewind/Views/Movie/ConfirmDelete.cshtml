@@ -1,0 +1,14 @@
+@model ConfirmDeleteViewModel
+@{
+    ViewData["Title"] = "Confirm Deletion";
+    var id = Model.Id;
+    var title = Model.Title;
+}
+
+<h1 class="display-4">Confirm Delete</h1>
+
+<p class="lead">Are you sure you want to delete @title? This action cannot be undone.</p>
+
+<form asp-action="DeleteMovie" asp-controller="Movie" asp-route-id="@id">
+    <button type="submit" class="btn btn-danger">Delete Movie</button>
+</form>

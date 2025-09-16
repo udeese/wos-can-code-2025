@@ -1,0 +1,40 @@
+@model MovieFormViewModel
+
+@{
+    ViewData["Title"] = "Edit Movie";
+}
+
+<h1 class="display-4">Edit Movie</h1>
+
+<div asp-validation-summary="All" class="form-text text-danger"></div>
+
+<div class="card shadow">
+    <form asp-action="UpdateMovie" asp-controller="Movie" asp-route-id="@Model.Id" method="post">
+        <div class="card-body">
+            <input type="hidden" asp-for="UserId" value="@Model.UserId">
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label">Title:</label>
+                <input asp-for="Title" class="form-control">
+                <span asp-validation-for="Title" class="form-text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Genre" class="form-label">Genre:</label>
+                <input asp-for="Genre" class="form-control">
+                <span asp-validation-for="Genre" class="form-text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ReleaseDate" class="form-label">ReleaseDate:</label>
+                <input asp-for="ReleaseDate" class="form-control">
+                <span asp-validation-for="ReleaseDate" class="form-text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label">Description:</label>
+                <textarea asp-for="Description" class="form-control" style="height: 7rem;"></textarea>
+                <span asp-validation-for="Description" class="form-text text-danger"></span>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Edit Movie</button>
+            </div>
+        </div>
+    </form>
+</div>
