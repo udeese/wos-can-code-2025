@@ -9,11 +9,13 @@ namespace Blurb.Controllers;
 public class PostController : Controller
 {
     private readonly ApplicationContext _context;
+    private readonly ILogger<PostController> _logger;
     private const string SessionUserId = "userId";
 
-    public PostController(ApplicationContext context)
+    public PostController(ApplicationContext context, ILogger<PostController> logger)
     {
         _context = context;
+        _logger = logger;
     }
 
     [HttpGet("")]
