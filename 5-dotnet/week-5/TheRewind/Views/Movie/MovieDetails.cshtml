@@ -1,0 +1,19 @@
+@model MovieDetailsViewModel
+@{
+    ViewData["Title"] = "Movie Details";
+    var movie = Model;
+}
+
+<h1 class="display-4">Movie Details</h1>
+
+<div class="card shadow">
+    <div class="card-body">
+        <p class="card-text">
+            <strong>Title:</strong> @movie.Title <br />
+            <strong>Genre:</strong> @movie.Genre <br />
+            <strong>Release Date:</strong> @movie.ReleaseDate <br />
+            <strong>Uploaded By:</strong> @movie.AuthorUsername <br /><br />
+            <strong>Description:</strong><br />@movie.Description
+        </p>
+    </div>
+</div>

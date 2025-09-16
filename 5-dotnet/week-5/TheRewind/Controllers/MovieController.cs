@@ -1,5 +1,6 @@
 using System.Runtime.Intrinsics.X86;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TheRewind.Models;
 using TheRewind.ViewModels;
 
@@ -25,7 +26,52 @@ public class MovieController : Controller
             return Unauthorized();
         }
 
-        return View();
+        var movies = _context.Movies.Include((m) => m.User).Include((m) => m.Ratings);
+
+        var vm = _context
+            .Movies.AsNoTracking()
+            .Select(
+                (m) =>
+                    new MovieRowViewModel
+                    {
+                        Id = m.Id,
+                        Title = m.Title,
+                        AuthorUsername = m.User!.Username,
+                        // AverageRating = m.Ratings.Average((r) => r.Level),
+                    }
+            )
+            .ToList();
+
+        return View(vm);
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult MovieDetails(int id)
+    {
+        var userId = HttpContext.Session.GetInt32(SessionUserId);
+        if (userId is not int uid)
+        {
+            return Unauthorized();
+        }
+
+        var movie = _context.Movies.Include((m) => m.User).FirstOrDefault((m) => m.Id == id);
+
+        if (movie is null)
+        {
+            return NotFound();
+        }
+
+        var vm = new MovieDetailsViewModel
+        {
+            Id = movie.Id,
+            Title = movie.Title,
+            Genre = movie.Genre,
+            ReleaseDate = movie.ReleaseDate,
+            AuthorUsername = movie.User!.Username,
+            Description = movie.Description,
+        };
+
+        return View(vm);
     }
 
     [HttpGet("new")]
