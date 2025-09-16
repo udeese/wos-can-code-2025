@@ -60,6 +60,24 @@ class HashTable {
     }
     bucket.push([key, value]);
   }
+
+  /**
+   * Retrieves the value for the given key, or undefined if not found.
+   * @param {string} key
+   * @returns {any|undefined}
+   */
+  get(key) {
+    // TODO: hash → scan bucket → return matching value or undefined
+  }
+
+  /**
+   * Checks whether the given key exists in the table.
+   * @param {string} key
+   * @returns {boolean}
+   */
+  has(key) {
+    // TODO: return true if get(key) !== undefined
+  }
 }
 
 export { HashTable };
