@@ -67,7 +67,15 @@ class HashTable {
    * @returns {any|undefined}
    */
   get(key) {
-    // TODO: hash → scan bucket → return matching value or undefined
+    const index = this.#hash(key)
+    const bucket = this.buckets[index]
+     for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        return bucket[i][1];
+      }
+
+    }
+    return undefined;
   }
 
   /**
@@ -77,6 +85,7 @@ class HashTable {
    */
   has(key) {
     // TODO: return true if get(key) !== undefined
+    return this.get(key) !== undefined
   }
 }
 

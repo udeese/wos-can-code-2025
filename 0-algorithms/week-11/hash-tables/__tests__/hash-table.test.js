@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { HashTable } from '../classes/hash-table.js';
+import { HashTable } from '../hash-table.js';
 import { charFrequency } from '../algorithms.js';
 
 describe('HashTable — Day 1 (constructor, #hash, set)', () => {
