@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TheRewind.Models;
 using TheRewind.Services;
 using TheRewind.ViewModels;
@@ -27,7 +28,7 @@ public class AccountController : Controller
 
     [ValidateAntiForgeryToken]
     [HttpPost("register/process")]
-    public IActionResult ProcessRegister(RegistrationFormViewModel vm)
+    public async Task<IActionResult> ProcessRegister(RegistrationFormViewModel vm)
     {
         // normalize input
         vm.Username = (vm.Username ?? "").Trim().ToLowerInvariant();
@@ -60,8 +61,8 @@ public class AccountController : Controller
         };
 
         // add the user to db
-        _context.Users.Add(newUser);
-        _context.SaveChanges();
+        await _context.Users.AddAsync(newUser);
+        await _context.SaveChangesAsync();
 
         // logs user in
         HttpContext.Session.SetInt32(SessionUserId, newUser.Id);
@@ -79,7 +80,7 @@ public class AccountController : Controller
 
     [ValidateAntiForgeryToken]
     [HttpPost("login/process")]
-    public IActionResult ProcessLogin(LoginFormViewModel vm)
+    public async Task<IActionResult> ProcessLogin(LoginFormViewModel vm)
     {
         // normalize input
         vm.Email = (vm.Email ?? "").Trim().ToLowerInvariant();
@@ -100,7 +101,7 @@ public class AccountController : Controller
         }
 
         // email exists, find user
-        var maybeUser = _context.Users.FirstOrDefault((u) => u.Email == vm.Email);
+        var maybeUser = await _context.Users.FirstOrDefaultAsync((u) => u.Email == vm.Email);
 
         if (maybeUser is null)
         {
@@ -140,8 +141,8 @@ public class AccountController : Controller
         return RedirectToAction(nameof(LoginForm), new { message = "logout-successful" });
     }
 
-    [HttpGet("protected")]
-    public IActionResult ProtectedPage()
+    [HttpGet("profile")]
+    public async Task<IActionResult> Profile()
     {
         var userid = HttpContext.Session.GetInt32(SessionUserId);
         if (userid is not int uid)
@@ -149,15 +150,23 @@ public class AccountController : Controller
             return Unauthorized();
         }
 
-        var user = _context.Users.Where((u) => u.Id == uid).FirstOrDefault();
-        var username = user!.Username;
+        var user = await _context
+            .Users.AsNoTracking()
+            .Include((u) => u.Movies)
+            .Include((u) => u.Ratings)
+            .FirstOrDefaultAsync((u) => u.Id == uid);
+        if (user is null)
+        {
+            return NotFound();
+        }
 
-        return View("ProtectedPage", username);
-    }
-
-    [HttpGet("redirect-to-privacy")]
-    public IActionResult RedirectToPrivacy()
-    {
-        return RedirectToAction(nameof(HomeController.Privacy), "Home");
+        var vm = new AccountProfileViewModel
+        {
+            Username = user.Username,
+            Email = user.Email,
+            MoviesAddedCount = user.Movies.Count,
+            MoviesRatedCount = user.Ratings.Count,
+        };
+        return View(vm);
     }
 }

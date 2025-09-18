@@ -1,0 +1,50 @@
+@using Microsoft.AspNetCore.Http
+@model MovieDetailsViewModel
+@{
+    ViewData["Title"] = "Movie Details";
+    var movie = Model;
+}
+
+<h1 class="display-4">Movie Details</h1>
+
+<div class="row">
+    <div class="col-8">
+        <div class="card shadow">
+            <div class="card-body">
+                <p class="card-text">
+                    <strong>Title:</strong> @movie.Title <br />
+                    <strong>Genre:</strong> @movie.Genre <br />
+                    <strong>Release Date:</strong> @movie.ReleaseDate <br />
+                    <strong>Uploaded By:</strong> @movie.AuthorUsername <br /><br />
+                    <strong>Description:</strong><br />@movie.Description
+                </p>
+            </div>
+            @if (Context.Session.GetInt32("userId") == movie.UserId)
+            {
+                <div class="card-footer text-end">
+                    <a href="/movies/@movie.Id/edit" class="btn btn-warning me-2">Edit</a>
+                    <a href="/movies/@movie.Id/delete" class="btn btn-danger">Delete</a>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card shadow mb-3">
+            <div class="card-body">
+                <h2 class="card-title">Stats</h2>
+                <p class="card-text">
+                    <strong>Ratings:</strong> @movie.RatingsCount<br />
+                    <strong>Average Rating:</strong> @movie.AverageRating<br />
+                </p>
+                <p class="card-text"><strong>Rated by:</strong></p>
+                <ul>
+                    @foreach (var rater in movie.Raters)
+                    {
+                        <li>@rater</li>
+                    }
+                </ul>
+            </div>
+        </div>
+        @await Html.PartialAsync("_RatingForm", movie.RatingFormViewModel)
+    </div>
+</div>

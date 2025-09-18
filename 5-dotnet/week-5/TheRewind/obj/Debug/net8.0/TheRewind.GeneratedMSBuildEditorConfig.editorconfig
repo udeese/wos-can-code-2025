@@ -26,12 +26,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbkZvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Account/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Qcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Account/ProtectedPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Qcm90ZWN0ZWRQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Account/RegisterForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3RlckZvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Error/Forbidden.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXJyb3IvRm9yYmlkZGVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Error/PageNotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXJyb3IvUGFnZU5vdEZvdW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Error/ServerError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXJyb3IvU2VydmVyRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Error/Unauthorized.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXJyb3IvVW5hdXRob3JpemVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Home/Index.cshtml]
@@ -46,8 +66,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvQWxsTW92aWVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Movie/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvQ29uZmlybURlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Movie/EditMovieForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvRWRpdE1vdmllRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Movie/MovieDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvTW92aWVEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Movie/NewMovieForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvTmV3TW92aWVGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Movie/_RatingForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTW92aWUvX1JhdGluZ0Zvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/narcisolobo/Desktop/wos-can-code-2025/5-dotnet/week-5/TheRewind/Views/Shared/Error.cshtml]

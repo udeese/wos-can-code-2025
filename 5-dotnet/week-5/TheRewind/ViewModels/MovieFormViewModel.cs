@@ -6,6 +6,7 @@ public class MovieFormViewModel
 {
     [Key]
     public int? Id { get; set; }
+    public int? UserId { get; set; }
 
     [Required(ErrorMessage = "Please enter title.")]
     [MinLength(2, ErrorMessage = "Title must be at least two characters.")]

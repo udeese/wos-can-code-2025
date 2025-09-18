@@ -1,5 +1,31 @@
+@model List<MovieRowViewModel>
 @{
     ViewData["Title"] = "All Movies";
+    var movies = Model;
 }
 
 <h1 class="display-4">All Movies</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Average Rating</th>
+            <th>Uploaded By</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in movies)
+        {
+            <tr>
+                <td>@movie.Title</td>
+                <td>@movie.AverageRating</td>
+                <td>@movie.AuthorUsername</td>
+                <td>
+                    <a href="/movies/@movie.Id">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
