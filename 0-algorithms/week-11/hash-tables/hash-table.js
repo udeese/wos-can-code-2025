@@ -68,7 +68,62 @@ class HashTable {
    * @returns {boolean}
    */
   has(key) {
-    // TODO: return true if get(key) !== undefined
+    const index = this.#hash(key);
+    const bucket = this.buckets[index];
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Removes the entry for the given key if found.
+   * @param {string} key
+   * @returns {boolean} True if removed, false if not found.
+   */
+  remove(key) {
+    // TODO: Use splice to remove an element from the bucket array.
+    const index = this.#hash(key);
+    const bucket = this.buckets[index];
+    for (let i = 0; i < bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        bucket.splice(i, 1);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Returns an array of all keys in the table.
+   * @returns {string[]}
+   */
+  keys() {
+    // TODO: Collect all the key elements from every bucket.
+    const keys = [];
+    for (const bucket of this.buckets) {
+      for (const [key, _] of bucket) {
+        keys.push(key);
+      }
+    }
+    return keys;
+  }
+
+  /**
+   * Returns an array of all values in the table.
+   * @returns {any[]}
+   */
+  values() {
+    // TODO: Collect all the values from every bucket.
+    const values = [];
+    for (const bucket of this.buckets) {
+      for (const [_, value] of bucket) {
+        values.push(value);
+      }
+    }
+    return values;
   }
 }
 

@@ -26,6 +26,24 @@ function firstNonRepeatingChar(
   //    a. Apply the same normalization rules.
   //    b. Return the first character whose count in the table is 1.
   // 4. If none found, return null.
+  const table = new HashTable(Math.floor(str.length / 2) || 1);
+
+  for (let char of str) {
+    if (caseInsensitive) char = char.toLowerCase();
+    if (ignoreWhitespace && /\s/.test(char)) continue;
+
+    const count = table.get(char) || 0;
+    table.set(char, count + 1);
+  }
+
+  for (let char of str) {
+    if (caseInsensitive) char = char.toLowerCase();
+    if (ignoreWhitespace && /\s/.test(char)) continue;
+
+    if (table.get(char) === 1) return char;
+  }
+
+  return null;
 }
 
 export { firstNonRepeatingChar };
