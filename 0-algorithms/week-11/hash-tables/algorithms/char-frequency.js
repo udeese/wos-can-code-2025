@@ -1,4 +1,4 @@
-import { HashTable } from './hash-table.js';
+import { HashTable } from '../hash-table.js';
 
 /**
  * Builds a character frequency table using the custom HashTable.

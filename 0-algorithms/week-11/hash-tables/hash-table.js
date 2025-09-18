@@ -77,6 +77,34 @@ class HashTable {
     }
     return false;
   }
+
+  /**
+   * Removes the entry for the given key if found.
+   * @param {string} key
+   * @returns {boolean} True if removed, false if not found.
+   */
+  remove(key) {
+    // TODO: Use splice to remove an element from the bucket array.
+    throw new Error('Not implemented');
+  }
+
+  /**
+   * Returns an array of all keys in the table.
+   * @returns {string[]}
+   */
+  keys() {
+    // TODO: Collect all the key elements from every bucket.
+    throw new Error('Not implemented');
+  }
+
+  /**
+   * Returns an array of all values in the table.
+   * @returns {any[]}
+   */
+  values() {
+    // TODO: Collect all the values from every bucket.
+    throw new Error('Not implemented');
+  }
 }
 
 export { HashTable };
