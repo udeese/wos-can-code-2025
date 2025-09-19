@@ -129,14 +129,6 @@ class HashTable {
    */
   entries() {
     // TODO: Collect each key-value pair into an array of array.
-
-    const result = [];
-    for (const bucket of this.buckets) {
-      for (const entry of bucket) {
-        result.push([entry[0], entry[1]]);
-      }
-    }
-    return result;
   }
 }
 
