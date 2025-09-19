@@ -10,10 +10,23 @@ import { HashTable } from '../hash-table.js';
 function containsDuplicate(nums) {
   // TODO: Implement Contains Duplicate using HashTable
   // 1. Create a new HashTable sized relative to the nums length.
+  let table = new HashTable(nums.length);
+
+
   // 2. Loop through nums:
   //    a. For each number n, convert it to a string key.
-  //    b. If the key already exists in the table, return true.
-  //    c. Otherwise, add the key to the table.
+  for (const number of nums) {
+    //    b. If the key already exists in the table, return true.
+    if (table.has(number.toString())) {
+      return true;
+    }
+    //    c. Otherwise, add the key to the table.
+    else{
+      table.set(number.toString(), 10);
+    }
+  }
+
+  return false;
   // 3. If loop ends with no duplicates found, return false.
 }
 

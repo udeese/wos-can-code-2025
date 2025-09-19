@@ -16,12 +16,24 @@ import { HashTable } from '../hash-table.js';
 function twoSum(nums, target) {
   // TODO: Implement Two Sum using HashTable
   // 1. Create a new HashTable sized relative to the nums length.
+  let table = new HashTable(nums.length);
   // 2. Loop through nums with index i:
-  //    a. For each number n, compute its complement (target - n).
-  //    b. Check if the complement already exists in the table:
-  //       - If yes, return [indexOfComplement, i].
-  //    c. Otherwise, store n in the table with its index.
+  for(let i = 0; i < nums.length; i++){
+    //    a. For each number n, compute its complement (target - n).
+    let complement = target - nums[i];
+    //    b. Check if the complement already exists in the table:
+    //       - If yes, return [indexOfComplement, i].
+    if(table.has(complement.toString())) return [table.get(complement.toString()), i];
+    //    c. Otherwise, store n in the table with its index.
+    else{
+      // console.log(nums[i].toString());
+      
+      table.set(nums[i].toString(), i)
+    }
+
+  }
   // 3. If no pair found by the end, return null.
+    return null;
 }
 
 export { twoSum };
