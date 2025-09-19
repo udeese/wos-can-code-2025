@@ -2,6 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { charFrequency } from '../algorithms/char-frequency.js';
 import { firstNonRepeatingChar } from '../algorithms/first-non-repeating.js';
 import { dedupeArray } from '../algorithms/dedupe-array.js';
+import { twoSum } from '../algorithms/two-sum.js';
+import { containsDuplicate } from '../algorithms/contains-duplicate.js';
 
 describe('charFrequency (Day 2 algo using HashTable)', () => {
   it('counts letters case-insensitively and ignores whitespace by default', () => {
@@ -69,5 +71,36 @@ describe('dedupeArray (Day 3 algo using HashTable)', () => {
   it('handles punctuation and mixed primitives', () => {
     const input = ['a', 'a', '!', '!', 'b', true, false, true, 0, '0'];
     expect(dedupeArray(input)).toEqual(['a', '!', 'b', true, false, 0, '0']);
+  });
+});
+
+describe('containsDuplicate (Day 4 algo using HashTable)', () => {
+  it('returns false for empty or all-unique arrays', () => {
+    expect(containsDuplicate([])).toBe(false);
+    expect(containsDuplicate([1, 2, 3])).toBe(false);
+  });
+
+  it('returns true when any duplicate exists', () => {
+    expect(containsDuplicate([1, 2, 3, 1])).toBe(true);
+    expect(containsDuplicate([100, -1, 0, 100])).toBe(true);
+  });
+});
+
+describe('twoSum (Day 4 algo using HashTable)', () => {
+  it('finds a basic pair that sums to target', () => {
+    expect(twoSum([2, 7, 11, 15], 9)).toEqual([0, 1]);
+  });
+
+  it('handles duplicate numbers correctly', () => {
+    expect(twoSum([3, 3], 6)).toEqual([0, 1]);
+  });
+
+  it('works with negative numbers', () => {
+    // -3 + -5 = -8 at indices 2 and 4
+    expect(twoSum([-1, -2, -3, -4, -5], -8)).toEqual([2, 4]);
+  });
+
+  it('returns null when no pair exists', () => {
+    expect(twoSum([1, 2, 3], 100)).toBeNull();
   });
 });

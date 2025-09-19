@@ -222,3 +222,62 @@ describe('HashTable — Day 3 (remove, keys, values)', () => {
     });
   });
 });
+
+describe('HashTable — Day 4 (entries)', () => {
+  it('returns an empty array when table is empty', () => {
+    const ht = new HashTable();
+    expect(ht.entries()).toEqual([]);
+  });
+
+  it('returns all [key, value] pairs (order not guaranteed across buckets)', () => {
+    const ht = new HashTable(4);
+    ht.set('alpha', 1);
+    ht.set('beta', 2);
+    ht.set('gamma', 3);
+    ht.set('delta', 4);
+
+    const got = ht
+      .entries()
+      .slice()
+      .sort((a, b) => (a[0] > b[0] ? 1 : a[0] < b[0] ? -1 : 0));
+
+    const expected = [
+      ['alpha', 1],
+      ['beta', 2],
+      ['delta', 4],
+      ['gamma', 3],
+    ].sort((a, b) => (a[0] > b[0] ? 1 : a[0] < b[0] ? -1 : 0));
+
+    expect(got).toEqual(expected);
+  });
+
+  it('reflects updates (no duplicate key pairs after set on existing key)', () => {
+    const ht = new HashTable(2);
+    ht.set('k', 1);
+    ht.set('k', 99); // update same key
+
+    const entries = ht.entries();
+    expect(entries.length).toBe(1);
+    expect(entries[0][0]).toBe('k');
+    expect(entries[0][1]).toBe(99);
+  });
+
+  it('works correctly under collisions (single bucket)', () => {
+    const ht = new HashTable(1);
+    ht.set('x', 10);
+    ht.set('y', 20);
+    ht.set('z', 30);
+
+    const got = ht
+      .entries()
+      .slice()
+      .sort((a, b) => (a[0] > b[0] ? 1 : a[0] < b[0] ? -1 : 0));
+    const expected = [
+      ['x', 10],
+      ['y', 20],
+      ['z', 30],
+    ].sort((a, b) => (a[0] > b[0] ? 1 : a[0] < b[0] ? -1 : 0));
+
+    expect(got).toEqual(expected);
+  });
+});
