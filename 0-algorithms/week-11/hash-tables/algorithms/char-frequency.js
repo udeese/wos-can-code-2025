@@ -13,7 +13,7 @@ function charFrequency(
   str,
   { ignoreWhitespace = true, caseInsensitive = true } = {}
 ) {
-  const table = new HashTable(32);
+  const table = new HashTable(Math.max(16, str.length * 2));
 
   for (let ch of str) {
     if (caseInsensitive) ch = ch.toLowerCase();

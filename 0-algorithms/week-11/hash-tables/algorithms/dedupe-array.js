@@ -13,25 +13,18 @@ import { HashTable } from '../hash-table';
  * @complexity O(n) average time, O(n) space
  */
 function dedupeArray(arr) {
-  // TODO: Implement dedupeArray using HashTable
-  // 1. Create a new HashTable sized relative to the array length.
-  // 2. Initialize an output array.
-  // 3. Loop through each item in the input array:
-  //    a. Build a key string that combines the item's type and value (to avoid collisions like 1 vs '1').
-  //    b. If the key is not already in the table, set it in the table and push the item to the output array.
-  // 4. Return the output array.
-  const table = new HashTable(Math.floor(arr.length / 2) || 1);
-  const result = [];
+  const n = Array.isArray(arr) ? arr.length : 0;
+  const table = new HashTable(Math.max(16, n * 2));
+  const out = [];
 
-  for (let item of arr) {
-    const key = typeof item + ':' + item;
+  for (const item of arr) {
+    const key = `${typeof item}:${String(item)}`;
     if (!table.has(key)) {
       table.set(key, true);
-      result.push(item);
+      out.push(item);
     }
   }
-
-  return result;
+  return out;
 }
 
 export { dedupeArray };

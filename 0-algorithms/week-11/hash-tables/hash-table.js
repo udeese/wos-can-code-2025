@@ -84,7 +84,6 @@ class HashTable {
    * @returns {boolean} True if removed, false if not found.
    */
   remove(key) {
-    // TODO: Use splice to remove an element from the bucket array.
     const index = this.#hash(key);
     const bucket = this.buckets[index];
     for (let i = 0; i < bucket.length; i++) {
@@ -101,14 +100,13 @@ class HashTable {
    * @returns {string[]}
    */
   keys() {
-    // TODO: Collect all the key elements from every bucket.
-    const keys = [];
+    const result = [];
     for (const bucket of this.buckets) {
-      for (const [key, _] of bucket) {
-        keys.push(key);
+      for (const [key] of bucket) {
+        result.push(key);
       }
     }
-    return keys;
+    return result;
   }
 
   /**
@@ -116,14 +114,21 @@ class HashTable {
    * @returns {any[]}
    */
   values() {
-    // TODO: Collect all the values from every bucket.
-    const values = [];
+    const result = [];
     for (const bucket of this.buckets) {
-      for (const [_, value] of bucket) {
-        values.push(value);
+      for (const [, value] of bucket) {
+        result.push(value);
       }
     }
-    return values;
+    return result;
+  }
+
+  /**
+   * Returns an array of [key, value] pairs.
+   * @returns {Array<[string, any]>}
+   */
+  entries() {
+    // TODO: Collect each key-value pair into an array of array.
   }
 }
 
