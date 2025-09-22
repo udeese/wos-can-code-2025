@@ -1,4 +1,4 @@
-import { HashTable } from '../hash-table.js';
+import { HashTable } from "../hash-table.js";
 
 /**
  * Two Sum — find indices of the two numbers such that they add up to target.
@@ -14,26 +14,20 @@ import { HashTable } from '../hash-table.js';
  * @returns {[number, number] | null}
  */
 function twoSum(nums, target) {
-  // TODO: Implement Two Sum using HashTable
-  // 1. Create a new HashTable sized relative to the nums length.
-  let table = new HashTable(nums.length);
-  // 2. Loop through nums with index i:
-  for(let i = 0; i < nums.length; i++){
-    //    a. For each number n, compute its complement (target - n).
-    let complement = target - nums[i];
-    //    b. Check if the complement already exists in the table:
-    //       - If yes, return [indexOfComplement, i].
-    if(table.has(complement.toString())) return [table.get(complement.toString()), i];
-    //    c. Otherwise, store n in the table with its index.
-    else{
-      // console.log(nums[i].toString());
-      
-      table.set(nums[i].toString(), i)
-    }
+  const table = new HashTable(Math.max(16, nums.length * 2));
 
+  for (let i = 0; i < nums.length; i++) {
+    const n = nums[i];
+    const complement = target - n;
+    const compKey = String(complement);
+    if (table.has(compKey)) {
+      const j = table.get(compKey);
+      return [j, i];
+    }
+    // store current index by value key
+    table.set(String(n), i);
   }
-  // 3. If no pair found by the end, return null.
-    return null;
+  return null;
 }
 
 export { twoSum };
