@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Avatars")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a68097bf6f937c7948be888ceb5f87687a8c75e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8c874f59861ab7e2cb7c24c7cc61dc3f3c20bb3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Avatars")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Avatars")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
