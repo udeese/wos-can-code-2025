@@ -33,15 +33,16 @@ class MinHeap {
    * @returns {number|undefined} The smallest element, or undefined if the heap is empty.
    */
   extractMin() {
-    // TODO: Implement extractMin to remove and return the minimum element
-    // 1. If the heap is empty (length <= 1), return undefined
-    // 2. If there is only one real element (length === 2), pop and return it
-    // 3. Otherwise:
-    //    a. Store the root element (index 1) as the minimum
-    //    b. Move the last element in the array to the root position
-    //    c. Remove the last element from the array
-    //    d. Call bubbleDown(1) to restore the heap property
-    //    e. Return the stored minimum value
+    if (this.data.length <= 1) return undefined; // empty
+    if (this.data.length === 2) {
+      // only one real element at index 1
+      return this.data.pop();
+    }
+    const min = this.data[1];
+    // Move last element to root and bubble down
+    this.data[1] = this.data.pop();
+    this.#bubbleDown(1);
+    return min;
   }
 
   /**
@@ -51,13 +52,13 @@ class MinHeap {
    * @returns {void}
    */
   heapify(array) {
-    // TODO: Implement heapify using the bottom-up approach
-    // 1. Initialize internal array with 1-based indexing:
-    //    - Start with [null] followed by all items from the input array
-    // 2. Determine n = number of real elements
-    // 3. Loop from the last parent node (floor(n / 2)) down to 1:
-    //    a. For each index i, call bubbleDown(i) to restore heap property
-    // 4. After the loop, the entire array should satisfy the min-heap property
+    // Initialize internal array with 1-based indexing
+    this.data = [null, ...array];
+    const n = this.data.length - 1;
+    // Start from the last parent and bubble down
+    for (let i = Math.floor(n / 2); i >= 1; i--) {
+      this.#bubbleDown(i);
+    }
   }
 
   /**
@@ -95,17 +96,24 @@ class MinHeap {
    * @private
    */
   #bubbleDown(index) {
-    // TODO: Implement bubbleDown to restore the min-heap property
-    // 1. Determine n = number of real elements (this.data.length - 1)
-    // 2. While true:
-    //    a. Compute left child = index * 2
-    //    b. Compute right child = left + 1
-    //    c. Assume smallest = index
-    //    d. If left is within bounds and value at left < value at smallest, update smallest = left
-    //    e. If right is within bounds and value at right < value at smallest, update smallest = right
-    //    f. If smallest did not change, break (heap property satisfied)
-    //    g. Otherwise, swap value at index with value at smallest
-    //    h. Update index = smallest and repeat
+    const n = this.data.length - 1; // number of real elements
+    while (true) {
+      const left = index * 2;
+      const right = left + 1;
+      let smallest = index;
+
+      if (left <= n && this.data[left] < this.data[smallest]) smallest = left;
+      if (right <= n && this.data[right] < this.data[smallest])
+        smallest = right;
+
+      if (smallest === index) break;
+
+      [this.data[index], this.data[smallest]] = [
+        this.data[smallest],
+        this.data[index],
+      ];
+      index = smallest;
+    }
   }
 }
 
