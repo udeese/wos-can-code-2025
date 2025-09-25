@@ -42,6 +42,16 @@ class MinHeap {
     //    c. Remove the last element from the array
     //    d. Call bubbleDown(1) to restore the heap property
     //    e. Return the stored minimum value
+    // 1) empty
+    if (this.data.length <= 1) return undefined;
+    // 2) only one real element
+    if (this.data.length === 2) return this.data.pop();
+
+    // 3) general case
+    const min = this.data[1];
+    this.data[1] = this.data.pop(); // move last to root
+    this.#bubbleDown(1); // restore heap
+    return min;
   }
 
   /**
@@ -58,6 +68,14 @@ class MinHeap {
     // 3. Loop from the last parent node (floor(n / 2)) down to 1:
     //    a. For each index i, call bubbleDown(i) to restore heap property
     // 4. After the loop, the entire array should satisfy the min-heap property
+    // 1) re-init internal storage with 1-based indexing
+    this.data = [null, ...array];
+    // 2) number of real elements
+    const n = this.data.length - 1;
+    // 3) bubbleDown from last parent down to root
+    for (let i = Math.floor(n / 2); i >= 1; i--) {
+      this.#bubbleDown(i);
+    }
   }
 
   /**
@@ -106,6 +124,24 @@ class MinHeap {
     //    f. If smallest did not change, break (heap property satisfied)
     //    g. Otherwise, swap value at index with value at smallest
     //    h. Update index = smallest and repeat
+    const n = this.data.length - 1; // real elements
+    while (true) {
+      const left = index * 2;
+      const right = left + 1;
+      let smallest = index;
+
+      if (left <= n && this.data[left] < this.data[smallest]) {
+        smallest = left;
+      }
+      if (right <= n && this.data[right] < this.data[smallest]) {
+        smallest = right;
+      }
+      if (smallest === index) break;
+
+      [this.data[index], this.data[smallest]] =
+        [this.data[smallest], this.data[index]];
+      index = smallest;
+    }
   }
 }
 
