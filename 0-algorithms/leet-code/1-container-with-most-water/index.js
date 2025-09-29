@@ -4,14 +4,23 @@
  * @returns {number}
  */
 function maxArea(heights) {
-  // TODO: Implement two-pointer approach
-  // 1) Initialize left = 0, right = heights.length - 1, best = 0
-  // 2) While left < right:
-  //    a) width = right - left
-  //    b) h = Math.min(heights[left], heights[right])
-  //    c) best = Math.max(best, h * width)
-  //    d) If heights[left] < heights[right], left++ else right--
-  // 3) Return best
+  let left = 0;
+  let right = heights.length - 1;
+  let best = 0;
+
+  while (left < right) {
+    const width = right - left;
+    const h = Math.min(heights[left], heights[right]);
+    best = Math.max(best, h * width);
+
+    if (heights[left] < heights[right]) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return best;
 }
 
 export { maxArea };
