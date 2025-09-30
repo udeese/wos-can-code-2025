@@ -57,13 +57,13 @@ print(strat)
 
 key = "hello"
 
-# if key not in strat:
-#     print(f"{key} key not in strat")
+if key not in strat:
+    print(f"{key} key not in strat")
 
 # We can use the 'in' and 'not in' keywords to check if a key
 # name exists in a dictionary.
 
 # Removing values with pop() and del
 
-# strat.pop("model")
-# print(strat)
+strat.pop("model")
+print(strat)

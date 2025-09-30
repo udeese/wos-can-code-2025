@@ -20,27 +20,33 @@ The average is: 30.0
 
 
 def calculate_average():
-    pass
+    numbers = input("Enter the numbers separated by spaces: ")
+    nums_list = numbers.split(" ")
+    total = 0
+    for num in nums_list:
+        total += int(num)
+    average = total/len(nums_list)
+    print(f"The average is: {average}")
 
 
-# calculate_average()
+calculate_average()
 
-# Default parameters and keyword arguments
+# Default parameters and keyword/named arguments
 def greet(name="Guest"):
     print("Hello, " + name + "!")
 
 
 # greet()
 
-
-def greet(greeting, name):
+# Python type hints
+def greet(greeting: str, name: str) -> None:
     print(greeting + ", " + name + "!")
 
 
 # greet()
 
 """
-=== === DEFAULT PARAMETERS AND KEYWORD ARGUMENTS EXERCISE === ===
+=== === DEFAULT PARAMETERS AND KEYWORD/NAMED ARGUMENTS EXERCISE === ===
 
 Write a Python function called `print_recipe` that prints out a recipe with ingredients. The function should take three parameters: `recipe_name`, `ingredients`, and `instructions`. The `ingredients` parameter should have a default value of an empty list. When calling the function, the `recipe_name` and `instructions` parameters must be provided, but the `ingredients` parameter is optional.
 
