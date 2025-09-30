@@ -14,6 +14,11 @@ superheroes = [
     "Dr. Manhattan",
 ]
 
+for i in range(len(superheroes)):
+    print(superheroes[i])
+
+for superhero in superheroes:
+    print(superhero)
 
 # for-in loops
 
@@ -79,6 +84,16 @@ Guess the number (between 1 and 100): 45
 Congratulations! You guessed the number correctly.
 """
 
+target = random.randint(1, 100)
 
+user_input = int(input("Guess the number (between 1 and 100): "))
+
+while (user_input != target):
+    if user_input < target:
+        print("Too low, try again.")
+    elif user_input > target:
+        print("Too high, try again.")
+    user_input = int(input("Guess the number (between 1 and 100): "))
 
 print("Congratulations! You guessed the number correctly.")
+
