@@ -12,6 +12,15 @@ function groupAnagrams(strs) {
   //    b. Insert the word into the Map under that key
   // 3. Collect all the values from the Map
   // 4. Return them as an array of arrays
+  const map = new Map();
+  for (let word of strs){
+    let key = word.split('').sort().join('');
+    if (!map.has(key)) {
+      map.set(key, []);
+    }
+    map.get(key).push(word);
+  }
+  return Array.from(map.values());
 }
 
 export { groupAnagrams };
