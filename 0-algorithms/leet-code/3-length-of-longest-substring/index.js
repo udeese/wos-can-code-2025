@@ -17,7 +17,20 @@
 function lengthOfLongestSubstring(s) {
   // TODO: Implement sliding window with a hash map of last seen indices
   // 1) Initialize best = 0, left = 0, and an empty Map for last seen positions
+  let best = 0;
+  let left = 0;
+  const lastSeen = new Map();
+
   // 2) Loop right from 0..s.length-1:
+  for (let right = 0; right < s.length; right++) {
+    let ch = s[right]
+    if (lastSeen.has(ch) && lastSeen.get(ch) >= left) {
+      left = lastSeen.get(ch) + 1;
+    }
+    lastSeen.set(ch, right);
+    best = Math.max(best, right - left + 1);
+  }
+  return best;
   //    a) ch = s[right]
   //    b) If ch was seen at index >= left, move left to that index + 1
   //    c) Update last seen position of ch to right
