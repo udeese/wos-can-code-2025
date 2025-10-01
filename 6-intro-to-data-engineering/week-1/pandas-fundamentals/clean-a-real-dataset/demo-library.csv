@@ -1,0 +1,23 @@
+RecordID,  Member_Email , Book_Title , Fee ($), Branch , Status , Waived_Fee , Checkout_Date
+1, alice@email.com ,   Moby Dick , 0.0 , North , RETURNED, , 2024-01-02
+2, bob@email.com ,   Hamlet, 2.5 , South , OVERDUE, 0.0 , 2024-01-03
+3, charlie@email.com ,   Odyssey , 0.0 , East , RETURNED, 0.0 , 2024-01-04
+4, alice@email.com ,   Moby Dick , 0.0 , North , RETURNED, 0.0 , 2024-01-02
+5, dana@email.com ,   Macbeth ,  , West , OVERDUE, , 2024-01-05
+6, bob@email.com ,   Hamlet , 2.5 , South , OVERDUE, 0.0 , 2024-01-03
+7, emily@email.com ,   Hamlet , NULL , East , RETURNED, NA , 2024-01-06
+8, frank@email.com ,   Odyssey , 1.0 , North , RETURNED,  , 2024-01-07
+9, grace@email.com ,   Macbeth , 0.0 , West , RETURNED, null , 2024-01-08
+10, hank@email.com ,   Moby Dick , N/A , South , OVERDUE, 0.0 , 2024-01-09
+11, iris@email.com ,   Odyssey , 2.0 , East , RETURNED, , 2024-01-10
+12, jack@email.com ,   Hamlet ,  , North , OVERDUE, 0.0 , 2024-01-11
+13, kate@email.com ,   Macbeth , 0.0 , West , RETURNED, "", 2024-01-12
+14, lisa@email.com ,   Moby Dick , 3.5 , South , OVERDUE, 0.0 , 2024-01-13
+15, mike@email.com ,   Odyssey , 0.0 , East , RETURNED,  , 2024-01-14
+16, nina@email.com ,   Hamlet , 2.5 , North , OVERDUE, NA , 2024-01-15
+17, oscar@email.com ,   Macbeth ,  , West , RETURNED, null , 2024-01-16
+18, paul@email.com ,   Moby Dick , 0.0 , South , RETURNED, 0.0 , 2024-01-17
+19, quinn@email.com ,   Odyssey , 1.5 , East , OVERDUE,  , 2024-01-18
+20, rachel@email.com ,   Hamlet ,  , North , RETURNED, N/A , 2024-01-19
+4, alice@email.com ,   Moby Dick , 0.0 , North , RETURNED, 0.0 , 2024-01-02
+10, hank@email.com ,   Moby Dick , N/A , South , OVERDUE, 0.0 , 2024-01-09
