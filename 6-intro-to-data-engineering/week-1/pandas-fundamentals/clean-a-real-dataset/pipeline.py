@@ -1,16 +1,26 @@
 import pandas as pd
 from pandas import DataFrame
 
-from utilities import dedupe, drop_rows, normalize_data, rename_columns
+from utilities import (
+    coerce_types,
+    dedupe,
+    drop_rows,
+    fill_values,
+    normalize_data,
+    rename_columns,
+)
 
 # Constants
 LIBRARY_CSV_FILEPATH = "./data/demo-library.csv"
-NA_VALUES = [" ", "", "N/A", "NA", "NULL", "null"]
+OUTPUT_FILEPATH = "./data/report.csv"
+NA_VALUES = [" ", "", "N/A", "NA", "n/a", "NULL", "null"]
 
 
 def extract(filepath: str) -> DataFrame | None:
     try:
-        df = pd.read_csv(filepath, na_values=NA_VALUES)
+        df = pd.read_csv(
+            filepath, na_values=NA_VALUES, skipinitialspace=True, on_bad_lines="error"
+        )
         return df
     except FileNotFoundError as e:
         print(f"Error: file not found: {e.filename}")
@@ -22,16 +32,23 @@ def transform(df: DataFrame) -> DataFrame:
     df = rename_columns(df)
     df = normalize_data(df)
     df = dedupe(df)
-
-    print(df.head(n=30))
     df = drop_rows(df)
-    print(df.head(n=20))
+    df = fill_values(df)
+    df = coerce_types(df)
+    print(df.head(n=30))
 
     return df
 
 
-def load():
-    pass
+def load(df: DataFrame) -> None:
+    mask = (
+        (df["status"] == "returned")
+        & (df["branch"] == "east")
+        & (pd.to_numeric(df["fee_usd"]) > 0)
+    )
+
+    filtered_df = df[mask]
+    filtered_df.to_csv(OUTPUT_FILEPATH, index=False, encoding="utf-8")
 
 
 def main():
@@ -42,6 +59,7 @@ def main():
 
     df = transform(df)
     df.info()
+    load(df)
 
 
 if __name__ == "__main__":
