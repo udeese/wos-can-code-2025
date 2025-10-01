@@ -15,14 +15,21 @@
  * @see https://leetcode.com/problems/longest-substring-without-repeating-characters/
  */
 function lengthOfLongestSubstring(s) {
-  // TODO: Implement sliding window with a hash map of last seen indices
-  // 1) Initialize best = 0, left = 0, and an empty Map for last seen positions
-  // 2) Loop right from 0..s.length-1:
-  //    a) ch = s[right]
-  //    b) If ch was seen at index >= left, move left to that index + 1
-  //    c) Update last seen position of ch to right
-  //    d) Update best with current window size (right - left + 1)
-  // 3) Return best
+  let best = 0;
+  let left = 0;
+  const seen = new Map();
+
+  for (let right = 0; right < s.length; right++) {
+    const ch = s[right];
+    if (seen.has(ch) && seen.get(ch) >= left) {
+      left = seen.get(ch) + 1;
+    }
+    seen.set(ch, right);
+    const windowLen = right - left + 1;
+    if (windowLen > best) best = windowLen;
+  }
+
+  return best;
 }
 
 export { lengthOfLongestSubstring };
