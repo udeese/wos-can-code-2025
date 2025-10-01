@@ -36,21 +36,6 @@ function lengthOfLongestSubstring(s) {
   //    c) Update last seen position of ch to right
   //    d) Update best with current window size (right - left + 1)
   // 3) Return best
-  let best = 0;
-  let left = 0;
-  const seen = new Map();
-
-  for (let right = 0; right < s.length; right++) {
-    const ch = s[right];
-    if (seen.has(ch) && seen.get(ch) >= left) {
-      left = seen.get(ch) + 1;
-    }
-    seen.set(ch, right);
-    const windowLen = right - left + 1;
-    if (windowLen > best) best = windowLen;
-  }
-
-  return best;
 }
 
 export { lengthOfLongestSubstring };
