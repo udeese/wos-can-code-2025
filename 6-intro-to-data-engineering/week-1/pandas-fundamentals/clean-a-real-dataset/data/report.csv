@@ -1,0 +1,2 @@
+record_id,member_email,book_title,fee_usd,branch,status,waived_fee,checkout_date
+11,iris@email.com,odyssey,2.0,east,returned,0.0,2024-01-10
