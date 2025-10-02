@@ -8,6 +8,12 @@ from requests.exceptions import HTTPError
 from utilities import camel_to_snake
 import sqlite3
 
+from dotenv import load_dotenv
+from os import environ
+
+load_dotenv()
+print(environ.get("TEST"))
+
 # Constants
 PRODUCTS_ENDPOINT = "https://dummyjson.com/products"
 DB_PATH = "products.db"
