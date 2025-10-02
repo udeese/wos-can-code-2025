@@ -1,6 +1,6 @@
 # Search in Rotated Sorted Array (Binary Search)
 
-## 🧩 Problem
+## Problem
 
 You are given a strictly increasing array `nums` (no duplicates) that has been **rotated** at an unknown pivot index. For example, `[0,1,2,4,5,6,7]` might become `[4,5,6,7,0,1,2]`.
 
@@ -15,7 +15,7 @@ Given a target value `target`, return its **index** in `nums` if it exists; othe
 
 ---
 
-## 🧠 Intuition
+## Intuition
 
 The array is sorted but **rotated** once. At any midpoint, **one half is still sorted**:
 
@@ -26,7 +26,7 @@ If the target lies within the sorted half’s range, we **keep** that half; othe
 
 ---
 
-## 🚀 Plan (Binary Search with Half-Check)
+## Plan (Binary Search with Half-Check)
 
 Maintain pointers `left` and `right`. At each step:
 
@@ -63,7 +63,7 @@ return -1
 
 ---
 
-## 🧪 Testing Notes
+## Testing Notes
 
 - No rotation: behaves like classic binary search.
 - Target in left sorted half vs. right sorted half.
