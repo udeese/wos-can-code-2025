@@ -1,17 +1,23 @@
+const ROMAN = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
+
 /**
  *
  * @param {string} s
  * @returns {number}
  */
 function romanToInt(s) {
-  // TODO: Implement one-pass parse with subtractive rule
-  // 1) Define a map of Roman symbols to values
-  // 2) Initialize total = 0
-  // 3) Loop i from 0..s.length-1:
-  //    a) curr = value of s[i]
-  //    b) next = value of s[i+1] (or 0 if none)
-  //    c) If curr < next, subtract curr from total; else add curr
-  // 4) Return total
+  let total = 0;
+  let prev = 0;
+
+  for (let i = s.length - 1; i >= 0; i--) {
+    const curr = ROMAN[s[i]];
+    if (curr < prev) total -= curr;
+    else {
+      total += curr;
+      prev = curr;
+    }
+  }
+  return total;
 }
 
 export { romanToInt };
