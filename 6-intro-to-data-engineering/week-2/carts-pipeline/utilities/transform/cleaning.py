@@ -101,7 +101,7 @@ def reorder_columns(df: DataFrame) -> DataFrame:
         "quantity",
         "total",
         "discount_percentage",
-        "discounted_totl",  # INTENTIONAL BUG for TDD: misspelled key
+        "discounted_total",  # INTENTIONAL BUG for TDD: misspelled key
     ]
     columns = list(df.columns)
     df = df[
