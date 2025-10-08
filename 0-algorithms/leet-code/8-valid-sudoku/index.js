@@ -9,17 +9,23 @@
  * @return {boolean}
  */
 function isValidSudoku(board) {
-  // TODO: Implement validity check using sets for rows, cols, and boxes
-  // 1) Initialize rows[9], cols[9], boxes[9] as arrays of Set
   const rows = Array.from({ length: 9 }, () => new Set());
   const cols = Array.from({ length: 9 }, () => new Set());
   const boxes = Array.from({ length: 9 }, () => new Set());
-  // 2) Loop r=0..8, c=0..8:
-  //    - ch = board[r][c]; if ch === '.', continue
-  //    - box = Math.floor(r/3) * 3 + Math.floor(c/3)
-  //    - If rows[r] has ch OR cols[c] has ch OR boxes[box] has ch → return false
-  //    - Else, add ch to rows[r], cols[c], boxes[box]
-  // 3) Return true if no conflicts found
+  for (let r = 0; r < rows.length; r++) {
+    for (let c = 0; c < cols.length; c++) {
+      const ch = board[r][c];
+      const box = Math.floor(r / 3) * 3 + Math.floor(c / 3);
+      if (ch === '.') continue;
+      if (rows[r].has(ch) || cols[c].has(ch) || boxes[box].has(ch))
+        return false;
+      rows[r].add(ch);
+      cols[c].add(ch);
+      boxes[box].add(ch);
+    }
+  }
+
+  return true;
 }
 
 export { isValidSudoku };
